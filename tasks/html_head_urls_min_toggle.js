@@ -19,10 +19,12 @@ module.exports = function(grunt) {
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
 
 		    if (this.nameArgs === "html_head_urls_min_toggle:targets") {
-			    grunt.log.write("\n\n\"" + "PLAY WITH THE TARGETS" + "\"\n\n");
-			    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
-			    // targets min_targets regular_targets
-			    grunt.log.write("\n\n\"" + this.data.min_targets + "\"\n\n");
+			    if (this.data.min_targets.length > 0) {
+				    grunt.log.write("\n\n\"" + this.data.min_targets + "\"\n\n");
+			    }
+			    if (this.data.regular_targets.length > 0) {
+				    grunt.log.write("\n\n\"" + this.data.regular_targets + "\"\n\n");
+			    }
 		    } else {
 			    // Merge task-specific and/or target-specific options with these
 			    // defaults.
