@@ -20,12 +20,14 @@ module.exports = function(grunt) {
 
 		    if (this.nameArgs === "html_head_urls_min_toggle:targets") {
 			    if (this.data.min_targets.length > 0) {
-				    grunt.log.write("\n\n\"" + this.data.min_targets + "\"\n\n");
+				    grunt.log.write("\n\n\"" + this.data.min_targets.length
+				        + "\" Files listed to switch all links to minified sources...\n\n");
 			    } else {
 				    grunt.log.write("\n\n\"" + "NO MIN TARGETS SPECIFIED...!" + "\"\n\n");
 			    }
 			    if (this.data.regular_targets.length > 0) {
-				    grunt.log.write("\n\n\"" + this.data.regular_targets + "\"\n\n");
+				    grunt.log.write("\n\n\"" + this.data.min_targets.length
+				        + "\" Files listed to switch all links to regular sources...\n\n");
 			    } else {
 				    grunt.log.write("\n\n\"" + "NO REGULAR TARGETS SPECIFIED...!" + "\"\n\n");
 			    }
