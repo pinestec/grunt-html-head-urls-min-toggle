@@ -17,40 +17,44 @@ module.exports = function(grunt) {
 	    'Point the html-head href and src urls to minified sources and vice versa.', function() {
 		    // Check the entire "this" object or comment out...
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
-		    // Merge task-specific and/or target-specific options with these
-		    // defaults.
-		    var options = this.options({
-		      punctuation : '.',
-		      separator : ', '
-		    });
 
-		    // Iterate over all specified file groups.
-		    this.files.forEach(function(current_file) {
-			    grunt.log.write("\nDESTINATION: \"" + current_file.dest + "\"");
-			    grunt.log.write("\nSOURCE: \"" + current_file.src + "\"\n\n");
-			    // Concat specified files.
-			    var src = current_file.src.filter(function(filepath) {
-				    // Warn on and remove invalid source files (if nonull was set).
-				    if (!grunt.file.exists(filepath)) {
-					    grunt.log.warn('Source file "' + filepath + '" not found.');
-					    return false;
-				    } else {
-					    return true;
-				    }
-			    }).map(function(filepath) {
-				    // Read file source.
-				    return grunt.file.read(filepath);
-			    }).join(grunt.util.normalizelf(options.separator));
+		    if (this.nameArgs === "html_head_urls_min_toggle:targets") {
+			    grunt.log.write("\n\n\"" + "PLAY WITH THE TARGETS" + "\"\n\n");
+		    } else {
+			    // Merge task-specific and/or target-specific options with these
+			    // defaults.
+			    var options = this.options({
+			      punctuation : '.',
+			      separator : ', '
+			    });
+			    // Iterate over all specified file groups.
+			    this.files.forEach(function(current_file) {
+				    // grunt.log.write("\nDESTINATION: \"" + current_file.dest + "\"");
+				    // grunt.log.write("\nSOURCE: \"" + current_file.src + "\"\n\n");
+				    // Concat specified files.
+				    var src = current_file.src.filter(function(filepath) {
+					    // Warn on and remove invalid source files (if nonull was set).
+					    if (!grunt.file.exists(filepath)) {
+						    grunt.log.warn('Source file "' + filepath + '" not found.');
+						    return false;
+					    } else {
+						    return true;
+					    }
+				    }).map(function(filepath) {
+					    // Read file source.
+					    return grunt.file.read(filepath);
+				    }).join(grunt.util.normalizelf(options.separator));
 
-			    // Handle options.
-			    src += options.punctuation;
+				    // Handle options.
+				    src += options.punctuation;
 
-			    // Write the destination file.
-			    grunt.file.write(current_file.dest, src);
+				    // Write the destination file.
+				    grunt.file.write(current_file.dest, src);
 
-			    // Print a success message.
-			    grunt.log.writeln('File "' + current_file.dest + '" created.');
-		    });
+				    // Print a success message.
+				    grunt.log.writeln('File "' + current_file.dest + '" created.');
+			    });
+		    }
 	    });
 
 };
