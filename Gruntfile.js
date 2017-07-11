@@ -65,5 +65,6 @@ module.exports = function(grunt) {
 
 	// By default, lint and run all tests.
 	grunt.registerTask('default', [ 'jshint', 'test' ]);
+	grunt.registerTask('do_this', 'html_head_urls_min_toggle');
 
 };
