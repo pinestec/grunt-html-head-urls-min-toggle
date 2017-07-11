@@ -41,6 +41,10 @@ module.exports = function(grunt) {
 	      files : {
 		      'tmp/custom_options' : [ 'test/fixtures/testing', 'test/fixtures/123' ]
 	      }
+	    },
+	    targets : {
+	      min_targets : {},
+	      regular_targets : {},
 	    }
 	  },
 
