@@ -14,8 +14,8 @@ function message_locator_service(mainMessage) {
 	var path_Module = globalModule_Try('path');
 	var stackTrace_Module = globalModule_Try('stack-trace');
 	var currentFrame = stackTrace_Module.get()[1];
-	console.log(mainMessage + " >>> \"" + path_Module.basename(currentFrame.getFileName()) + ":"
-			+ currentFrame.getLineNumber() + "\"\n");
+	console.log(mainMessage + " >>> \"" + path_Module.basename(currentFrame.getFileName()) + ":" +
+	    currentFrame.getLineNumber() + "\"\n");
 }
 
 function spot_the_head(htmlLineArray) {
@@ -61,8 +61,8 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 	var initialLineResultArray = lineSpotter_RegExp.exec(array[0]);
 	if (initialLineResultArray !== null) {
 		if (initialLineResultArray[2]) {
-			fileSystem_Module.writeSync(currentFileHandle, initialLineResultArray[1] + initialLineResultArray[2]
-					+ carriageReturnString + "\n");
+			fileSystem_Module.writeSync(currentFileHandle, initialLineResultArray[1] + initialLineResultArray[2] +
+			    carriageReturnString + "\n");
 		}
 	} else {
 		message_locator_service("MISSED THE INITIAL LINE...!");
@@ -76,12 +76,12 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 				if (!nextToLast_ResultArray[2]) {
 					fileSystem_Module.writeSync(currentFileHandle, lineResultArray[1] + lineResultArray[2]);
 				} else {
-					fileSystem_Module.writeSync(currentFileHandle, lineResultArray[1] + lineResultArray[2]
-							+ carriageReturnString + "\n");
+					fileSystem_Module.writeSync(currentFileHandle, lineResultArray[1] + lineResultArray[2] + carriageReturnString +
+					    "\n");
 				}
 			} else {
-				fileSystem_Module.writeSync(currentFileHandle, lineResultArray[1] + lineResultArray[2]
-						+ carriageReturnString + "\n");
+				fileSystem_Module.writeSync(currentFileHandle, lineResultArray[1] + lineResultArray[2] + carriageReturnString +
+				    "\n");
 			}
 		} else {
 			message_locator_service("MISSED A LINE...!");
@@ -153,41 +153,45 @@ function writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
-	toggle_all_head_links : function(direction, file) {
-		var pointToMin = false;
-		if (direction === 'min') {
-			pointToMin = true;
-		}
-		var targetFile_LineArray = array_from_file_delete(file);
-		if (targetFile_LineArray) {
-			var windowsNeeded_carriageReturn = "";
-			if (carriage_return_needed) {
-				windowsNeeded_carriageReturn = "\r";
-			}
-			var headStart = spot_the_head(targetFile_LineArray)[0];
-			var headEnd = spot_the_head(targetFile_LineArray)[1];
-			// Actual array manipulation...
-			if (pointToMin) {
-				targetFile_LineArray = toMin(headStart, headEnd, windowsNeeded_carriageReturn, targetFile_LineArray);
-			} else {
-				targetFile_LineArray = toRegular(headStart, headEnd, windowsNeeded_carriageReturn, targetFile_LineArray);
-			}
-			writingArray_ToFile(file, targetFile_LineArray);
-			return true;
-		} else {
-			message_locator_service("FAILED TO GET VALID DATA ARRAY...!");
-			return false;
-		}
-	},
+  just_print_a_message : function() {
+	  console.log("JUST A TINY MESSAGE...!");
+  },
 
-	end_of_line_refresh : function(file) {
-		console.log("CURRENTLY REFRESHING FILE: \"" + file + "\"");
-		var targetFile_LineArray = array_from_file_delete(file);
-		if (targetFile_LineArray) {
-			return end_of_line_clean_save(file, targetFile_LineArray, carriage_return_needed());
-		} else {
-			message_locator_service("FAILED TO GET VALID DATA ARRAY...!");
-			return false;
-		}
-	}
+  toggle_all_head_links : function(direction, file) {
+	  var pointToMin = false;
+	  if (direction === 'min') {
+		  pointToMin = true;
+	  }
+	  var targetFile_LineArray = array_from_file_delete(file);
+	  if (targetFile_LineArray) {
+		  var windowsNeeded_carriageReturn = "";
+		  if (carriage_return_needed) {
+			  windowsNeeded_carriageReturn = "\r";
+		  }
+		  var headStart = spot_the_head(targetFile_LineArray)[0];
+		  var headEnd = spot_the_head(targetFile_LineArray)[1];
+		  // Actual array manipulation...
+		  if (pointToMin) {
+			  targetFile_LineArray = toMin(headStart, headEnd, windowsNeeded_carriageReturn, targetFile_LineArray);
+		  } else {
+			  targetFile_LineArray = toRegular(headStart, headEnd, windowsNeeded_carriageReturn, targetFile_LineArray);
+		  }
+		  writingArray_ToFile(file, targetFile_LineArray);
+		  return true;
+	  } else {
+		  message_locator_service("FAILED TO GET VALID DATA ARRAY...!");
+		  return false;
+	  }
+  },
+
+  end_of_line_refresh : function(file) {
+	  console.log("CURRENTLY REFRESHING FILE: \"" + file + "\"");
+	  var targetFile_LineArray = array_from_file_delete(file);
+	  if (targetFile_LineArray) {
+		  return end_of_line_clean_save(file, targetFile_LineArray, carriage_return_needed());
+	  } else {
+		  message_locator_service("FAILED TO GET VALID DATA ARRAY...!");
+		  return false;
+	  }
+  }
 };
