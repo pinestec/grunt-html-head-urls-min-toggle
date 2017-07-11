@@ -23,13 +23,13 @@ module.exports = function(grunt) {
 				    grunt.log.write("\n\n\"" + this.data.min_targets.length
 				        + "\" \"HTML Files\" listed to switch all their \"head links\" to \"minified sources\"...\n\n");
 			    } else {
-				    grunt.log.write("\n\n\"" + "NO MIN TARGETS SPECIFIED...!" + "\"\n\n");
+				    grunt.log.write("\nNO HTML Files\" listed to switch \"head links\" to \"minified sources\"...\n");
 			    }
 			    if (this.data.regular_targets.length > 0) {
 				    grunt.log.write("\n\n\"" + this.data.min_targets.length
 				        + "\" \"HTML Files\" listed to switch all their \"head links\" to \"regular sources\"...\n\n");
 			    } else {
-				    grunt.log.write("\n\n\"" + "NO REGULAR TARGETS SPECIFIED...!" + "\"\n\n");
+				    grunt.log.write("\nNO HTML Files\" listed to switch \"head links\" to \"regular sources\"...\n");
 			    }
 		    } else {
 			    // Merge task-specific and/or target-specific options with these
@@ -40,11 +40,14 @@ module.exports = function(grunt) {
 			    });
 			    // Iterate over all specified file groups.
 			    this.files.forEach(function(current_file) {
-				    // grunt.log.write("\nDESTINATION: \"" + current_file.dest + "\"");
-				    // grunt.log.write("\nSOURCE: \"" + current_file.src + "\"\n\n");
+				    // grunt.log.write("\nDESTINATION: \"" + current_file.dest +
+				    // "\"");
+				    // grunt.log.write("\nSOURCE: \"" + current_file.src +
+				    // "\"\n\n");
 				    // Concat specified files.
 				    var src = current_file.src.filter(function(filepath) {
-					    // Warn on and remove invalid source files (if nonull was set).
+					    // Warn on and remove invalid source files (if nonull was
+					    // set).
 					    if (!grunt.file.exists(filepath)) {
 						    grunt.log.warn('Source file "' + filepath + '" not found.');
 						    return false;
