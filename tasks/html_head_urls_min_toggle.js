@@ -15,6 +15,8 @@ module.exports = function(grunt) {
 
 	grunt.registerMultiTask('html_head_urls_min_toggle',
 	    'Point the html-head href and src urls to minified sources and vice versa.', function() {
+		    // Check the entire "this" object or comment out...
+		    grunt.log.write(JSON.stringify(this));
 		    // Merge task-specific and/or target-specific options with these
 		    // defaults.
 		    var options = this.options({
