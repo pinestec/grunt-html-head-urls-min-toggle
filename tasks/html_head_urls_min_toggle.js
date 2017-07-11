@@ -25,9 +25,9 @@ module.exports = function(grunt) {
 		    });
 
 		    // Iterate over all specified file groups.
-		    this.files.forEach(function(f) {
+		    this.files.forEach(function(current_file) {
 			    // Concat specified files.
-			    var src = f.src.filter(function(filepath) {
+			    var src = current_file.src.filter(function(filepath) {
 				    // Warn on and remove invalid source files (if nonull was set).
 				    if (!grunt.file.exists(filepath)) {
 					    grunt.log.warn('Source file "' + filepath + '" not found.');
@@ -44,10 +44,10 @@ module.exports = function(grunt) {
 			    src += options.punctuation;
 
 			    // Write the destination file.
-			    grunt.file.write(f.dest, src);
+			    grunt.file.write(current_file.dest, src);
 
 			    // Print a success message.
-			    grunt.log.writeln('File "' + f.dest + '" created.');
+			    grunt.log.writeln('File "' + current_file.dest + '" created.');
 		    });
 	    });
 
