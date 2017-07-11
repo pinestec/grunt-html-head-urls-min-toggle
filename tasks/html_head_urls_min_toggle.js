@@ -19,6 +19,9 @@ module.exports = function(grunt) {
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
 
 		    if (this.nameArgs === "html_head_urls_min_toggle:targets") {
+			    if ((this.data.min_targets.length > 0) || (this.data.regular_targets.length > 0)) {
+				    var global_functions = require('./html_head_urls_min_toggle__global_functions.js');
+			    }
 			    if (this.data.min_targets.length > 0) {
 				    grunt.log.write("\n\n\"" + this.data.min_targets.length +
 				        "\" \"HTML Files\" listed to switch all their \"head links\" to \"minified sources\"...\n\n");
