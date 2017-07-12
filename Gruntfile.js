@@ -1,4 +1,4 @@
-// './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html', './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html', './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html', './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html', './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html', './ssh_pearls.max.html', './tiny_test.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html'
+// './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html', './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html', './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html', './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html', './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html', './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html'
 
 /*
  * grunt-html-head-urls-min-toggle
@@ -54,8 +54,7 @@ module.exports = function(grunt) {
 		        './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html',
 		        './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
 		        './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
-		        './ssh_pearls.max.html', './tiny_test.max.html', './useful_apps_steppingstone.max.html',
-		        './windows_certificate_related.max.html' ]
+		        './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ]
 	    },
 	    targets_to_regular_files : {
 		    regular_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html',
@@ -63,8 +62,7 @@ module.exports = function(grunt) {
 		        './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html',
 		        './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
 		        './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
-		        './ssh_pearls.max.html', './tiny_test.max.html', './useful_apps_steppingstone.max.html',
-		        './windows_certificate_related.max.html' ]
+		        './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ]
 	    }
 	  },
 
