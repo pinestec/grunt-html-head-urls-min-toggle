@@ -45,9 +45,8 @@ module.exports = function(grunt) {
 	      }
 	    },
 	    targets : {
-	      min_targets : [ './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html', './index.max.html',
-	          './jquery_pearls.max.html', './linksys_quick_rebirth.max.html' ],
-	      regular_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html' ],
+	      min_targets : [ './index.max.html' ],
+	      regular_targets : [],
 	    }
 	  },
 

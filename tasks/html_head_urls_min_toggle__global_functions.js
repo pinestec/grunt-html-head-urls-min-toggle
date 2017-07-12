@@ -126,6 +126,7 @@ function array_from_file(entire_fileName) {
 
 // Switching html head area to minified targets...
 function toMin(headStart, headEnd, carriageReturn, contentArray) {
+	var changed = false;
 	var hasMin_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*\"?.+)(?:\\.min)+(\\.(?:js|css)\\s*\"?.*)", "i");
 	var carelessAboutMin_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*\"?.+)(\\.(?:js|css)\\s*\"?.*)", "i");
 	for (var i = (headStart + 1); i < headEnd; i++) {
@@ -133,26 +134,56 @@ function toMin(headStart, headEnd, carriageReturn, contentArray) {
 			var regExp_ResultArray = carelessAboutMin_RegExp.exec(contentArray[i]);
 			if (regExp_ResultArray !== null) {
 				contentArray[i] = regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + carriageReturn;
+				if (!changed) {
+					changed = true;
+				}
 			}
 		}
 	}
-	return contentArray;
+	if (changed) {
+		return contentArray;
+	} else {
+		return false;
+	}
 }
 
 // Switching html head area to regular targets...
 function toRegular(headStart, headEnd, carriageReturn, contentArray) {
+	var changed = false;
 	var minSuspect_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*\"?.+)\\.min(\\.(?:js|css)\\s*\"?.*)", "i");
 	for (var i = (headStart + 1); i < headEnd; i++) {
 		var regExp_ResultArray = minSuspect_RegExp.exec(contentArray[i]);
 		if (regExp_ResultArray !== null) {
 			contentArray[i] = regExp_ResultArray[1] + regExp_ResultArray[2] + carriageReturn;
+			if (!changed) {
+				changed = true;
+			}
 		}
 	}
-	return contentArray;
+	if (changed) {
+		return contentArray;
+	} else {
+		return false;
+	}
 }
 
 function writingArray_ToFile(fileName, array) {
 	var fileSystem_Module = globalModule_Try('fs');
+	var inHouseFileHandle = fileSystem_Module.openSync(fileName, 'w');
+	for (var i = 0; i < (array.length - 1); i++) {
+		fileSystem_Module.writeSync(inHouseFileHandle, array[i] + "\n");
+	}
+	if (array[array.length - 1]) {
+		fileSystem_Module.writeSync(inHouseFileHandle, array[array.length - 1]);
+	}
+	fileSystem_Module.closeSync(inHouseFileHandle);
+}
+
+function delete_writingArray_ToFile(fileName, array) {
+	var fileSystem_Module = globalModule_Try('fs');
+	if (fileSystem_Module.existsSync(fileName)) {
+		fileSystem_Module.unlinkSync(fileName);
+	}
 	var inHouseFileHandle = fileSystem_Module.openSync(fileName, 'w');
 	for (var i = 0; i < (array.length - 1); i++) {
 		fileSystem_Module.writeSync(inHouseFileHandle, array[i] + "\n");
@@ -169,7 +200,7 @@ module.exports = {
 	  if (direction === 'min') {
 		  pointToMin = true;
 	  }
-	  var targetFile_LineArray = array_from_file_delete(file);
+	  var targetFile_LineArray = array_from_file(file);
 	  if (targetFile_LineArray) {
 		  var windowsNeeded_carriageReturn = "";
 		  if (carriage_return_needed) {
@@ -177,14 +208,25 @@ module.exports = {
 		  }
 		  var headStart = spot_the_head(targetFile_LineArray)[0];
 		  var headEnd = spot_the_head(targetFile_LineArray)[1];
+
 		  // Actual array manipulation...
 		  if (pointToMin) {
 			  targetFile_LineArray = toMin(headStart, headEnd, windowsNeeded_carriageReturn, targetFile_LineArray);
+			  if (targetFile_LineArray) {
+				  delete_writingArray_ToFile(file, targetFile_LineArray);
+				  return true;
+			  } else {
+				  return true;
+			  }
 		  } else {
 			  targetFile_LineArray = toRegular(headStart, headEnd, windowsNeeded_carriageReturn, targetFile_LineArray);
+			  if (targetFile_LineArray) {
+				  delete_writingArray_ToFile(file, targetFile_LineArray);
+				  return true;
+			  } else {
+				  return true;
+			  }
 		  }
-		  writingArray_ToFile(file, targetFile_LineArray);
-		  return true;
 	  } else {
 		  message_locator_service("FAILED TO GET VALID DATA ARRAY...!");
 		  return false;
