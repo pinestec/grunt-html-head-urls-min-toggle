@@ -22,18 +22,27 @@ module.exports = function(grunt) {
 				    var global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 			    }
 			    if (this.data.min_targets.length > 0) {
-				    grunt.log.write("\n\n\"" + this.data.min_targets.length +
-				        "\" \"HTML Files\" listed to switch all their \"head links\" to \"minified sources\"...\n\n");
+				    if (this.data.min_targets.length === 1) {
+					    grunt.log.write("\nOne file specified to switch all it's \"head links\" to \"minified sources\"...:\n");
+				    } else {
+					    grunt.log.write("\n" + this.data.min_targets.length +
+					        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
+				    }
 				    for (var i = 0; i < this.data.min_targets.length; i++) {
-					    grunt.log.write("\"" + i + ": " + this.data.min_targets[i] + "\"\n");
+					    grunt.log.write("\t" + i + ": \"" + this.data.min_targets[i] + "\"\n");
 					    global_functions.toggle_all_head_links('min', this.data.min_targets[i]);
 				    }
 			    } else {
-				    grunt.log.write("\nNO HTML Files\" listed to switch \"head links\" to \"minified sources\"...\n");
+				    grunt.log.write("\nNO HTML Files\" listed to switch their \"head links\" to \"minified sources\"...:\n");
 			    }
+			    grunt.log.write("\n");
 			    if (this.data.regular_targets.length > 0) {
-				    grunt.log.write("\n\n\"" + this.data.min_targets.length +
-				        "\" \"HTML Files\" listed to switch all their \"head links\" to \"regular sources\"...\n\n");
+				    if (this.data.regular_targets.length === 1) {
+					    grunt.log.write("One file specified to switch all it's \"head links\" to \"regular sources\"...\n");
+				    } else {
+					    grunt.log.write(this.data.regular_targets.length +
+					        " Files specified to switch all their \"head links\" to \"regular sources\"...\n");
+				    }
 				    for (var i = 0; i < this.data.regular_targets.length; i++) {
 					    grunt.log.write("\"" + i + ": " + this.data.min_targets[i] + "\"\n");
 					    global_functions.toggle_all_head_links('regular', this.data.min_targets[i]);
