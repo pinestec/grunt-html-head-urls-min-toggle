@@ -45,8 +45,22 @@ module.exports = function(grunt) {
 	      }
 	    },
 	    targets : {
-	      min_targets : [ './index.max.html' ],
-	      regular_targets : [],
+	      min_targets : [ './bash_sed_perl.max.html', './current_commented_places.max.html',
+	          './git_files__get_prepare.max.html', './index.max.html', './linksys_quick_rebirth.max.html',
+	          './loginBasedPrivacyKeyManagement.max.html', './node_js_with_grunt.max.html',
+	          './regular_expression_snippets.max.html', './ssh_pearls.max.html', './windows_certificate_related.max.html' ],
+	      regular_targets : [ './ctos_np.max.html', './eclipse_related.max.html', './graphicsWorkCurrentMemory.max.html',
+	          './jquery_pearls.max.html', './linux.max.html', './mp4todvd.max.html', './quickcmds.max.html',
+	          './ssh_key_generation.max.html', './useful_apps_steppingstone.max.html' ],
+	    },
+	    before_TARGETS_behind : {
+	      min_targets : [ './bash_sed_perl.max.html', './current_commented_places.max.html',
+	          './git_files__get_prepare.max.html', './index.max.html', './linksys_quick_rebirth.max.html',
+	          './loginBasedPrivacyKeyManagement.max.html', './node_js_with_grunt.max.html',
+	          './regular_expression_snippets.max.html', './ssh_pearls.max.html', './windows_certificate_related.max.html' ],
+	      regular_targets : [ './ctos_np.max.html', './eclipse_related.max.html', './graphicsWorkCurrentMemory.max.html',
+	          './jquery_pearls.max.html', './linux.max.html', './mp4todvd.max.html', './quickcmds.max.html',
+	          './ssh_key_generation.max.html', './useful_apps_steppingstone.max.html' ],
 	    },
 	    targets_to_minified_files : {
 		    min_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html',
@@ -64,7 +78,8 @@ module.exports = function(grunt) {
 		        './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
 		        './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ]
 	    },
-	    targets_to_no_files : {}
+	    targets_to_no_files : {},
+	    no_files_targets : {}
 	  },
 
 	  // Unit tests.
@@ -88,10 +103,12 @@ module.exports = function(grunt) {
 
 	// By default, lint and run all tests.
 	grunt.registerTask('default', [ 'jshint', 'test' ]);
+
 	grunt.registerTask('dt', 'html_head_urls_min_toggle:targets');
 	grunt.registerTask('m', 'html_head_urls_min_toggle:targets_to_minified_files');
 	grunt.registerTask('r', 'html_head_urls_min_toggle:targets_to_regular_files');
 	grunt.registerTask('e', 'html_head_urls_min_toggle:targets_to_no_files');
-	//	
+	grunt.registerTask('n', 'html_head_urls_min_toggle:no_files_targets');
+	grunt.registerTask('x', 'html_head_urls_min_toggle:before_TARGETS_behind');
 
 };

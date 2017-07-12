@@ -14,10 +14,8 @@ module.exports = function(grunt) {
 	// creation: http://gruntjs.com/creating-tasks
 	grunt.registerMultiTask('html_head_urls_min_toggle',
 	    'Point the html-head href and src urls to minified sources and vice versa.', function() {
-		    // Check the entire "this" object or comment out...
+		    // Check the entire "this" object and comment out the next line...
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
-
-		    grunt.log.write("CURRENT NAME ARGS: \"" + this.nameArgs + "\"\n");
 		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:[\\w-]*targets?[\\w-]*$", "i");
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
 			    try {
