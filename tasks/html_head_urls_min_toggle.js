@@ -12,29 +12,30 @@ module.exports = function(grunt) {
 
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
-
 	grunt.registerMultiTask('html_head_urls_min_toggle',
 	    'Point the html-head href and src urls to minified sources and vice versa.', function() {
 		    // Check the entire "this" object or comment out...
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
-		    grunt.log.write("\n\nNAME ARGS: \"" + this.nameArgs + "\"\n\n");
-
-		    if (this.nameArgs === "html_head_urls_min_toggle:targets") {
-			    // if ((this.data.min_targets.length > 0) ||
-			    // (this.data.regular_targets.length > 0)) {
-			    // }
-			    var global_functions = require('./html_head_urls_min_toggle__global_functions.js');
-			    global_functions.just_print_a_message();
-
+		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:targets?$", "i");
+		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
+			    if (this.data.min_targets.length > 0 || this.data.regular_targets.length > 0) {
+				    var global_functions = require('./html_head_urls_min_toggle__global_functions.js');
+			    }
 			    if (this.data.min_targets.length > 0) {
 				    grunt.log.write("\n\n\"" + this.data.min_targets.length +
 				        "\" \"HTML Files\" listed to switch all their \"head links\" to \"minified sources\"...\n\n");
+				    for (var i = 0; i < this.data.min_targets.length; i++) {
+					    grunt.log.write("\"" + i + ": " + this.data.min_targets[i] + "\"\n");
+				    }
 			    } else {
 				    grunt.log.write("\nNO HTML Files\" listed to switch \"head links\" to \"minified sources\"...\n");
 			    }
 			    if (this.data.regular_targets.length > 0) {
 				    grunt.log.write("\n\n\"" + this.data.min_targets.length +
 				        "\" \"HTML Files\" listed to switch all their \"head links\" to \"regular sources\"...\n\n");
+				    for (var i = 0; i < this.data.regular_targets.length; i++) {
+					    grunt.log.write("\"" + i + ": " + this.data.min_targets[i] + "\"\n");
+				    }
 			    } else {
 				    grunt.log.write("\nNO HTML Files\" listed to switch \"head links\" to \"regular sources\"...\n");
 			    }
