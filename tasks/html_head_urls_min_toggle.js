@@ -33,7 +33,8 @@ module.exports = function(grunt) {
 					    global_functions.toggle_all_head_links('min', this.data.min_targets[i]);
 				    }
 			    } else {
-				    grunt.log.write("\nNO HTML Files\" listed to switch their \"head links\" to \"minified sources\"...:\n");
+				    grunt.log
+				        .write("\n>>> NO \"HTML Files\" listed to switch their \"head links\" to \"minified sources\"... <<<\n");
 			    }
 			    grunt.log.write("\n");
 			    if (this.data.regular_targets.length > 0) {
@@ -48,7 +49,8 @@ module.exports = function(grunt) {
 					    global_functions.toggle_all_head_links('regular', this.data.min_targets[i]);
 				    }
 			    } else {
-				    grunt.log.write("\nNO HTML Files\" listed to switch \"head links\" to \"regular sources\"...\n");
+				    grunt.log
+				        .write("\n>>> NO \"HTML Files\" listed to switch their \"head links\" to \"regular sources\"... <<<\n");
 			    }
 		    } else {
 			    // Merge task-specific and/or target-specific options with these
