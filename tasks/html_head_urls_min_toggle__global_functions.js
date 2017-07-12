@@ -167,18 +167,6 @@ function toRegular(headStart, headEnd, carriageReturn, contentArray) {
 	}
 }
 
-function writingArray_ToFile(fileName, array) {
-	var fileSystem_Module = globalModule_Try('fs');
-	var inHouseFileHandle = fileSystem_Module.openSync(fileName, 'w');
-	for (var i = 0; i < (array.length - 1); i++) {
-		fileSystem_Module.writeSync(inHouseFileHandle, array[i] + "\n");
-	}
-	if (array[array.length - 1]) {
-		fileSystem_Module.writeSync(inHouseFileHandle, array[array.length - 1]);
-	}
-	fileSystem_Module.closeSync(inHouseFileHandle);
-}
-
 function delete_writingArray_ToFile(fileName, array) {
 	var fileSystem_Module = globalModule_Try('fs');
 	if (fileSystem_Module.existsSync(fileName)) {
