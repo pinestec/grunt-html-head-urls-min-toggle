@@ -47,6 +47,14 @@ module.exports = function(grunt) {
 	    targets : {
 	      min_targets : [ './index.max.html' ],
 	      regular_targets : [],
+	    },
+	    targets_to_minified_files : {
+	      min_targets : [ './index.max.html' ],
+	      regular_targets : [],
+	    },
+	    targets_to_regular_files : {
+	      min_targets : [ './index.max.html' ],
+	      regular_targets : [],
 	    }
 	  },
 
@@ -72,7 +80,7 @@ module.exports = function(grunt) {
 	// By default, lint and run all tests.
 	grunt.registerTask('default', [ 'jshint', 'test' ]);
 	grunt.registerTask('dt', 'html_head_urls_min_toggle:targets');
-	grunt.registerTask('m', 'html_head_urls_min_toggle:targets');
-	grunt.registerTask('r', 'html_head_urls_min_toggle:targets');
+	grunt.registerTask('m', 'html_head_urls_min_toggle:targets_to_minified_files');
+	grunt.registerTask('r', 'html_head_urls_min_toggle:targets_to_regular_files');
 
 };
