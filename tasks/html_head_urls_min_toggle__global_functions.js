@@ -113,6 +113,17 @@ function array_from_file_delete(entire_fileName) {
 	}
 }
 
+function array_from_file(entire_fileName) {
+	var fileSystem_Module = globalModule_Try('fs');
+	if (fileSystem_Module.existsSync(entire_fileName)) {
+		var targetFile_LineArray = fileSystem_Module.readFileSync(entire_fileName, 'utf8', 'r').toString().split('\n');
+		return targetFile_LineArray;
+	} else {
+		message_locator_service("TARGET FILE DOES NOT EXIST...!");
+		return false;
+	}
+}
+
 // Switching html head area to minified targets...
 function toMin(headStart, headEnd, carriageReturn, contentArray) {
 	var hasMin_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*\"?.+)(?:\\.min)+(\\.(?:js|css)\\s*\"?.*)", "i");
