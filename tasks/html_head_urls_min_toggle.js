@@ -29,8 +29,12 @@ module.exports = function(grunt) {
 					        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
 				    }
 				    for (var i = 0; i < this.data.min_targets.length; i++) {
-					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.min_targets[i] + "\"\n");
-					    global_functions.toggle_all_head_links('min', this.data.min_targets[i]);
+					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.min_targets[i] + "\"");
+					    if (global_functions.toggle_all_head_links('min', this.data.min_targets[i])) {
+						    grunt.log.write("\t- o.k.\n");
+					    } else {
+						    grunt.log.write("\t- >>> Failed...! <<<\n");
+					    }
 				    }
 			    } else {
 				    grunt.log
@@ -45,8 +49,13 @@ module.exports = function(grunt) {
 					        " Files specified to switch all their \"head links\" to \"regular sources\"...\n");
 				    }
 				    for (var i = 0; i < this.data.regular_targets.length; i++) {
-					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.regular_targets[i] + "\"\n");
-					    global_functions.toggle_all_head_links('regular', this.data.regular_targets[i]);
+					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.regular_targets[i] + "\"");
+					    if (global_functions.toggle_all_head_links('regular', this.data.regular_targets[i])) {
+						    grunt.log.write("\t- o.k.\n");
+					    } else {
+						    grunt.log.write("\t- >>> Failed...! <<<\n");
+					    }
+
 				    }
 			    } else {
 				    grunt.log
