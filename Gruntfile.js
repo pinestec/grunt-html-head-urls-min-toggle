@@ -93,7 +93,13 @@ module.exports = function(grunt) {
 		        './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ]
 	    },
 	    targets_to_no_files : {},
-	    no_files_targets : {}
+	    no_files_targets : {},
+	    single_target_min : {
+		    min_targets : [ './index.max.html' ]
+	    },
+	    single_target_regular : {
+		    regular_targets : [ './index.max.html' ]
+	    }
 	  },
 
 	  // Unit tests.
@@ -125,5 +131,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('n', 'html_head_urls_min_toggle:no_files_targets');
 	grunt.registerTask('x', 'html_head_urls_min_toggle:before_TARGETS_behind');
 	grunt.registerTask('s', 'html_head_urls_min_toggle:switch_targets_back_and_forth');
+	grunt.registerTask('sm', 'html_head_urls_min_toggle:single_target_min');
+	grunt.registerTask('sr', 'html_head_urls_min_toggle:single_target_regular');
 
 };

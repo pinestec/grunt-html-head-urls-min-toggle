@@ -127,8 +127,8 @@ function array_from_file(entire_fileName) {
 // Switching html head area to minified targets...
 function toMin(headStart, headEnd, carriageReturn, contentArray) {
 	var changed = false;
-	var hasMin_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*\"?.+)(?:\\.min)+(\\.(?:js|css)\\s*\"?.*)", "i");
-	var carelessAboutMin_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*\"?.+)(\\.(?:js|css)\\s*\"?.*)", "i");
+	var hasMin_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*(?:\"|\')?.+)(?:\\.min)+(\\.(?:js|css)\\s*(?:\"|\')?.*)", "i");
+	var carelessAboutMin_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*(?:\"|\')?.+)(\\.(?:js|css)\\s*(?:\"|\')?.*)", "i");
 	for (var i = (headStart + 1); i < headEnd; i++) {
 		if (hasMin_RegExp.exec(contentArray[i]) === null) {
 			var regExp_ResultArray = carelessAboutMin_RegExp.exec(contentArray[i]);
@@ -150,7 +150,7 @@ function toMin(headStart, headEnd, carriageReturn, contentArray) {
 // Switching html head area to regular targets...
 function toRegular(headStart, headEnd, carriageReturn, contentArray) {
 	var changed = false;
-	var minSuspect_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*\"?.+)\\.min(\\.(?:js|css)\\s*\"?.*)", "i");
+	var minSuspect_RegExp = new RegExp("^(.*(?:href|src)\\s*\\=\\s*(?:\"|\')?.+)\\.min(\\.(?:js|css)\\s*(?:\"|\')?.*)", "i");
 	for (var i = (headStart + 1); i < headEnd; i++) {
 		var regExp_ResultArray = minSuspect_RegExp.exec(contentArray[i]);
 		if (regExp_ResultArray !== null) {
