@@ -22,11 +22,17 @@ module.exports = function(grunt) {
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
 			    try {
 				    var min_targets_array = this.data.min_targets;
+				    if (typeof min_targets_array === 'undefined') {
+					    var min_targets_array = [];
+				    }
 			    } catch (exception) {
 				    var min_targets_array = [];
 			    }
 			    try {
 				    var regular_targets_array = this.data.regular_targets;
+				    if (typeof regular_targets_array === 'undefined') {
+					    var regular_targets_array = [];
+				    }
 			    } catch (exception) {
 				    var regular_targets_array = [];
 			    }
@@ -67,7 +73,6 @@ module.exports = function(grunt) {
 					    } else {
 						    grunt.log.write("\t- >>> Failed...! <<<\n");
 					    }
-
 				    }
 			    } else {
 				    grunt.log
