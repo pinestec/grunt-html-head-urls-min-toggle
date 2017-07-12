@@ -153,10 +153,6 @@ function writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
-  just_print_a_message : function() {
-	  console.log("JUST A TINY MESSAGE...!");
-  },
-
   toggle_all_head_links : function(direction, file) {
 	  var pointToMin = false;
 	  if (direction === 'min') {

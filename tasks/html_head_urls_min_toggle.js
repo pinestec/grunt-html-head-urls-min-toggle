@@ -26,6 +26,7 @@ module.exports = function(grunt) {
 				        "\" \"HTML Files\" listed to switch all their \"head links\" to \"minified sources\"...\n\n");
 				    for (var i = 0; i < this.data.min_targets.length; i++) {
 					    grunt.log.write("\"" + i + ": " + this.data.min_targets[i] + "\"\n");
+					    global_functions.toggle_all_head_links('min', this.data.min_targets[i]);
 				    }
 			    } else {
 				    grunt.log.write("\nNO HTML Files\" listed to switch \"head links\" to \"minified sources\"...\n");
@@ -35,6 +36,7 @@ module.exports = function(grunt) {
 				        "\" \"HTML Files\" listed to switch all their \"head links\" to \"regular sources\"...\n\n");
 				    for (var i = 0; i < this.data.regular_targets.length; i++) {
 					    grunt.log.write("\"" + i + ": " + this.data.min_targets[i] + "\"\n");
+					    global_functions.toggle_all_head_links('regular', this.data.min_targets[i]);
 				    }
 			    } else {
 				    grunt.log.write("\nNO HTML Files\" listed to switch \"head links\" to \"regular sources\"...\n");
