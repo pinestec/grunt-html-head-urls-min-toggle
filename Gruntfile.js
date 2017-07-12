@@ -63,7 +63,8 @@ module.exports = function(grunt) {
 		        './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
 		        './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
 		        './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ]
-	    }
+	    },
+	    targets_to_no_files : {}
 	  },
 
 	  // Unit tests.
@@ -90,5 +91,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('dt', 'html_head_urls_min_toggle:targets');
 	grunt.registerTask('m', 'html_head_urls_min_toggle:targets_to_minified_files');
 	grunt.registerTask('r', 'html_head_urls_min_toggle:targets_to_regular_files');
+	grunt.registerTask('e', 'html_head_urls_min_toggle:targets_to_no_files');
+	//	
 
 };
