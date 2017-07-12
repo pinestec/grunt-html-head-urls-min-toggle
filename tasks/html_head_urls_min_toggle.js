@@ -18,21 +18,23 @@ module.exports = function(grunt) {
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
 		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:[\\w-]*targets?[\\w-]*$", "i");
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
+			    var min_targets_array = [];
+			    var regular_targets_array = [];
 			    try {
-				    var min_targets_array = this.data.min_targets;
+				    min_targets_array = this.data.min_targets;
 				    if (typeof min_targets_array === 'undefined') {
-					    var min_targets_array = [];
+					    min_targets_array = [];
 				    }
 			    } catch (exception) {
-				    var min_targets_array = [];
+				    min_targets_array = [];
 			    }
 			    try {
-				    var regular_targets_array = this.data.regular_targets;
+				    regular_targets_array = this.data.regular_targets;
 				    if (typeof regular_targets_array === 'undefined') {
-					    var regular_targets_array = [];
+					    regular_targets_array = [];
 				    }
 			    } catch (exception) {
-				    var regular_targets_array = [];
+				    regular_targets_array = [];
 			    }
 			    if (min_targets_array.length > 0 || regular_targets_array.length > 0) {
 				    var global_functions = require('./html_head_urls_min_toggle__global_functions.js');
@@ -64,9 +66,9 @@ module.exports = function(grunt) {
 					    grunt.log.write(regular_targets_array.length +
 					        " Files specified to switch all their \"head links\" to \"regular sources\"...\n");
 				    }
-				    for (var i = 0; i < regular_targets_array.length; i++) {
-					    grunt.log.write("\t" + (i + 1) + ": \"" + regular_targets_array[i] + "\"");
-					    if (global_functions.toggle_all_head_links('regular', regular_targets_array[i])) {
+				    for (var j = 0; j < regular_targets_array.length; j++) {
+					    grunt.log.write("\t" + (j + 1) + ": \"" + regular_targets_array[j] + "\"");
+					    if (global_functions.toggle_all_head_links('regular', regular_targets_array[j])) {
 						    grunt.log.write("\t- o.k.\n");
 					    } else {
 						    grunt.log.write("\t- >>> Failed...! <<<\n");
