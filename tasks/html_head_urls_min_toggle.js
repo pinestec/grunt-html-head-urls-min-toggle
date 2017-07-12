@@ -20,6 +20,7 @@ module.exports = function(grunt) {
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
 			    var min_targets_array = [];
 			    var regular_targets_array = [];
+			    var global_functions = {};
 			    try {
 				    min_targets_array = this.data.min_targets;
 				    if (typeof min_targets_array === 'undefined') {
@@ -37,7 +38,7 @@ module.exports = function(grunt) {
 				    regular_targets_array = [];
 			    }
 			    if (min_targets_array.length > 0 || regular_targets_array.length > 0) {
-				    var global_functions = require('./html_head_urls_min_toggle__global_functions.js');
+				    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 			    }
 			    if (min_targets_array.length > 0) {
 				    if (min_targets_array.length === 1) {
