@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 					        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
 				    }
 				    for (var i = 0; i < this.data.min_targets.length; i++) {
-					    grunt.log.write("\t" + i + ": \"" + this.data.min_targets[i] + "\"\n");
+					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.min_targets[i] + "\"\n");
 					    global_functions.toggle_all_head_links('min', this.data.min_targets[i]);
 				    }
 			    } else {
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 					        " Files specified to switch all their \"head links\" to \"regular sources\"...\n");
 				    }
 				    for (var i = 0; i < this.data.regular_targets.length; i++) {
-					    grunt.log.write("\"" + i + ": " + this.data.min_targets[i] + "\"\n");
+					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.min_targets[i] + "\"\n");
 					    global_functions.toggle_all_head_links('regular', this.data.min_targets[i]);
 				    }
 			    } else {
