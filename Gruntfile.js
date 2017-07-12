@@ -53,6 +53,20 @@ module.exports = function(grunt) {
 	          './jquery_pearls.max.html', './linux.max.html', './mp4todvd.max.html', './quickcmds.max.html',
 	          './ssh_key_generation.max.html', './useful_apps_steppingstone.max.html' ],
 	    },
+	    switch_targets : {
+	      min_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html',
+	          './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html',
+	          './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html',
+	          './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
+	          './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
+	          './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ],
+	      regular_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html',
+	          './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html',
+	          './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html',
+	          './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
+	          './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
+	          './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ],
+	    },
 	    before_TARGETS_behind : {
 	      min_targets : [ './bash_sed_perl.max.html', './current_commented_places.max.html',
 	          './git_files__get_prepare.max.html', './index.max.html', './linksys_quick_rebirth.max.html',
@@ -110,5 +124,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('e', 'html_head_urls_min_toggle:targets_to_no_files');
 	grunt.registerTask('n', 'html_head_urls_min_toggle:no_files_targets');
 	grunt.registerTask('x', 'html_head_urls_min_toggle:before_TARGETS_behind');
+	grunt.registerTask('s', 'html_head_urls_min_toggle:switch_targets');
 
 };
