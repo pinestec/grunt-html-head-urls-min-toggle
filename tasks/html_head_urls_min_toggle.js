@@ -16,7 +16,9 @@ module.exports = function(grunt) {
 	    'Point the html-head href and src urls to minified sources and vice versa.', function() {
 		    // Check the entire "this" object or comment out...
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
-		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:targets?$", "i");
+
+		    grunt.log.write("CURRENT NAME ARGS: \"" + this.nameArgs + "\"\n");
+		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:[\\w-]*targets?[\\w-]*$", "i");
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
 			    if (this.data.min_targets.length > 0 || this.data.regular_targets.length > 0) {
 				    var global_functions = require('./html_head_urls_min_toggle__global_functions.js');
