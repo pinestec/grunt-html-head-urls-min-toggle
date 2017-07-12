@@ -20,19 +20,29 @@ module.exports = function(grunt) {
 		    grunt.log.write("CURRENT NAME ARGS: \"" + this.nameArgs + "\"\n");
 		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:[\\w-]*targets?[\\w-]*$", "i");
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
-			    if (this.data.min_targets.length > 0 || this.data.regular_targets.length > 0) {
+			    try {
+				    var min_targets_array = this.data.min_targets;
+			    } catch (exception) {
+				    var min_targets_array = [];
+			    }
+			    try {
+				    var regular_targets_array = this.data.regular_targets;
+			    } catch (exception) {
+				    var regular_targets_array = [];
+			    }
+			    if (min_targets_array.length > 0 || regular_targets_array.length > 0) {
 				    var global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 			    }
-			    if (this.data.min_targets.length > 0) {
-				    if (this.data.min_targets.length === 1) {
+			    if (min_targets_array.length > 0) {
+				    if (min_targets_array.length === 1) {
 					    grunt.log.write("\nOne file specified to switch all it's \"head links\" to \"minified sources\"...:\n");
 				    } else {
-					    grunt.log.write("\n" + this.data.min_targets.length +
+					    grunt.log.write("\n" + min_targets_array.length +
 					        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
 				    }
-				    for (var i = 0; i < this.data.min_targets.length; i++) {
-					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.min_targets[i] + "\"");
-					    if (global_functions.toggle_all_head_links('min', this.data.min_targets[i])) {
+				    for (var i = 0; i < min_targets_array.length; i++) {
+					    grunt.log.write("\t" + (i + 1) + ": \"" + min_targets_array[i] + "\"");
+					    if (global_functions.toggle_all_head_links('min', min_targets_array[i])) {
 						    grunt.log.write("\t- o.k.\n");
 					    } else {
 						    grunt.log.write("\t- >>> Failed...! <<<\n");
@@ -43,16 +53,16 @@ module.exports = function(grunt) {
 				        .write("\n>>> NO \"HTML Files\" listed to switch their \"head links\" to \"minified sources\"... <<<\n");
 			    }
 			    grunt.log.write("\n");
-			    if (this.data.regular_targets.length > 0) {
-				    if (this.data.regular_targets.length === 1) {
+			    if (regular_targets_array.length > 0) {
+				    if (regular_targets_array.length === 1) {
 					    grunt.log.write("One file specified to switch all it's \"head links\" to \"regular sources\"...\n");
 				    } else {
-					    grunt.log.write(this.data.regular_targets.length +
+					    grunt.log.write(regular_targets_array.length +
 					        " Files specified to switch all their \"head links\" to \"regular sources\"...\n");
 				    }
-				    for (var i = 0; i < this.data.regular_targets.length; i++) {
-					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.regular_targets[i] + "\"");
-					    if (global_functions.toggle_all_head_links('regular', this.data.regular_targets[i])) {
+				    for (var i = 0; i < regular_targets_array.length; i++) {
+					    grunt.log.write("\t" + (i + 1) + ": \"" + regular_targets_array[i] + "\"");
+					    if (global_functions.toggle_all_head_links('regular', regular_targets_array[i])) {
 						    grunt.log.write("\t- o.k.\n");
 					    } else {
 						    grunt.log.write("\t- >>> Failed...! <<<\n");
