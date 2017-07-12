@@ -45,8 +45,8 @@ module.exports = function(grunt) {
 					        " Files specified to switch all their \"head links\" to \"regular sources\"...\n");
 				    }
 				    for (var i = 0; i < this.data.regular_targets.length; i++) {
-					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.min_targets[i] + "\"\n");
-					    global_functions.toggle_all_head_links('regular', this.data.min_targets[i]);
+					    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.regular_targets[i] + "\"\n");
+					    global_functions.toggle_all_head_links('regular', this.data.regular_targets[i]);
 				    }
 			    } else {
 				    grunt.log
