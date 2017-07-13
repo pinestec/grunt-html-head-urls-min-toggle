@@ -216,6 +216,8 @@ function delete_writingArray_ToFile(fileName, array) {
 module.exports = {
   process_wildcard_input : function(direction, source, directory) {
 	  console.log("DIRECTION: \"" + direction + "\" SOURCE: \"" + source + "\" DIRECTORY: \"" + directory + "\"\n");
+	  var fileSystem_Module = globalModule_Try('fs');
+	  var raw_file_array = fileSystem_Module.readdirSync("./");
   },
 
   toggle_all_head_links : function(direction, file) {
