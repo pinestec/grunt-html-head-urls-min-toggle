@@ -218,6 +218,9 @@ module.exports = {
 	  console.log("DIRECTION: \"" + direction + "\" SOURCE: \"" + source + "\" DIRECTORY: \"" + directory + "\"\n");
 	  var fileSystem_Module = globalModule_Try('fs');
 	  var raw_file_array = fileSystem_Module.readdirSync("./");
+	  for (var i = 0; i < raw_file_array.length; i++) {
+		  console.log(raw_file_array[i]);
+	  }
   },
 
   toggle_all_head_links : function(direction, file) {
