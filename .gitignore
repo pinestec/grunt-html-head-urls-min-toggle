@@ -3,3 +3,4 @@ npm-debug.log
 tmp
 .project
 *.max.html
+local_debug_dump.txt
