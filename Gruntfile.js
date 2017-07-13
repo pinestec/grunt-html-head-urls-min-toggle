@@ -44,6 +44,14 @@ module.exports = function(grunt) {
 		      'tmp/custom_options' : [ 'test/fixtures/testing', 'test/fixtures/123' ]
 	      }
 	    },
+	    wildcard_targets : {
+		    files : [ {
+		      expand : true,
+		      direction : 'min',
+		      cwd : './',
+		      src : [ '*.max.html' ]
+		    } ]
+	    },
 	    targets : {
 	      min_targets : [ './bash_sed_perl.max.html', './current_commented_places.max.html',
 	          './git_files__get_prepare.max.html', './index.max.html', './linksys_quick_rebirth.max.html',
@@ -133,5 +141,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('s', 'html_head_urls_min_toggle:switch_targets_back_and_forth');
 	grunt.registerTask('sm', 'html_head_urls_min_toggle:single_target_min');
 	grunt.registerTask('sr', 'html_head_urls_min_toggle:single_target_regular');
-
+	grunt.registerTask('w', 'html_head_urls_min_toggle:wildcard_targets');
 };
