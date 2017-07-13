@@ -17,16 +17,24 @@ module.exports = function(grunt) {
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
 		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:[\\w-]*targets?[\\w-]*$", "i");
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
+			    var min_targets_array = [];
+			    var regular_targets_array = [];
+			    var global_functions = {};
+			    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 
 			    if (this.data.files[0].expand) {
 				    grunt.log.write("CURRENT DATA: \"" + this.data.files[0].expand + "\"\n");
+				    grunt.log.write("CURRENT DATA: \"" + this.data.files[0].direction + "\"\n");
 			    } else {
 				    grunt.log.write("CURRENT DATA: \"" + this.data.files[0].expand + "\"\n");
 			    }
 
-			    var min_targets_array = [];
-			    var regular_targets_array = [];
-			    var global_functions = {};
+			    if (min_targets_array.length === 1) {
+				    grunt.log.write("\nOne file specified to switch all it's \"head links\" to \"minified sources\"...:\n");
+			    } else {
+				    grunt.log.write("\n" + min_targets_array.length +
+				        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
+			    }
 			    try {
 				    min_targets_array = this.data.min_targets;
 				    if (typeof min_targets_array === 'undefined') {
@@ -43,16 +51,9 @@ module.exports = function(grunt) {
 			    } catch (exception) {
 				    regular_targets_array = [];
 			    }
-			    if (min_targets_array.length > 0 || regular_targets_array.length > 0) {
-				    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
-			    }
+
 			    if (min_targets_array.length > 0) {
-				    if (min_targets_array.length === 1) {
-					    grunt.log.write("\nOne file specified to switch all it's \"head links\" to \"minified sources\"...:\n");
-				    } else {
-					    grunt.log.write("\n" + min_targets_array.length +
-					        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
-				    }
+
 				    for (var i = 0; i < min_targets_array.length; i++) {
 					    grunt.log.write("\t" + (i + 1) + ": \"" + min_targets_array[i] + "\"");
 					    if (global_functions.toggle_all_head_links('min', min_targets_array[i])) {
