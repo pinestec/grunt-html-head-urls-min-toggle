@@ -217,7 +217,8 @@ module.exports = {
   process_wildcard_input : function(direction, source, directory) {
 	  console.log("DIRECTION: \"" + direction + "\" SOURCE: \"" + source + "\" DIRECTORY: \"" + directory + "\"\n");
 	  var fileSystem_Module = globalModule_Try('fs');
-	  var raw_file_array = fileSystem_Module.readdirSync("./");
+	  var raw_file_array = fileSystem_Module.readdirSync(directory);
+	  var targets_file_array = [];
 	  for (var i = 0; i < raw_file_array.length; i++) {
 		  console.log(raw_file_array[i]);
 	  }
