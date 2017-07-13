@@ -224,14 +224,14 @@ module.exports = {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
 	  }
 
-	  console.log("WIRDCARD: \"" + result_array[1] + "\"");
-	  var wildcard_RegExp = new RegExp(source + "$", "i");
-	  var fileSystem_Module = globalModule_Try('fs');
-	  var raw_file_array = fileSystem_Module.readdirSync(directory);
-	  var targets_file_array = [];
-	  for (var i = 0; i < raw_file_array.length; i++) {
-		  console.log(raw_file_array[i]);
-	  }
+	  // console.log("WIRDCARD: \"" + result_array[1] + "\"");
+	  // var wildcard_RegExp = new RegExp(source + "$", "i");
+	  // var fileSystem_Module = globalModule_Try('fs');
+	  // var raw_file_array = fileSystem_Module.readdirSync(directory);
+	  // var targets_file_array = [];
+	  // for (var i = 0; i < raw_file_array.length; i++) {
+	  // console.log(raw_file_array[i]);
+	  // }
   },
 
   toggle_all_head_links : function(direction, file) {
