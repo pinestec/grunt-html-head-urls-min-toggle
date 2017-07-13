@@ -222,7 +222,7 @@ module.exports = {
 		  var prepared_tail = tail_string.replace(/\./ig, "\\\\.");
 		  console.log("NICE TAIL STRING...: \"" + prepared_tail + "\"");
 		  // var wildcard_RegExp = new RegExp("^(.+" + prepared_tail + ")$", "i");
-		  var wildcard_RegExp = new RegExp("^.+.max.html$", "i");
+		  var wildcard_RegExp = new RegExp("^(.+\\.max\\.html)$", "i");
 		  var fileSystem_Module = globalModule_Try('fs');
 		  var raw_file_array = fileSystem_Module.readdirSync(directory);
 		  var targets_file_array = [];
@@ -230,7 +230,7 @@ module.exports = {
 		  for (var i = 0; i < raw_file_array.length; i++) {
 			  var single_file_result_array = wildcard_RegExp.exec(raw_file_array[i]);
 			  if (single_file_result_array) {
-				  console.log(counter + ": " + single_file_result_array[0]);
+				  console.log(counter + ": " + single_file_result_array[1]);
 				  counter++;
 			  }
 		  }
