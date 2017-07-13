@@ -218,7 +218,7 @@ module.exports = {
 	  console.log("DIRECTION: \"" + direction + "\" SOURCE: \"" + source + "\" DIRECTORY: \"" + directory + "\"\n");
 	  var wildcard_extractor_RegExp = new RegExp("^\\*(.+)$");
 	  var result_array = wildcard_extractor_RegExp.exec(source);
-	  if (result_array[1]) {
+	  if (result_array) {
 		  console.log("WILDCARD: " + result_array[1]);
 	  } else {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
