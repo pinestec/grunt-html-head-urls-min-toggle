@@ -160,11 +160,11 @@ function toMin(headStart, headEnd, carriageReturn, contentArray) {
 			if (regExp_ResultArray !== null) {
 				contentArray[i] = regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + carriageReturn;
 				var endMarker = " MIN_END\n";
-				dump_debug_string(regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + carriageReturn + endMarker);
-				dump_debug_string(regExp_ResultArray[1] + endMarker);
-				dump_debug_string(regExp_ResultArray[1] + ".min" + endMarker);
-				dump_debug_string(regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + endMarker);
-				dump_debug_string(regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + carriageReturn + endMarker);
+				dump_debug_string("1: " + regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + carriageReturn + endMarker);
+				dump_debug_string("2: " + regExp_ResultArray[1] + endMarker);
+				dump_debug_string("3: " + regExp_ResultArray[1] + ".min" + endMarker);
+				dump_debug_string("4: " + regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + endMarker);
+				dump_debug_string("5: " + regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + carriageReturn + endMarker);
 				if (!changed) {
 					changed = true;
 				}
@@ -187,10 +187,10 @@ function toRegular(headStart, headEnd, carriageReturn, contentArray) {
 		if (regExp_ResultArray !== null) {
 			contentArray[i] = regExp_ResultArray[1] + regExp_ResultArray[2] + carriageReturn;
 			var endMarker = " REGULAR_END\n";
-			dump_debug_string(regExp_ResultArray[1] + regExp_ResultArray[2] + carriageReturn + endMarker);
-			dump_debug_string(regExp_ResultArray[1] + endMarker);
-			dump_debug_string(regExp_ResultArray[1] + regExp_ResultArray[2] + endMarker);
-			dump_debug_string(regExp_ResultArray[1] + regExp_ResultArray[2] + carriageReturn + endMarker);
+			dump_debug_string("1: " + regExp_ResultArray[1] + regExp_ResultArray[2] + carriageReturn + endMarker);
+			dump_debug_string("2: " + regExp_ResultArray[1] + endMarker);
+			dump_debug_string("3: " + regExp_ResultArray[1] + regExp_ResultArray[2] + endMarker);
+			dump_debug_string("4: " + regExp_ResultArray[1] + regExp_ResultArray[2] + carriageReturn + endMarker);
 			if (!changed) {
 				changed = true;
 			}
