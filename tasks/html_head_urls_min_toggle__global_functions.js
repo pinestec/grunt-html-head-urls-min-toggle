@@ -235,6 +235,7 @@ module.exports = {
 	  } else {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
 	  }
+	  console.log("\n");
   },
 
   toggle_all_head_links : function(direction, file) {
