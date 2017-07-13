@@ -17,6 +17,9 @@ module.exports = function(grunt) {
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
 		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:[\\w-]*targets?[\\w-]*$", "i");
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
+
+			    grunt.log.write("CURRENT DATA: \"" + this.data.files[0].expand + "\"\n");
+
 			    var min_targets_array = [];
 			    var regular_targets_array = [];
 			    var global_functions = {};
