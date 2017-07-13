@@ -17,6 +17,16 @@ function dump_debug_string(string) {
 	fileSystem_Module.closeSync(inHouseFileHandle);
 }
 
+// var endMarker = " MIN_END\n";
+// dump_debug_string(regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] +
+// carriageReturn + endMarker);
+// dump_debug_string(regExp_ResultArray[1] + endMarker);
+// dump_debug_string(regExp_ResultArray[1] + endMarker);
+// dump_debug_string(regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] +
+// endMarker);
+// dump_debug_string(regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] +
+// carriageReturn + endMarker);
+
 function message_locator_service(mainMessage) {
 	var path_Module = globalModule_Try('path');
 	var stackTrace_Module = globalModule_Try('stack-trace');
