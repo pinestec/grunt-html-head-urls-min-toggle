@@ -22,11 +22,11 @@ module.exports = function(grunt) {
 			    var global_functions = {};
 			    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 
-			    if (this.data.files[0].expand) {
-				    grunt.log.write("CURRENT DATA: \"" + this.data.files[0].expand + "\"\n");
-				    grunt.log.write("CURRENT DATA: \"" + this.data.files[0].direction + "\"\n");
-			    } else {
-				    grunt.log.write("CURRENT DATA: \"" + this.data.files[0].expand + "\"\n");
+			    if (this.data.files) {
+				    for (var k = 0; k < this.data.files.length; k++) {
+					    grunt.log.write("CURRENT DATA: \"" + this.data.files[k].expand + "\"\n");
+					    grunt.log.write("CURRENT DATA: \"" + this.data.files[k].direction + "\"\n");
+				    }
 			    }
 
 			    if (min_targets_array.length === 1) {
