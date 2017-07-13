@@ -225,13 +225,10 @@ module.exports = {
 		  var fileSystem_Module = globalModule_Try('fs');
 		  var raw_file_array = fileSystem_Module.readdirSync(directory);
 		  var targets_file_array = [];
-		  var counter = 1;
 		  for (var i = 0; i < raw_file_array.length; i++) {
 			  var single_file_result_array = wildcard_RegExp.exec(raw_file_array[i]);
 			  if (single_file_result_array) {
-				  console.log(counter + ": " + single_file_result_array[1]);
 				  final_files_array.push(directory + single_file_result_array[1]);
-				  counter++;
 			  }
 		  }
 		  for (var j = 0; j < final_files_array.length; j++) {
@@ -240,7 +237,6 @@ module.exports = {
 	  } else {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
 	  }
-	  console.log("\n");
   },
 
   toggle_all_head_links : function(direction, file) {
