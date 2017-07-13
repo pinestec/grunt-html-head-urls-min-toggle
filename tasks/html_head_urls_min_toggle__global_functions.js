@@ -216,6 +216,11 @@ function delete_writingArray_ToFile(fileName, array) {
 module.exports = {
   process_wildcard_input : function(direction, source, directory) {
 	  console.log("DIRECTION: \"" + direction + "\" SOURCE: \"" + source + "\" DIRECTORY: \"" + directory + "\"\n");
+	  var wildcard_extractor_RegExp = new RegExp("^\\*(.+)$");
+	  var result_array = wildcard_extractor_RegExp.exec(source);
+
+	  console.log("WIRDCARD: \"" + result_array[1] + "\"");
+	  var wildcard_RegExp = new RegExp(source + "$", "i");
 	  var fileSystem_Module = globalModule_Try('fs');
 	  var raw_file_array = fileSystem_Module.readdirSync(directory);
 	  var targets_file_array = [];
