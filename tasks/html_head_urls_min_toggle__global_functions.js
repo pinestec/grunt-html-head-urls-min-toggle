@@ -221,13 +221,13 @@ module.exports = {
 		  var tail_string = result_array[1];
 		  var prepared_tail = tail_string.replace(/\./ig, "\\\\.");
 		  console.log("NICE TAIL STRING...: \"" + prepared_tail + "\"");
-		  var wildcard_RegExp = new RegExp("^(.+" + prepared_tail + ")$", "i");
+		  // var wildcard_RegExp = new RegExp("^(.+" + prepared_tail + ")$", "i");
+		  var wildcard_RegExp = new RegExp("^.+html$", "i");
 		  var fileSystem_Module = globalModule_Try('fs');
 		  var raw_file_array = fileSystem_Module.readdirSync(directory);
 		  var targets_file_array = [];
 		  for (var i = 0; i < raw_file_array.length; i++) {
 			  var single_file_result_array = wildcard_RegExp.exec(raw_file_array[i]);
-			  console.log("asdsA");
 			  if (single_file_result_array) {
 				  console.log(single_file_result_array[0]);
 			  }
