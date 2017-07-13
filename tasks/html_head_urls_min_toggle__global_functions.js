@@ -215,23 +215,25 @@ function delete_writingArray_ToFile(fileName, array) {
 
 module.exports = {
   process_wildcard_input : function(direction, source, directory) {
-	  console.log("DIRECTION: \"" + direction + "\" SOURCE: \"" + source + "\" DIRECTORY: \"" + directory + "\"\n");
 	  var wildcard_extractor_RegExp = new RegExp("^\\*(.+)$");
 	  var result_array = wildcard_extractor_RegExp.exec(source);
 	  if (result_array) {
-		  console.log("WILDCARD: " + result_array[1]);
+		  var tail_string = result_array[1];
+		  tail_string.replace(/\./i, "x");
+		  console.log("NICE TAIL STRING...: \"" + tail_string + "\"");
+		  var wildcard_RegExp = new RegExp("^.+" + result_array[1] + "$", "i");
+		  var fileSystem_Module = globalModule_Try('fs');
+		  var raw_file_array = fileSystem_Module.readdirSync(directory);
+		  var targets_file_array = [];
+		  // for (var i = 0; i < raw_file_array.length; i++) {
+		  // var single_file_result = wildcard_RegExp.exec(raw_file_array[i]);
+		  // if (single_file_result) {
+		  // console.log(single_file_result[0]);
+		  //			  }
+		  //		  }
 	  } else {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
 	  }
-
-	  // console.log("WIRDCARD: \"" + result_array[1] + "\"");
-	  // var wildcard_RegExp = new RegExp(source + "$", "i");
-	  // var fileSystem_Module = globalModule_Try('fs');
-	  // var raw_file_array = fileSystem_Module.readdirSync(directory);
-	  // var targets_file_array = [];
-	  // for (var i = 0; i < raw_file_array.length; i++) {
-	  // console.log(raw_file_array[i]);
-	  // }
   },
 
   toggle_all_head_links : function(direction, file) {
