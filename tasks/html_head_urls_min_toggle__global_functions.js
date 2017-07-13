@@ -218,6 +218,11 @@ module.exports = {
 	  console.log("DIRECTION: \"" + direction + "\" SOURCE: \"" + source + "\" DIRECTORY: \"" + directory + "\"\n");
 	  var wildcard_extractor_RegExp = new RegExp("^\\*(.+)$");
 	  var result_array = wildcard_extractor_RegExp.exec(source);
+	  if (result_array[1]) {
+		  console.log("WILDCARD: " + result_array[1]);
+	  } else {
+		  message_locator_service("NO VALID WILDCARD FOUND...!");
+	  }
 
 	  console.log("WIRDCARD: \"" + result_array[1] + "\"");
 	  var wildcard_RegExp = new RegExp(source + "$", "i");
