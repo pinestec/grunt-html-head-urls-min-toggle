@@ -21,70 +21,71 @@ module.exports = function(grunt) {
 			    var regular_targets_array = [];
 			    var global_functions = {};
 			    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
-
 			    if (this.data.files) {
 				    for (var k = 0; k < this.data.files.length; k++) {
-					    grunt.log.write("CURRENT DATA: \"" + this.data.files[k].expand + "\"\n");
-					    grunt.log.write("CURRENT DATA: \"" + this.data.files[k].direction + "\"\n");
+					    if (this.data.files[k].expand) {
+						    global_functions.process_wildcard_input(this.data.files[k].direction, this.data.files[k].src,
+						        this.data.files[k].cwd);
+					    }
 				    }
-			    }
-
-			    if (min_targets_array.length === 1) {
-				    grunt.log.write("\nOne file specified to switch all it's \"head links\" to \"minified sources\"...:\n");
 			    } else {
-				    grunt.log.write("\n" + min_targets_array.length +
-				        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
-			    }
-			    try {
-				    min_targets_array = this.data.min_targets;
-				    if (typeof min_targets_array === 'undefined') {
+				    if (min_targets_array.length === 1) {
+					    grunt.log.write("\nOne file specified to switch all it's \"head links\" to \"minified sources\"...:\n");
+				    } else {
+					    grunt.log.write("\n" + min_targets_array.length +
+					        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
+				    }
+				    try {
+					    min_targets_array = this.data.min_targets;
+					    if (typeof min_targets_array === 'undefined') {
+						    min_targets_array = [];
+					    }
+				    } catch (exception) {
 					    min_targets_array = [];
 				    }
-			    } catch (exception) {
-				    min_targets_array = [];
-			    }
-			    try {
-				    regular_targets_array = this.data.regular_targets;
-				    if (typeof regular_targets_array === 'undefined') {
+				    try {
+					    regular_targets_array = this.data.regular_targets;
+					    if (typeof regular_targets_array === 'undefined') {
+						    regular_targets_array = [];
+					    }
+				    } catch (exception) {
 					    regular_targets_array = [];
 				    }
-			    } catch (exception) {
-				    regular_targets_array = [];
-			    }
 
-			    if (min_targets_array.length > 0) {
+				    if (min_targets_array.length > 0) {
 
-				    for (var i = 0; i < min_targets_array.length; i++) {
-					    grunt.log.write("\t" + (i + 1) + ": \"" + min_targets_array[i] + "\"");
-					    if (global_functions.toggle_all_head_links('min', min_targets_array[i])) {
-						    grunt.log.write("\t- o.k.\n");
-					    } else {
-						    grunt.log.write("\t- >>> Failed...! <<<\n");
+					    for (var i = 0; i < min_targets_array.length; i++) {
+						    grunt.log.write("\t" + (i + 1) + ": \"" + min_targets_array[i] + "\"");
+						    if (global_functions.toggle_all_head_links('min', min_targets_array[i])) {
+							    grunt.log.write("\t- o.k.\n");
+						    } else {
+							    grunt.log.write("\t- >>> Failed...! <<<\n");
+						    }
 					    }
-				    }
-			    } else {
-				    grunt.log
-				        .write("\n>>> NO \"HTML Files\" listed to switch their \"head links\" to \"minified sources\"... <<<\n");
-			    }
-			    grunt.log.write("\n");
-			    if (regular_targets_array.length > 0) {
-				    if (regular_targets_array.length === 1) {
-					    grunt.log.write("One file specified to switch all it's \"head links\" to \"regular sources\"...\n");
 				    } else {
-					    grunt.log.write(regular_targets_array.length +
-					        " Files specified to switch all their \"head links\" to \"regular sources\"...\n");
+					    grunt.log
+					        .write("\n>>> NO \"HTML Files\" listed to switch their \"head links\" to \"minified sources\"... <<<\n");
 				    }
-				    for (var j = 0; j < regular_targets_array.length; j++) {
-					    grunt.log.write("\t" + (j + 1) + ": \"" + regular_targets_array[j] + "\"");
-					    if (global_functions.toggle_all_head_links('regular', regular_targets_array[j])) {
-						    grunt.log.write("\t- o.k.\n");
+				    grunt.log.write("\n");
+				    if (regular_targets_array.length > 0) {
+					    if (regular_targets_array.length === 1) {
+						    grunt.log.write("One file specified to switch all it's \"head links\" to \"regular sources\"...\n");
 					    } else {
-						    grunt.log.write("\t- >>> Failed...! <<<\n");
+						    grunt.log.write(regular_targets_array.length +
+						        " Files specified to switch all their \"head links\" to \"regular sources\"...\n");
 					    }
+					    for (var j = 0; j < regular_targets_array.length; j++) {
+						    grunt.log.write("\t" + (j + 1) + ": \"" + regular_targets_array[j] + "\"");
+						    if (global_functions.toggle_all_head_links('regular', regular_targets_array[j])) {
+							    grunt.log.write("\t- o.k.\n");
+						    } else {
+							    grunt.log.write("\t- >>> Failed...! <<<\n");
+						    }
+					    }
+				    } else {
+					    grunt.log
+					        .write("\n>>> NO \"HTML Files\" listed to switch their \"head links\" to \"regular sources\"... <<<\n");
 				    }
-			    } else {
-				    grunt.log
-				        .write("\n>>> NO \"HTML Files\" listed to switch their \"head links\" to \"regular sources\"... <<<\n");
 			    }
 		    } else {
 			    // Merge task-specific and/or target-specific options with these
