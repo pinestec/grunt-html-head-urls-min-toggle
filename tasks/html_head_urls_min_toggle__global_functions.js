@@ -217,6 +217,7 @@ module.exports = {
   process_wildcard_input : function(direction, source, directory) {
 	  var wildcard_extractor_RegExp = new RegExp("^\\*(.+)$");
 	  var result_array = wildcard_extractor_RegExp.exec(source);
+	  var final_files_array = [];
 	  if (result_array) {
 		  var tail_string = result_array[1];
 		  var prepared_tail = tail_string.replace(/\./ig, "\\.");
@@ -229,8 +230,12 @@ module.exports = {
 			  var single_file_result_array = wildcard_RegExp.exec(raw_file_array[i]);
 			  if (single_file_result_array) {
 				  console.log(counter + ": " + single_file_result_array[1]);
+				  final_files_array.push(directory + single_file_result_array[1]);
 				  counter++;
 			  }
+		  }
+		  for (var j = 0; j < final_files_array.length; j++) {
+			  console.log(final_files_array[j]);
 		  }
 	  } else {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
