@@ -219,10 +219,8 @@ module.exports = {
 	  var result_array = wildcard_extractor_RegExp.exec(source);
 	  if (result_array) {
 		  var tail_string = result_array[1];
-		  var prepared_tail = tail_string.replace(/\./ig, "\\\\.");
-		  console.log("NICE TAIL STRING...: \"" + prepared_tail + "\"");
-		  // var wildcard_RegExp = new RegExp("^(.+" + prepared_tail + ")$", "i");
-		  var wildcard_RegExp = new RegExp("^(.+\\.max\\.html)$", "i");
+		  var prepared_tail = tail_string.replace(/\./ig, "\\.");
+		  var wildcard_RegExp = new RegExp("^(.+" + prepared_tail + ")$", "i");
 		  var fileSystem_Module = globalModule_Try('fs');
 		  var raw_file_array = fileSystem_Module.readdirSync(directory);
 		  var targets_file_array = [];
