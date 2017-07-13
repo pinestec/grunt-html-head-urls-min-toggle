@@ -231,11 +231,10 @@ module.exports = {
 				  final_files_array.push(directory + single_file_result_array[1]);
 			  }
 		  }
-		  for (var j = 0; j < final_files_array.length; j++) {
-			  console.log(final_files_array[j]);
-		  }
+		  return final_files_array;
 	  } else {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
+		  return false;
 	  }
   },
 
