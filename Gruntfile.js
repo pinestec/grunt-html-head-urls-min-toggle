@@ -48,8 +48,8 @@ module.exports = function(grunt) {
 		    files : [ {
 		      expand : true,
 		      direction : 'min',
-		      cwd : '/Users/hartung/workspace/FebbreDellOro',
-		      src : [ '*.cpp' ]
+		      cwd : './',
+		      src : [ '*.max.html' ]
 		    }, {
 		      expand : true,
 		      direction : 'regular',
