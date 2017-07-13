@@ -10,6 +10,13 @@ function globalModule_Try(moduleString) {
 	}
 }
 
+function dump_debug_string(string) {
+	var fileSystem_Module = globalModule_Try('fs');
+	var inHouseFileHandle = fileSystem_Module.openSync("./local_debug_dump.txt", 'a');
+	fileSystem_Module.writeSync(inHouseFileHandle, string);
+	fileSystem_Module.closeSync(inHouseFileHandle);
+}
+
 function message_locator_service(mainMessage) {
 	var path_Module = globalModule_Try('path');
 	var stackTrace_Module = globalModule_Try('stack-trace');
