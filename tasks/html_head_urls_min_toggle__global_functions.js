@@ -165,6 +165,7 @@ function toMin(headStart, headEnd, carriageReturn, contentArray) {
 				dump_debug_string("3: " + regExp_ResultArray[1] + ".min" + endMarker);
 				dump_debug_string("4: " + regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + endMarker);
 				dump_debug_string("5: " + regExp_ResultArray[1] + ".min" + regExp_ResultArray[2] + carriageReturn + endMarker);
+				dump_debug_string("TARGET: " + regExp_ResultArray[2] + endMarker);
 				if (!changed) {
 					changed = true;
 				}
