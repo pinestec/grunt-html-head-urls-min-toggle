@@ -50,21 +50,6 @@ module.exports = function(grunt) {
 		      direction : 'min',
 		      cwd : './',
 		      src : [ '*.max.html' ]
-		    }, {
-		      expand : true,
-		      direction : 'regular',
-		      cwd : './',
-		      src : [ '*.max.html' ]
-		    }, {
-		      expand : true,
-		      direction : 'regular',
-		      cwd : './',
-		      src : [ '*.max.html' ]
-		    }, {
-		      expand : true,
-		      direction : 'min',
-		      cwd : './',
-		      src : [ '*.max.html' ]
 		    } ]
 	    },
 	    targets : {
