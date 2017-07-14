@@ -16,11 +16,13 @@ module.exports = function(grunt) {
 		    // Check the entire "this" object and comment out the next line...
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
 		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:[\\w-]*targets?[\\w-]*$", "i");
+
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
 			    var min_targets_array = [];
 			    var regular_targets_array = [];
 			    var global_functions = {};
 			    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
+
 			    if (this.data.files) {
 				    for (var k = 0; k < this.data.files.length; k++) {
 					    if (this.data.files[k].expand) {
@@ -41,7 +43,9 @@ module.exports = function(grunt) {
 						    }
 					    }
 				    }
-			    } else {
+			    }
+
+			    else {
 				    if (min_targets_array.length === 1) {
 					    grunt.log.write("\nOne file specified to switch all it's \"head links\" to \"minified sources\"...:\n");
 				    } else {
@@ -100,7 +104,9 @@ module.exports = function(grunt) {
 					        .write("\n>>> NO \"HTML Files\" listed to switch their \"head links\" to \"regular sources\"... <<<\n");
 				    }
 			    }
-		    } else {
+		    }
+
+		    else {
 			    // Merge task-specific and/or target-specific options with these
 			    // defaults.
 			    var options = this.options({
