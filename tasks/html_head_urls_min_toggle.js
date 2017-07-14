@@ -52,6 +52,7 @@ module.exports = function(grunt) {
 					    grunt.log.write("\n" + min_targets_array.length +
 					        " Files specified to switch all their \"head links\" to \"minified sources\"...:\n");
 				    }
+
 				    try {
 					    min_targets_array = this.data.min_targets;
 					    if (typeof min_targets_array === 'undefined') {
@@ -60,6 +61,7 @@ module.exports = function(grunt) {
 				    } catch (exception) {
 					    min_targets_array = [];
 				    }
+
 				    try {
 					    regular_targets_array = this.data.regular_targets;
 					    if (typeof regular_targets_array === 'undefined') {
