@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 
 					    for (var i = 0; i < min_targets_array.length; i++) {
 						    grunt.log.write("\t" + (i + 1) + ": \"" + min_targets_array[i] + "\"");
-						    if (!global_functions.toggle_all_head_links('min', min_targets_array[i])) {
+						    if (global_functions.toggle_all_head_links('min', min_targets_array[i])) {
 							    grunt.log.write("\t- to \""['green'] + "min"['green'] + "\" o.k."['green'] + "\n");
 						    } else {
 							    grunt.log.write("\t- to \""['red'] + "min"['red'] + "\" >>> Failed...! <<<"['red'] + "\n");
