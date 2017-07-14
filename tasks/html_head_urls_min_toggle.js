@@ -69,10 +69,10 @@ module.exports = function(grunt) {
 
 					    for (var i = 0; i < min_targets_array.length; i++) {
 						    grunt.log.write("\t" + (i + 1) + ": \"" + min_targets_array[i] + "\"");
-						    if (global_functions.toggle_all_head_links('min', min_targets_array[i])) {
-							    grunt.log.write("\t- o.k.\n");
+						    if (!global_functions.toggle_all_head_links('min', min_targets_array[i])) {
+							    grunt.log.write("\t- to \""['green'] + "min"['green'] + "\" o.k."['green'] + "\n");
 						    } else {
-							    grunt.log.write("\t- >>> Failed...! <<<\n");
+							    grunt.log.write("\t- to \""['red'] + "min"['red'] + "\" >>> Failed...! <<<"['red'] + "\n");
 						    }
 					    }
 				    } else {
@@ -90,9 +90,9 @@ module.exports = function(grunt) {
 					    for (var j = 0; j < regular_targets_array.length; j++) {
 						    grunt.log.write("\t" + (j + 1) + ": \"" + regular_targets_array[j] + "\"");
 						    if (global_functions.toggle_all_head_links('regular', regular_targets_array[j])) {
-							    grunt.log.write("\t- o.k.\n");
+							    grunt.log.write("\t- to \""['green'] + "regular"['green'] + "\" o.k."['green'] + "\n");
 						    } else {
-							    grunt.log.write("\t- >>> Failed...! <<<\n");
+							    grunt.log.write("\t- to \""['red'] + "regular"['red'] + "\" >>> Failed...! <<<"['red'] + "\n");
 						    }
 					    }
 				    } else {
