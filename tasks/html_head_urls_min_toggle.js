@@ -30,9 +30,11 @@ module.exports = function(grunt) {
 							    for (var l = 0; l < current_files_array.length; l++) {
 								    grunt.log.write((l + 1) + ": \"" + current_files_array[l] + "\"");
 								    if (global_functions.toggle_all_head_links(this.data.files[k].direction, current_files_array[l])) {
-									    grunt.log.write("\t- o.k."['green'] + "\n");
+									    grunt.log.write("\t- to \""['green'] + this.data.files[k].direction['green'] + "\" o.k."['green'] +
+									        "\n");
 								    } else {
-									    grunt.log.write("\t- >>> Failed...! <<<"['red'] + "\n");
+									    grunt.log.write("\t- to \""['red'] + this.data.files[k].direction['red'] +
+									        "\">>> Failed...! <<<"['red'] + "\n");
 								    }
 							    }
 							    grunt.log.write("\n");
