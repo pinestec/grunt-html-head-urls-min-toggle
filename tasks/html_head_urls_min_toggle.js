@@ -28,13 +28,14 @@ module.exports = function(grunt) {
 						        this.data.files[k].src, this.data.files[k].cwd);
 						    if (current_files_array) {
 							    for (var l = 0; l < current_files_array.length; l++) {
-								    grunt.log.write(current_files_array[l]);
+								    grunt.log.write((l + 1) + ": \"" + current_files_array[l] + "\"");
 								    if (global_functions.toggle_all_head_links(this.data.files[k].direction, current_files_array[l])) {
 									    grunt.log.write("\t- o.k.\n");
 								    } else {
 									    grunt.log.write("\t- >>> Failed...! <<<\n");
 								    }
 							    }
+							    grunt.log.write("\n");
 						    }
 					    }
 				    }
