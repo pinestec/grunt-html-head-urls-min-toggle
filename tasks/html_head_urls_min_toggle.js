@@ -26,8 +26,11 @@ module.exports = function(grunt) {
 					    if (this.data.files[k].expand) {
 						    var current_files_array = global_functions.process_wildcard_input(this.data.files[k].direction,
 						        this.data.files[k].src, this.data.files[k].cwd);
-						    for (var l = 0; l < current_files_array.length; l++) {
-							    console.log((l + 1) + ": \"" + current_files_array[l] + "\"");
+						    if (current_files_array) {
+							    for (var l = 0; l < current_files_array.length; l++) {
+								    console.log((l + 1) + ": \"" + current_files_array[l] + "\"");
+								    global_functions.toggle_all_head_links(this.data.files[k].direction, current_files_array[l]);
+							    }
 						    }
 					    }
 				    }
