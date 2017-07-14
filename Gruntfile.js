@@ -143,4 +143,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('sm', 'html_head_urls_min_toggle:single_target_min');
 	grunt.registerTask('sr', 'html_head_urls_min_toggle:single_target_regular');
 	grunt.registerTask('w', 'html_head_urls_min_toggle:wildcard_targets');
+	grunt.registerTask('o', 'html_head_urls_min_toggle:default_options', 'html_head_urls_min_toggle:custom_options',
+	    'nodeunit');
+	grunt.registerTask('oo', 'nodeunit');
 };
