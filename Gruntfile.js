@@ -146,4 +146,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('w', 'html_head_urls_min_toggle:wildcard_targets');
 	grunt.registerTask('o', [ 'html_head_urls_min_toggle:default_options', 'html_head_urls_min_toggle:custom_options',
 	    'nodeunit' ]);
+	grunt.registerTask('od', [ 'html_head_urls_min_toggle:default_options' ]);
+	grunt.registerTask('oc', [ 'html_head_urls_min_toggle:custom_options' ]);
 };
