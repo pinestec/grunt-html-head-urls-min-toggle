@@ -32,8 +32,8 @@ module.exports = function(grunt) {
 	    default_options : {
 	      options : {},
 	      files : {
-		      'tmp/default_options' : [ 'test/fixtures/testing', 'test/fixtures/123',
-		          './test/html-head-urls-min-toggle_dummy_options.txt' ]
+		      'tmp/default_options' : [ 'test/fixtures/testing', 'test/fixtures/123' ]
+	      // './test/html-head-urls-min-toggle_dummy_options.txt' ]
 	      }
 	    },
 	    custom_options : {
