@@ -1,5 +1,3 @@
-// './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html', './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html', './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html', './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html', './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html', './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html'
-
 /*
  * grunt-html-head-urls-min-toggle
  * https://github.com/pinestec/html-head-urls-min-toggle
@@ -11,44 +9,33 @@
 'use strict';
 
 module.exports = function(grunt) {
-
-	// Project configuration.
 	grunt.initConfig({
+
 	  jshint : {
-	    all : [ 'Gruntfile.js', 'tasks/*.js', '<%= nodeunit.tests %>' ],
+	    all : [ 'Gruntfile.js', 'tasks/*.js', 'test/*_test.js' ],
 	    options : {
 	      jshintrc : '.jshintrc',
 	      reporterOutput : ""
 	    }
 	  },
 
-	  // Before generating any new files, remove any previously-created files.
 	  clean : {
 		  tests : [ 'tmp' ]
 	  },
 
-	  // Configuration to be run (and then tested).
 	  html_head_urls_min_toggle : {
-	    default_options : {
-	      options : {},
-	      files : {
-		      'tmp/default_options' : [ 'test/fixtures/testing', 'test/fixtures/123' ]
-	      // './test/html-head-urls-min-toggle_dummy_options.txt' ]
-	      }
-	    },
-	    custom_options : {
-	      options : {
-	        separator : ': ',
-	        punctuation : ' !!!'
-	      },
-	      files : {
-		      'tmp/custom_options' : [ 'test/fixtures/testing', 'test/fixtures/123' ]
-	      }
-	    },
-	    wildcard_targets : {
+	    wildcard_targets_min : {
 		    files : [ {
 		      expand : true,
 		      direction : 'min',
+		      cwd : './',
+		      src : [ '*.max.html' ]
+		    } ]
+	    },
+	    wildcard_targets_regular : {
+		    files : [ {
+		      expand : true,
+		      direction : 'regular',
 		      cwd : './',
 		      src : [ '*.max.html' ]
 		    } ]
@@ -61,91 +48,17 @@ module.exports = function(grunt) {
 	      regular_targets : [ './ctos_np.max.html', './eclipse_related.max.html', './graphicsWorkCurrentMemory.max.html',
 	          './jquery_pearls.max.html', './linux.max.html', './mp4todvd.max.html', './quickcmds.max.html',
 	          './ssh_key_generation.max.html', './useful_apps_steppingstone.max.html' ],
-	    },
-	    switch_targets_back_and_forth : {
-	      min_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html',
-	          './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html',
-	          './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html',
-	          './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
-	          './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
-	          './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ],
-	      regular_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html',
-	          './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html',
-	          './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html',
-	          './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
-	          './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
-	          './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ],
-	    },
-	    before_TARGETS_behind : {
-	      min_targets : [ './bash_sed_perl.max.html', './current_commented_places.max.html',
-	          './git_files__get_prepare.max.html', './index.max.html', './linksys_quick_rebirth.max.html',
-	          './loginBasedPrivacyKeyManagement.max.html', './node_js_with_grunt.max.html',
-	          './regular_expression_snippets.max.html', './ssh_pearls.max.html', './windows_certificate_related.max.html' ],
-	      regular_targets : [ './ctos_np.max.html', './eclipse_related.max.html', './graphicsWorkCurrentMemory.max.html',
-	          './jquery_pearls.max.html', './linux.max.html', './mp4todvd.max.html', './quickcmds.max.html',
-	          './ssh_key_generation.max.html', './useful_apps_steppingstone.max.html' ],
-	    },
-	    targets_to_minified_files : {
-		    min_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html',
-		        './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html',
-		        './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html',
-		        './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
-		        './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
-		        './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ]
-	    },
-	    targets_to_regular_files : {
-		    regular_targets : [ './bash_sed_perl.max.html', './ctos_np.max.html', './current_commented_places.max.html',
-		        './eclipse_related.max.html', './git_files__get_prepare.max.html', './graphicsWorkCurrentMemory.max.html',
-		        './index.max.html', './jquery_pearls.max.html', './linksys_quick_rebirth.max.html', './linux.max.html',
-		        './loginBasedPrivacyKeyManagement.max.html', './mp4todvd.max.html', './node_js_with_grunt.max.html',
-		        './quickcmds.max.html', './regular_expression_snippets.max.html', './ssh_key_generation.max.html',
-		        './ssh_pearls.max.html', './useful_apps_steppingstone.max.html', './windows_certificate_related.max.html' ]
-	    },
-	    targets_to_no_files : {},
-	    no_files_targets : {},
-	    single_target_min : {
-		    min_targets : [ './index.max.html' ]
-	    },
-	    single_target_regular : {
-		    regular_targets : [ './index.max.html' ]
 	    }
 	  },
-
-	  // Unit tests.
-	  nodeunit : {
-		  tests : [ 'test/*_test.js' ]
-	  }
-
 	});
 
-	// Actually load this plugin's task(s).
 	grunt.loadTasks('tasks');
 
-	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	grunt.registerTask('default', [ 'jshint', 'html_head_urls_min_toggle' ]);
 
-	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
-	// plugin's task(s), then test the result.
-	grunt.registerTask('test', [ 'clean', 'html_head_urls_min_toggle', 'nodeunit' ]);
-
-	// By default, lint and run all tests.
-	grunt.registerTask('default', [ 'jshint', 'test' ]);
-	grunt.registerTask('j', [ 'jshint' ]);
-
-	grunt.registerTask('dt', 'html_head_urls_min_toggle:targets');
-	grunt.registerTask('m', 'html_head_urls_min_toggle:targets_to_minified_files');
-	grunt.registerTask('r', 'html_head_urls_min_toggle:targets_to_regular_files');
-	grunt.registerTask('e', 'html_head_urls_min_toggle:targets_to_no_files');
-	grunt.registerTask('n', 'html_head_urls_min_toggle:no_files_targets');
-	grunt.registerTask('x', 'html_head_urls_min_toggle:before_TARGETS_behind');
-	grunt.registerTask('s', 'html_head_urls_min_toggle:switch_targets_back_and_forth');
-	grunt.registerTask('sm', 'html_head_urls_min_toggle:single_target_min');
-	grunt.registerTask('sr', 'html_head_urls_min_toggle:single_target_regular');
-	grunt.registerTask('w', 'html_head_urls_min_toggle:wildcard_targets');
-	grunt.registerTask('o', [ 'html_head_urls_min_toggle:default_options', 'html_head_urls_min_toggle:custom_options',
-	    'nodeunit' ]);
-	grunt.registerTask('od', [ 'html_head_urls_min_toggle:default_options' ]);
-	grunt.registerTask('oc', [ 'html_head_urls_min_toggle:custom_options' ]);
+	grunt.registerTask('wm', 'html_head_urls_min_toggle:wildcard_targets_min');
+	grunt.registerTask('wr', 'html_head_urls_min_toggle:wildcard_targets_regular');
+	grunt.registerTask('t', 'html_head_urls_min_toggle:targets');
 };
