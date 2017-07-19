@@ -25,12 +25,17 @@ module.exports = function(grunt) {
 
 	  html_head_urls_min_toggle : {
 	    wildcard_targets_min : {
-		    files : [ {
-		      expand : true,
-		      direction : 'min',
-		      cwd : './',
-		      src : [ '*.max.html' ]
-		    } ]
+	      options : {
+	        action : 'switch',
+	        direction : 'min',
+	        file_source : 'wildcard'
+	      },
+	      files : [ {
+	        expand : true,
+	        direction : 'min',
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      } ]
 	    },
 	    wildcard_targets_regular : {
 		    files : [ {
@@ -57,6 +62,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.registerTask('default', [ 'jshint', 'html_head_urls_min_toggle' ]);
+
+	grunt.registerTask('j', 'jshint');
 
 	grunt.registerTask('wm', 'html_head_urls_min_toggle:wildcard_targets_min');
 	grunt.registerTask('wr', 'html_head_urls_min_toggle:wildcard_targets_regular');

@@ -15,11 +15,25 @@ module.exports = function(grunt) {
 	    'Point the html-head href and src urls to minified sources and vice versa.', function() {
 		    // Check the entire "this" object by commenting out the next line...
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
+		    var reference_options_object = {
+		      action : [ 'switch', 'clean' ],
+		      direction : [ 'min', 'regular' ],
+		      file_source : [ 'wildcard', 'list' ]
+		    };
+		    var global_functions = {};
+		    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
+		    if (global_functions.private_action_checker(this, reference_options_object, true)) {
+			    console.log("VALID OPTIONS FOUND...!");
+		    }
 		    var spot_nameArgs_RegExp = new RegExp("^html_head_urls_min_toggle\\:[\\w-]*targets?[\\w-]*$", "i");
 		    // "target[s]" is the magic word to enter...
+		    // var currentObject = this.nameArgs[1];
+		    // for ( var item in currentObject) {
+		    // console.log(item + "\n");
+		    // }
+		    // console.log(this.data + "\n");
 		    if (this.nameArgs.search(spot_nameArgs_RegExp) !== -1) {
-			    var global_functions = {};
-			    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
+
 			    // A valid "this.data.files" indicating a wildcard section...
 			    if (this.data.files) {
 				    for (var k = 0; k < this.data.files.length; k++) {

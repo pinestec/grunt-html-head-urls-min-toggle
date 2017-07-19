@@ -214,6 +214,37 @@ function delete_writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
+  private_action_checker : function(global_object, reference_object, noisy) {
+	  var global_options_object = global_object.data.options;
+	  if (global_options_object !== undefined) {
+		  if (noisy) {
+			  console.log(">>> Options section found... <<<");
+		  }
+		  for ( var item in reference_object) {
+			  if (global_options_object.hasOwnProperty(item)) {
+				  var contains_valid_value = false;
+				  for (var i = 0; i < reference_object[item].length; i++) {
+					  if (reference_object[item].includes(global_options_object[item])) {
+						  contains_valid_value = true;
+						  break;
+					  }
+				  }
+				  if (!contains_valid_value) {
+					  console.log("NO VALID ITEM FOUND...!");
+					  return false;
+				  }
+			  } else {
+				  console.log("MISSING OBJECTS OPTIONS PROPERTY: \"" + item + "\"");
+				  return false;
+			  }
+		  }
+		  return true;
+	  } else {
+		  console.log(">>> NO OPTIONS SECTION FOUND...! <<<");
+		  return false;
+	  }
+  },
+
   process_wildcard_input : function(direction, source, directory) {
 	  var wildcard_extractor_RegExp = new RegExp("^\\*(.+)$");
 	  var result_array = wildcard_extractor_RegExp.exec(source);
