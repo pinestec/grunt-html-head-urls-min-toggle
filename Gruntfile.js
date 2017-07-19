@@ -24,29 +24,29 @@ module.exports = function(grunt) {
 	  },
 
 	  html_head_urls_min_toggle : {
-	    wildcard_targets_min : {
-	      options : {
-	        action : 'switch',
-	        direction : 'regular',
-	        file_source : 'wildcard'
-	      },
-	      files : [ {
-	        expand : true,
-	        direction : 'min',
-	        cwd : './',
-	        src : [ '*.max.html' ]
-	      } ]
-	    },
 	    list_targets_new : {
 	      options : {
 	        action : 'switch',
 	        direction : 'regular',
 	        file_source : 'list'
 	      },
-	      files : [ './bash_sed_perl.max.html', './current_commented_places.max.html', './git_files__get_prepare.max.html',
-	          './index.max.html', './linksys_quick_rebirth.max.html', './loginBasedPrivacyKeyManagement.max.html',
-	          './node_js_with_grunt.max.html', './regular_expression_snippets.max.html', './ssh_pearls.max.html',
-	          './windows_certificate_related.max.html' ]
+	      custom_files : [ './bash_sed_perl.max.html', './current_commented_places.max.html',
+	          './git_files__get_prepare.max.html', './index.max.html', './linksys_quick_rebirth.max.html',
+	          './loginBasedPrivacyKeyManagement.max.html', './node_js_with_grunt.max.html',
+	          './regular_expression_snippets.max.html', './ssh_pearls.max.html', './windows_certificate_related.max.html' ]
+	    },
+	    wildcard_targets_min : {
+	      options : {
+	        action : 'switch',
+	        direction : 'regular',
+	        file_source : 'wildcard'
+	      },
+	      custom_files : [ {
+	        expand : true,
+	        direction : 'min',
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      } ]
 	    },
 	    wildcard_targets_regular : {
 		    files : [ {
@@ -78,5 +78,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('wm', 'html_head_urls_min_toggle:wildcard_targets_min');
 	grunt.registerTask('wr', 'html_head_urls_min_toggle:wildcard_targets_regular');
-	grunt.registerTask('t', 'html_head_urls_min_toggle:targets');
+	grunt.registerTask('l', 'html_head_urls_min_toggle:list_targets_new');
 };

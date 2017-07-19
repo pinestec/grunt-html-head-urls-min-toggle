@@ -12,8 +12,10 @@ module.exports = function(grunt) {
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
 	grunt
-	    .registerMultiTask('html_head_urls_min_toggle',
-	        'Point the html-head href and src urls to minified sources and vice versa.', function() {
+	    .registerMultiTask(
+	        'html_head_urls_min_toggle',
+	        'Point the html-head href and src urls to minified sources and vice versa.',
+	        function() {
 		        // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
@@ -29,13 +31,14 @@ module.exports = function(grunt) {
 			        if (this.data.options.action === 'switch') {
 				        if (this.data.options.file_source === 'list') {
 					        console.log("SWITCHING SECTION LIST...!");
-
+					        var current_files_array = this.data.custom_files;
+					        console.log(current_files_array.length);
 				        } else {
 					        console.log("SWITCHING SECTION WILDCARD...!");
-					        for (var i = 0; i < this.data.files.length; i++) {
-						        if (this.data.files[i].hasOwnProperty('cwd') && this.data.files[i].hasOwnProperty('src')) {
-							        var current_files_array = global_functions.process_wildcard_input(this.data.files[i].src,
-							            this.data.files[i].cwd);
+					        for (var i = 0; i < this.data.custom_files.length; i++) {
+						        if (this.data.custom_files[i].hasOwnProperty('cwd') && this.data.custom_files[i].hasOwnProperty('src')) {
+							        var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[i].src,
+							            this.data.custom_files[i].cwd);
 							        for (var j = 0; j < current_files_array.length; j++) {
 								        grunt.log.write("\t" + (j + 1) + ": \"" + current_files_array[j] + "\"");
 								        if (global_functions.toggle_all_head_links(this.data.options.direction, current_files_array[j])) {
