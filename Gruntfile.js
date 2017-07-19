@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 	      options : {
 	        action : 'switch',
 	        direction : 'min',
-	        file_source : 'wildcard'
+	        file_source : 'wildcardX'
 	      },
 	      files : [ {
 	        expand : true,
