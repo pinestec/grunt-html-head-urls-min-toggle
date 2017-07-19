@@ -230,7 +230,7 @@ module.exports = {
 					  }
 				  }
 				  if (!contains_valid_value) {
-					  console.log("NO VALID ITEM FOUND...!");
+					  console.log("NO VALID VALUE FOR \"" + reference_object[item] + "\" FOUND...!");
 					  return false;
 				  }
 			  } else {
