@@ -39,10 +39,10 @@ module.exports = function(grunt) {
 					    }
 				    } else {
 					    console.log("SWITCHING SECTION WILDCARD...!");
-					    for (var i = 0; i < this.data.custom_files.length; i++) {
-						    if (this.data.custom_files[i].hasOwnProperty('cwd') && this.data.custom_files[i].hasOwnProperty('src')) {
-							    var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[i].src,
-							        this.data.custom_files[i].cwd);
+					    for (var k = 0; k < this.data.custom_files.length; k++) {
+						    if (this.data.custom_files[k].hasOwnProperty('cwd') && this.data.custom_files[k].hasOwnProperty('src')) {
+							    var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[k].src,
+							        this.data.custom_files[k].cwd);
 							    for (var j = 0; j < current_files_array.length; j++) {
 
 								    grunt.log.write("\t" + (j + 1) + ": \"" + current_files_array[j] + "\"");
@@ -53,7 +53,6 @@ module.exports = function(grunt) {
 									    grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
 									        "\">>> Failed...! <<<"['red'] + "\n");
 								    }
-
 							    }
 						    } else {
 							    console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
