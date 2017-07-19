@@ -37,6 +37,17 @@ module.exports = function(grunt) {
 	        src : [ '*.max.html' ]
 	      } ]
 	    },
+	    list_targets_new : {
+	      options : {
+	        action : 'switch',
+	        direction : 'regular',
+	        file_source : 'list'
+	      },
+	      files : [ './bash_sed_perl.max.html', './current_commented_places.max.html', './git_files__get_prepare.max.html',
+	          './index.max.html', './linksys_quick_rebirth.max.html', './loginBasedPrivacyKeyManagement.max.html',
+	          './node_js_with_grunt.max.html', './regular_expression_snippets.max.html', './ssh_pearls.max.html',
+	          './windows_certificate_related.max.html' ]
+	    },
 	    wildcard_targets_regular : {
 		    files : [ {
 		      expand : true,

@@ -29,6 +29,7 @@ module.exports = function(grunt) {
 			        if (this.data.options.action === 'switch') {
 				        if (this.data.options.file_source === 'list') {
 					        console.log("SWITCHING SECTION LIST...!");
+
 				        } else {
 					        console.log("SWITCHING SECTION WILDCARD...!");
 					        for (var i = 0; i < this.data.files.length; i++) {
