@@ -19,12 +19,23 @@ module.exports = function(grunt) {
 		        // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
-		        var reference_options_object = {
+		        var reference_options_switch_object = {
 		          action : [ 'switch', 'clean' ],
 		          direction : [ 'min', 'regular' ],
 		          file_source : [ 'wildcard', 'list' ]
 		        };
-		        if (global_functions.private_action_checker(this, reference_options_object, true)) {
+		        if (global_functions.private_action_checker(this, reference_options_switch_object, true)) {
+			        var reference_options_clean_object = {
+			          action : [ 'switch', 'clean' ],
+			          file_source : [ 'wildcard', 'list' ]
+			        };
+
+			        if (!global_functions.private_action_checker(this, reference_options_clean_object, true)) {
+
+			        } else {
+
+			        }
+
 			        if (this.data.options.action === 'clean') {
 				        console.log("CLEANING SECTION...!");
 				        if (this.data.options.file_source === 'list') {
