@@ -22,7 +22,16 @@ module.exports = function(grunt) {
 		      file_source : [ 'wildcard', 'list' ]
 		    };
 		    if (global_functions.private_action_checker(this, reference_options_object, true)) {
-
+			    if (this.data.options.action === 'clean') {
+				    console.log("CLEANING SECTION...!");
+			    }
+			    if (this.data.options.action === 'switch') {
+				    if (this.data.options.file_source === 'list') {
+					    console.log("SWITCHING SECTION LIST...!");
+				    } else {
+					    console.log("SWITCHING SECTION WILDCARD...!");
+				    }
+			    }
 		    }
 
 		    if (this.data.files) {
