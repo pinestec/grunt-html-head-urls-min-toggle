@@ -27,8 +27,8 @@ module.exports = function(grunt) {
 	    wildcard_targets_min : {
 	      options : {
 	        action : 'switch',
-	        direction : 'min',
-	        file_source : 'wildcardX'
+	        direction : 'regular',
+	        file_source : 'wildcard'
 	      },
 	      files : [ {
 	        expand : true,

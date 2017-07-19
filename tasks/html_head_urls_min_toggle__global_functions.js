@@ -218,7 +218,7 @@ module.exports = {
 	  var global_options_object = global_object.data.options;
 	  if (global_options_object !== undefined) {
 		  if (noisy) {
-			  console.log(">>> Options section found... <<<");
+			  console.log(">>> Options section found... Doing further checking... <<<");
 		  }
 		  for ( var item in reference_object) {
 			  if (global_options_object.hasOwnProperty(item)) {
@@ -230,7 +230,7 @@ module.exports = {
 					  }
 				  }
 				  if (!contains_valid_value) {
-					  console.log("NO VALID VALUE FOR THE OPTION \"" + item + "\" FOUND...!");
+					  console.log("\"" + global_options_object[item] + "\" IS NOT A VALID OPTION WITH \"" + item + "\" ...!");
 					  return false;
 				  }
 			  } else {
