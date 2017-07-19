@@ -17,27 +17,6 @@ function dump_debug_string(string) {
 	fileSystem_Module.closeSync(inHouseFileHandle);
 }
 
-// var endMarker = " MIN_END\n";
-// dump_debug_string("1: " + regExp_ResultArray[1] + ".min" +
-// regExp_ResultArray[2] + carriageReturn + endMarker);
-// dump_debug_string("2 no_cr: " + regExp_ResultArray[1] + endMarker);
-// dump_debug_string("3 no_cr: " + regExp_ResultArray[1] + ".min" + endMarker);
-// dump_debug_string("4 no_cr: " + regExp_ResultArray[1] + ".min" +
-// regExp_ResultArray[2] + endMarker);
-// dump_debug_string("5: " + regExp_ResultArray[1] + ".min" +
-// regExp_ResultArray[2] + carriageReturn + endMarker);
-// dump_debug_string("TARGET no_cr: " + regExp_ResultArray[2] + endMarker);
-//
-// var endMarker = " REGULAR_END\n";
-// dump_debug_string("1: " + regExp_ResultArray[1] + regExp_ResultArray[2] +
-// carriageReturn + endMarker);
-// dump_debug_string("2 no_cr: " + regExp_ResultArray[1] + endMarker);
-// dump_debug_string("3 no_cr: " + regExp_ResultArray[1] + regExp_ResultArray[2]
-// + endMarker);
-// dump_debug_string("4: " + regExp_ResultArray[1] + regExp_ResultArray[2] +
-// carriageReturn + endMarker);
-// dump_debug_string("TARGET no_cr: " + regExp_ResultArray[2] + endMarker);
-
 function message_locator_service(mainMessage) {
 	var path_Module = globalModule_Try('path');
 	var stackTrace_Module = globalModule_Try('stack-trace');
