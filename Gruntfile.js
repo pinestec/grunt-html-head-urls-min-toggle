@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 	    },
 	    projectTwo_targets_clean : {
 	      options : {
-	        action : 'switch',
+	        action : 'clean',
 	        direction : 'regular',
 	        file_source : 'wildcard'
 	      },
