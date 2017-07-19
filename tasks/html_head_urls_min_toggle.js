@@ -25,18 +25,6 @@ module.exports = function(grunt) {
 		          file_source : [ 'wildcard', 'list' ]
 		        };
 		        if (global_functions.private_action_checker(this, reference_options_switch_object, true)) {
-			        var reference_options_clean_object = {
-			          action : [ 'switch', 'clean' ],
-			          file_source : [ 'wildcard', 'list' ]
-			        };
-
-			        if (!global_functions.private_action_checker(this, reference_options_clean_object, true)) {
-				        // Switching...
-
-			        } else {
-				        // Cleaning...
-			        }
-
 			        if (this.data.options.action === 'clean') {
 				        console.log("CLEANING SECTION...!");
 				        if (this.data.options.file_source === 'list') {
