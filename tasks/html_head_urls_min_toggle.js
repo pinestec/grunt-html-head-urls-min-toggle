@@ -30,7 +30,14 @@ module.exports = function(grunt) {
 					    console.log("SWITCHING SECTION LIST...!");
 				    } else {
 					    console.log("SWITCHING SECTION WILDCARD...!");
-					    console.log(this.data.files[0].src);
+					    for (var i = 0; i < this.data.files.length; i++) {
+						    if (this.data.files[i].hasOwnProperty('cwd') && this.data.files[i].hasOwnProperty('src')) {
+
+						    } else {
+							    console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
+						    }
+					    }
+
 					    // var current_files_array =
 					    // global_functions.process_wildcard_input('dummy',
 					    // this.data.files[k].src,
