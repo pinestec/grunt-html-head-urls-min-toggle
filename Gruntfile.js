@@ -45,8 +45,19 @@ module.exports = function(grunt) {
 	        cwd : './',
 	        src : [ '*.max.html' ]
 	      } ]
+	    },
+	    projectTwo_targets_clean : {
+	      options : {
+	        action : 'switch',
+	        direction : 'regular',
+	        file_source : 'wildcard'
+	      },
+	      custom_files : [ {
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      } ]
 	    }
-	  },
+	  }
 	});
 
 	grunt.loadTasks('tasks');
@@ -60,4 +71,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('wm', 'html_head_urls_min_toggle:projectTwo_targets');
 	grunt.registerTask('wr', 'html_head_urls_min_toggle:projectTwo_targets');
 	grunt.registerTask('l', 'html_head_urls_min_toggle:projectOne_targets');
+	grunt.registerTask('c', 'html_head_urls_min_toggle:projectTwo_targets_clean');
 };
