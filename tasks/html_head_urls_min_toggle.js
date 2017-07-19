@@ -13,15 +13,14 @@ module.exports = function(grunt) {
 	// creation: http://gruntjs.com/creating-tasks
 	grunt.registerMultiTask('html_head_urls_min_toggle',
 	    'Point the html-head href and src urls to minified sources and vice versa.', function() {
-		    // Check the entire "this" object by commenting out the next line...
 		    // grunt.log.write("\n" + JSON.stringify(this) + "\n\n");
+		    var global_functions = {};
+		    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		    var reference_options_object = {
 		      action : [ 'switch', 'clean' ],
 		      direction : [ 'min', 'regular' ],
 		      file_source : [ 'wildcard', 'list' ]
 		    };
-		    var global_functions = {};
-		    global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		    if (global_functions.private_action_checker(this, reference_options_object, true)) {
 			    console.log("VALID OPTIONS FOUND...!");
 		    }
