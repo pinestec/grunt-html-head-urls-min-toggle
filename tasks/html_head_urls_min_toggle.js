@@ -41,6 +41,7 @@ module.exports = function(grunt) {
 							        var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[i].src,
 							            this.data.custom_files[i].cwd);
 							        for (var j = 0; j < current_files_array.length; j++) {
+
 								        grunt.log.write("\t" + (j + 1) + ": \"" + current_files_array[j] + "\"");
 								        if (global_functions.toggle_all_head_links(this.data.options.direction, current_files_array[j])) {
 									        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
@@ -49,6 +50,7 @@ module.exports = function(grunt) {
 									        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
 									            "\">>> Failed...! <<<"['red'] + "\n");
 								        }
+
 							        }
 						        } else {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
