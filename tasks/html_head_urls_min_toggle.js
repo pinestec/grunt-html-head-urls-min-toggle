@@ -99,6 +99,14 @@ module.exports = function(grunt) {
 					        }
 				        }
 			        }
+		        } else {
+			        var reference_options_clean_object = {
+			          action : [ 'switch', 'clean' ],
+			          file_source : [ 'wildcard', 'list' ]
+			        };
+			        if (global_functions.private_action_checker(this, reference_options_clean_object, true)) {
+
+			        }
 		        }
 	        });
 };
