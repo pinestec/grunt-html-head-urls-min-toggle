@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 	  },
 
 	  html_head_urls_min_toggle : {
-	    projectOne_targets : {
+	    any_custom_name_to_switch_listed : {
 	      options : {
 	        action : 'switch',
 	        direction : 'regular',
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 	          './loginBasedPrivacyKeyManagement.max.html', './node_js_with_grunt.max.html',
 	          './regular_expression_snippets.max.html', './ssh_pearls.max.html', './windows_certificate_related.max.html' ]
 	    },
-	    projectTwo_targets : {
+	    any_custom_name_to_switch_wild : {
 	      options : {
 	        action : 'switch',
 	        direction : 'regular',
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 	        src : [ '*.max.html' ]
 	      } ]
 	    },
-	    projectTwo_targets_clean : {
+	    any_custom_name_to_clean_wild : {
 	      options : {
 	        action : 'clean',
 	        file_source : 'wildcard'
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 	        src : [ '*.max.html' ]
 	      } ]
 	    },
-	    projectTwo_targets_clean_list : {
+	    any_custom_name_to_clean_listed : {
 	      options : {
 	        action : 'clean',
 	        file_source : 'list'
@@ -64,7 +64,29 @@ module.exports = function(grunt) {
 	      custom_files : [ './ctos_np.max.html', './eclipse_related.max.html', './graphicsWorkCurrentMemory.max.html',
 	          './jquery_pearls.max.html', './linux.max.html', './mp4todvd.max.html', './quickcmds.max.html',
 	          './ssh_key_generation.max.html', './useful_apps_steppingstone.max.html' ]
-	    }
+	    },
+	    to_min : {
+	      options : {
+	        action : 'switch',
+	        direction : 'min',
+	        file_source : 'wildcard'
+	      },
+	      custom_files : [ {
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      } ]
+	    },
+	    to_regular : {
+	      options : {
+	        action : 'switch',
+	        direction : 'regular',
+	        file_source : 'wildcard'
+	      },
+	      custom_files : [ {
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      } ]
+	    },
 	  }
 	});
 
@@ -76,9 +98,12 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('j', 'jshint');
 
-	grunt.registerTask('wm', 'html_head_urls_min_toggle:projectTwo_targets');
-	grunt.registerTask('wr', 'html_head_urls_min_toggle:projectTwo_targets');
-	grunt.registerTask('l', 'html_head_urls_min_toggle:projectOne_targets');
-	grunt.registerTask('c', 'html_head_urls_min_toggle:projectTwo_targets_clean');
-	grunt.registerTask('cl', 'html_head_urls_min_toggle:projectTwo_targets_clean_list');
+	grunt.registerTask('sl', 'html_head_urls_min_toggle:any_custom_name_to_switch_listed');
+	grunt.registerTask('sw', 'html_head_urls_min_toggle:any_custom_name_to_switch_wild');
+	grunt.registerTask('cl', 'html_head_urls_min_toggle:any_custom_name_to_clean_listed');
+	grunt.registerTask('cw', 'html_head_urls_min_toggle:any_custom_name_to_clean_wild');
+
+	grunt.registerTask('m', 'html_head_urls_min_toggle:to_min');
+	grunt.registerTask('r', 'html_head_urls_min_toggle:to_regular');
+
 };
