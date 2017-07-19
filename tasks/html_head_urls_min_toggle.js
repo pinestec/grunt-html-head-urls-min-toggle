@@ -31,8 +31,9 @@ module.exports = function(grunt) {
 			        if (this.data.options.action === 'switch') {
 				        if (this.data.options.file_source === 'list') {
 					        console.log("SWITCHING SECTION LIST...!");
-					        var current_files_array = this.data.custom_files;
-					        console.log(current_files_array.length);
+					        for (var i = 0; i < this.data.custom_files.length; i++) {
+						        console.log(this.data.custom_files[i]);
+					        }
 				        } else {
 					        console.log("SWITCHING SECTION WILDCARD...!");
 					        for (var i = 0; i < this.data.custom_files.length; i++) {
