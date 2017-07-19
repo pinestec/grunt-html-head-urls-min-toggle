@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 					        console.log("CLEANING SECTION LIST...!");
 					        for (var i = 0; i < this.data.custom_files.length; i++) {
 						        grunt.log.write("\t" + (i + 1) + ": \"" + this.data.custom_files[i] + "\"");
-						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[i])) {
+						        if (global_functions.end_of_line_refresh(this.data.custom_files[i])) {
 							        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
 							            "\n");
 						        } else {
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 							            this.data.custom_files[k].cwd);
 							        for (var j = 0; j < current_files_array.length; j++) {
 								        grunt.log.write("\t" + (j + 1) + ": \"" + current_files_array[j] + "\"");
-								        if (global_functions.toggle_all_head_links(this.data.options.direction, current_files_array[j])) {
+								        if (global_functions.end_of_line_refresh(current_files_array[j])) {
 									        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
 									            "\n");
 								        } else {

@@ -308,7 +308,6 @@ module.exports = {
   },
 
   end_of_line_refresh : function(file) {
-	  console.log("CURRENTLY REFRESHING FILE: \"" + file + "\"");
 	  var targetFile_LineArray = array_from_file_delete(file);
 	  if (targetFile_LineArray) {
 		  return end_of_line_clean_save(file, targetFile_LineArray, carriage_return_needed());
