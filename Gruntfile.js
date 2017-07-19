@@ -49,7 +49,6 @@ module.exports = function(grunt) {
 	    projectTwo_targets_clean : {
 	      options : {
 	        action : 'clean',
-	        direction : 'regular',
 	        file_source : 'wildcard'
 	      },
 	      custom_files : [ {
@@ -60,7 +59,6 @@ module.exports = function(grunt) {
 	    projectTwo_targets_clean_list : {
 	      options : {
 	        action : 'clean',
-	        direction : 'regular',
 	        file_source : 'list'
 	      },
 	      custom_files : [ './ctos_np.max.html', './eclipse_related.max.html', './graphicsWorkCurrentMemory.max.html',
