@@ -32,11 +32,10 @@ module.exports = function(grunt) {
 					        for (var i = 0; i < this.data.custom_files.length; i++) {
 						        grunt.log.write("\t" + (i + 1) + ": \"" + this.data.custom_files[i] + "\"");
 						        if (global_functions.end_of_line_refresh(this.data.custom_files[i])) {
-							        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
-							            "\n");
+							        grunt.log.write("\t- action \""['green'] + this.data.options.action + "\" o.k."['green'] + "\n");
 						        } else {
-							        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
-							            "\">>> Failed...! <<<"['red'] + "\n");
+							        grunt.log.write("\t- action \""['red'] + this.data.options.action + "\">>> Failed...! <<<"['red'] +
+							            "\n");
 						        }
 					        }
 				        } else {
@@ -48,10 +47,10 @@ module.exports = function(grunt) {
 							        for (var j = 0; j < current_files_array.length; j++) {
 								        grunt.log.write("\t" + (j + 1) + ": \"" + current_files_array[j] + "\"");
 								        if (global_functions.end_of_line_refresh(current_files_array[j])) {
-									        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
-									            "\n");
+									        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] +
+									            "\" o.k."['green'] + "\n");
 								        } else {
-									        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
+									        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
 									            "\">>> Failed...! <<<"['red'] + "\n");
 								        }
 							        }
