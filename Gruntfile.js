@@ -56,6 +56,16 @@ module.exports = function(grunt) {
 	        cwd : './',
 	        src : [ '*.max.html' ]
 	      } ]
+	    },
+	    projectTwo_targets_clean_list : {
+	      options : {
+	        action : 'clean',
+	        direction : 'regular',
+	        file_source : 'list'
+	      },
+	      custom_files : [ './ctos_np.max.html', './eclipse_related.max.html', './graphicsWorkCurrentMemory.max.html',
+	          './jquery_pearls.max.html', './linux.max.html', './mp4todvd.max.html', './quickcmds.max.html',
+	          './ssh_key_generation.max.html', './useful_apps_steppingstone.max.html' ]
 	    }
 	  }
 	});
@@ -72,4 +82,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('wr', 'html_head_urls_min_toggle:projectTwo_targets');
 	grunt.registerTask('l', 'html_head_urls_min_toggle:projectOne_targets');
 	grunt.registerTask('c', 'html_head_urls_min_toggle:projectTwo_targets_clean');
+	grunt.registerTask('cl', 'html_head_urls_min_toggle:projectTwo_targets_clean_list');
 };

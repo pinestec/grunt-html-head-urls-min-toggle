@@ -32,10 +32,11 @@ module.exports = function(grunt) {
 					        for (var i = 0; i < this.data.custom_files.length; i++) {
 						        grunt.log.write("\t" + (i + 1) + ": \"" + this.data.custom_files[i] + "\"");
 						        if (global_functions.end_of_line_refresh(this.data.custom_files[i])) {
-							        grunt.log.write("\t- action \""['green'] + this.data.options.action + "\" o.k."['green'] + "\n");
-						        } else {
-							        grunt.log.write("\t- action \""['red'] + this.data.options.action + "\">>> Failed...! <<<"['red'] +
+							        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] + "\" o.k."['green'] +
 							            "\n");
+						        } else {
+							        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
+							            "\" >>> Failed...! <<<"['red'] + "\n");
 						        }
 					        }
 				        } else {
@@ -51,7 +52,7 @@ module.exports = function(grunt) {
 									            "\" o.k."['green'] + "\n");
 								        } else {
 									        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
-									            "\">>> Failed...! <<<"['red'] + "\n");
+									            "\" >>> Failed...! <<<"['red'] + "\n");
 								        }
 							        }
 						        } else {
