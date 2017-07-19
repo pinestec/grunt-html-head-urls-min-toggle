@@ -234,7 +234,7 @@ module.exports = {
 					  return false;
 				  }
 			  } else {
-				  console.log("MISSING OBJECTS OPTIONS PROPERTY: \"" + item + "\"");
+				  console.log("MISSING OBJECTS OPTIONS PROPERTY: \"" + item + "\"...!");
 				  return false;
 			  }
 		  }
