@@ -240,7 +240,7 @@ module.exports = {
 		  }
 		  return true;
 	  } else {
-		  console.log(">>> NO OPTIONS SECTION FOUND...! <<<");
+		  console.log(">>> NO VALID OPTIONS SECTION FOUND...! <<<");
 		  return false;
 	  }
   },
