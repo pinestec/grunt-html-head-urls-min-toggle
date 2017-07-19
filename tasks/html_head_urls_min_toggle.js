@@ -21,10 +21,9 @@ module.exports = function(grunt) {
 		          direction : [ 'min', 'regular' ],
 		          file_source : [ 'wildcard', 'list' ]
 		        };
-		        if (global_functions.private_action_checker(this, reference_options_switch_object, true)) {
+		        if (global_functions.private_action_checker(this, reference_options_switch_object, false)) {
 			        if (this.data.options.action === 'switch') {
 				        if (this.data.options.file_source === 'list') {
-					        console.log("SWITCHING SECTION LIST...!");
 					        for (var l = 0; l < this.data.custom_files.length; l++) {
 						        grunt.log.write("\t" + (l + 1) + ": \"" + this.data.custom_files[l] + "\"");
 						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[l])) {
@@ -36,13 +35,11 @@ module.exports = function(grunt) {
 						        }
 					        }
 				        } else {
-					        console.log("SWITCHING SECTION WILDCARD...!");
 					        for (var m = 0; m < this.data.custom_files.length; m++) {
 						        if (this.data.custom_files[m].hasOwnProperty('cwd') && this.data.custom_files[m].hasOwnProperty('src')) {
 							        var current_second_files_array = global_functions.process_wildcard_input(
 							            this.data.custom_files[m].src, this.data.custom_files[m].cwd);
 							        for (var n = 0; n < current_second_files_array.length; n++) {
-
 								        grunt.log.write("\t" + (n + 1) + ": \"" + current_second_files_array[n] + "\"");
 								        if (global_functions.toggle_all_head_links(this.data.options.direction,
 								            current_second_files_array[n])) {
@@ -64,10 +61,8 @@ module.exports = function(grunt) {
 			          action : [ 'clean' ],
 			          file_source : [ 'wildcard', 'list' ]
 			        };
-			        if (global_functions.private_action_checker(this, reference_options_clean_object, true)) {
-				        console.log("CLEANING SECTION...!");
+			        if (global_functions.private_action_checker(this, reference_options_clean_object, false)) {
 				        if (this.data.options.file_source === 'list') {
-					        console.log("CLEANING SECTION LIST...!");
 					        for (var i = 0; i < this.data.custom_files.length; i++) {
 						        grunt.log.write("\t" + (i + 1) + ": \"" + this.data.custom_files[i] + "\"");
 						        if (global_functions.end_of_line_refresh(this.data.custom_files[i])) {
@@ -79,7 +74,6 @@ module.exports = function(grunt) {
 						        }
 					        }
 				        } else {
-					        console.log("CLEANING SECTION WILDCARD...!");
 					        for (var k = 0; k < this.data.custom_files.length; k++) {
 						        if (this.data.custom_files[k].hasOwnProperty('cwd') && this.data.custom_files[k].hasOwnProperty('src')) {
 							        var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[k].src,
