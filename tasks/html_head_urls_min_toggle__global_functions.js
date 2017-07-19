@@ -245,7 +245,7 @@ module.exports = {
 	  }
   },
 
-  process_wildcard_input : function(direction, source, directory) {
+  process_wildcard_input : function(source, directory) {
 	  var wildcard_extractor_RegExp = new RegExp("^\\*(.+)$");
 	  var result_array = wildcard_extractor_RegExp.exec(source);
 	  var final_files_array = [];

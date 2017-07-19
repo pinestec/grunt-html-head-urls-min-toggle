@@ -32,17 +32,15 @@ module.exports = function(grunt) {
 					    console.log("SWITCHING SECTION WILDCARD...!");
 					    for (var i = 0; i < this.data.files.length; i++) {
 						    if (this.data.files[i].hasOwnProperty('cwd') && this.data.files[i].hasOwnProperty('src')) {
-
+							    var current_files_array = global_functions.process_wildcard_input(this.data.files[i].src,
+							        this.data.files[i].cwd);
+							    for (var j = 0; j < current_files_array.length; j++) {
+								    console.log(current_files_array[j]);
+							    }
 						    } else {
 							    console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
 						    }
 					    }
-
-					    // var current_files_array =
-					    // global_functions.process_wildcard_input('dummy',
-					    // this.data.files[k].src,
-					    // this.data.files[k].cwd);
-
 				    }
 			    }
 		    }
@@ -50,8 +48,8 @@ module.exports = function(grunt) {
 		    if (this.data.files) {
 			    for (var k = 0; k < this.data.files.length; k++) {
 				    if (this.data.files[k].expand) {
-					    var current_files_array = global_functions.process_wildcard_input(this.data.files[k].direction,
-					        this.data.files[k].src, this.data.files[k].cwd);
+					    var current_files_array = global_functions.process_wildcard_input(this.data.files[k].src,
+					        this.data.files[k].cwd);
 					    if (current_files_array) {
 						    for (var l = 0; l < current_files_array.length; l++) {
 							    grunt.log.write("\t" + (l + 1) + ": \"" + current_files_array[l] + "\"");
