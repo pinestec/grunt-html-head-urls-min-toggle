@@ -24,7 +24,41 @@ module.exports = function(grunt) {
 		    if (global_functions.private_action_checker(this, reference_options_object, true)) {
 			    if (this.data.options.action === 'clean') {
 				    console.log("CLEANING SECTION...!");
+				    if (this.data.options.file_source === 'list') {
+					    console.log("CLEANING SECTION LIST...!");
+					    for (var i = 0; i < this.data.custom_files.length; i++) {
+						    grunt.log.write("\t" + (i + 1) + ": \"" + this.data.custom_files[i] + "\"");
+						    if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[i])) {
+							    grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] + "\n");
+						    } else {
+							    grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] + "\">>> Failed...! <<<"['red'] +
+							        "\n");
+						    }
+					    }
+				    } else {
+					    console.log("CLEANING SECTION WILDCARD...!");
+					    for (var k = 0; k < this.data.custom_files.length; k++) {
+						    if (this.data.custom_files[k].hasOwnProperty('cwd') && this.data.custom_files[k].hasOwnProperty('src')) {
+							    var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[k].src,
+							        this.data.custom_files[k].cwd);
+							    for (var j = 0; j < current_files_array.length; j++) {
+
+								    grunt.log.write("\t" + (j + 1) + ": \"" + current_files_array[j] + "\"");
+								    if (global_functions.toggle_all_head_links(this.data.options.direction, current_files_array[j])) {
+									    grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
+									        "\n");
+								    } else {
+									    grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
+									        "\">>> Failed...! <<<"['red'] + "\n");
+								    }
+							    }
+						    } else {
+							    console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
+						    }
+					    }
+				    }
 			    }
+
 			    if (this.data.options.action === 'switch') {
 				    if (this.data.options.file_source === 'list') {
 					    console.log("SWITCHING SECTION LIST...!");
