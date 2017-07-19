@@ -31,9 +31,10 @@ module.exports = function(grunt) {
 			        };
 
 			        if (!global_functions.private_action_checker(this, reference_options_clean_object, true)) {
+				        // Switching...
 
 			        } else {
-
+				        // Cleaning...
 			        }
 
 			        if (this.data.options.action === 'clean') {
