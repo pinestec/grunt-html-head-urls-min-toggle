@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 	            action : 'clean',
 	            file_source : 'list'
 	          },
-	          custom_files : ['file_no_one.txt','file_no_two.txt','file_no_three.txt']
+	          custom_files : ['file_no_one.txt','file_no_two.html','file_no_three.txt']
 	        },
 	     }
    ...
@@ -97,4 +97,7 @@ module.exports = function(grunt) {
 ## Release History
 Version 1.0.0 - Should do the above job nicely...
 
+Michael Hartung
+20.July 2017
+ 
 Have Fun! 
