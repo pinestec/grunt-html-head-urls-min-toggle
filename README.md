@@ -38,7 +38,7 @@ Due to that a simple custom syntax is used inside the Gruntfile e.g.:
 
 module.exports = function(grunt) {
       grunt.initConfig({
-   ...
+ 
    html_head_urls_min_toggle : {
       any_proper_name : {
 	      options : {
@@ -88,8 +88,7 @@ module.exports = function(grunt) {
 	          custom_files : ['file_no_one.txt','file_no_two.html','file_no_three.txt']
 	        },
 	     }
-   ...
-         
+  
        });
 };    
 
