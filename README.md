@@ -19,71 +19,82 @@ grunt.loadNpmTasks('grunt-html-head-urls-min-toggle');
 
 ## The "html_head_urls_min_toggle" task
 
-### Overview
-In your project's Gruntfile, add a section named `html_head_urls_min_toggle` to the data object passed into `grunt.initConfig()`.
+### Introduction
+The "html_head_urls_min_toggle" task switches the "href" and "src" links in the head area of NOT MINIFIED html-files. 
 
-```js
-grunt.initConfig({
-  html_head_urls_min_toggle: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-});
-```
+from e.g.: href="css/jquery-ui.css"
+           src="javascript/jquery-3.1.0.js"
 
-### Options
+to:        href="css/jquery-ui.min.css"
+           src="javascript/jquery-3.1.0.min.js"
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+and vice versa.
 
-A string value that is used to do something with whatever.
+The aim is to be maximum tolerant regarding an incorrect syntax and not to change anything else than the link itself.
+Files are only touched in case changes took place.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+Of course source and destination is identical with such a task.
+Due to that a simple custom syntax is used inside the Gruntfile e.g.:
 
-A string value that is used to do something else with whatever else.
+module.exports = function(grunt) {
+      grunt.initConfig({
+   ...
+   html_head_urls_min_toggle : {
+      any_proper_name : {
+	      options : {
+	            action : 'switch',
+	            direction : 'regular',
+	            file_source : 'wildcard'
+	          },
+	          custom_files : [
+	              {
+	                cwd : './',
+	                src : [ '*.max.html' ]
+	              },
+	              {
+	                cwd : '../',
+	                src : [ '*.big.html' ]
+	              } ]
+	        },
+	        
+      another_proper_name : {
+	          options : {
+	            action : 'switch',
+	            direction : 'min',
+	            file_source : 'list'
+	          },
+	          custom_files : ['file_no_one.max.html','file_no_two.max.html','file_no_three.max.html']
+	        },
 
-### Usage Examples
+      // The only additional task is to "clean" the line endings of files regaring the current operating system.
+      // "\x0d\x0a" on windows, and "\x0a" on Linux, OS X, Unix, etc.:
+	        
+      just_a_nice_name : {
+	        options : {
+	            action : 'clean',
+	            file_source : 'wildcard'
+	          },
+	          custom_files : [ {
+	            cwd : './',
+	            src : [ '*.txt' ]
+	          } ]
+	        },    
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+      another_wonderful_name : {
+	          options : {
+	            action : 'clean',
+	            file_source : 'list'
+	          },
+	          custom_files : ['file_no_one.txt','file_no_two.txt','file_no_three.txt']
+	        },
+	     }
+   ...
+         
+       });
+};    
 
-```js
-grunt.initConfig({
-  html_head_urls_min_toggle: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  html_head_urls_min_toggle: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+Version 1.0.0 - Should do the above job nicely...
+
+Have Fun! 
