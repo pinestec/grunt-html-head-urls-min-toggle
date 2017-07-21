@@ -9,119 +9,71 @@
 'use strict';
 
 module.exports = function(grunt) {
-	grunt
-	    .initConfig({
+	grunt.initConfig({
+	  clean : {
+		  tests : [ 'tmp' ]
+	  },
 
-	      jshint : {
-	        all : [ 'Gruntfile.js', 'tasks/*.js', 'test/*_test.js' ],
-	        options : {
-	          jshintrc : '.jshintrc',
-	          reporterOutput : ""
-	        }
+	  html_head_urls_min_toggle : {
+	    to_min : {
+	      options : {
+	        action : 'switch',
+	        direction : 'min',
+	        file_source : 'wildcard'
 	      },
+	      custom_files : [ {
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      }, {
+	        cwd : './',
+	        src : [ '*.html' ]
+	      } ]
+	    },
 
-	      clean : {
-		      tests : [ 'tmp' ]
+	    to_regular : {
+	      options : {
+	        action : 'switch',
+	        direction : 'regular',
+	        file_source : 'wildcard'
 	      },
+	      custom_files : [ {
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      }, {
+	        cwd : './',
+	        src : [ '*.html' ]
+	      } ]
+	    },
 
-	      html_head_urls_min_toggle : {
+	    just_clean : {
+	      options : {
+	        action : 'clean',
+	        file_source : 'list'
+	      },
+	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
+	    }
+	  },
 
-	        any_custom_name_to_switch_listed : {
-	          options : {
-	            action : 'switch',
-	            direction : 'regular',
-	            file_source : 'list'
-	          },
-	          custom_files : [ './bash_sed_perl.max.html', './current_commented_places.max.html',
-	              './git_files__get_prepare.max.html', './index.max.html', './linksys_quick_rebirth.max.html',
-	              './loginBasedPrivacyKeyManagement.max.html', './node_js_with_grunt.max.html',
-	              './regular_expression_snippets.max.html', './ssh_pearls.max.html', './windows_certificate_related.max.html' ]
-	        },
+	  jshint : {
+	    all : [ 'Gruntfile.js', 'tasks/*.js', 'test/*_test.js' ],
+	    options : {
+	      jshintrc : '.jshintrc',
+	      reporterOutput : ""
+	    }
+	  }
 
-	        any_custom_name_to_switch_wild : {
-	          options : {
-	            action : 'switch',
-	            direction : 'regular',
-	            file_source : 'wildcard'
-	          },
-	          custom_files : [ {
-	            cwd : './',
-	            src : [ '*.max.html' ]
-	          } ]
-	        },
-
-	        any_custom_name_to_clean_wild : {
-	          options : {
-	            action : 'clean',
-	            file_source : 'wildcard'
-	          },
-	          custom_files : [ {
-	            cwd : './',
-	            src : [ '*.max.html' ]
-	          } ]
-	        },
-
-	        any_custom_name_to_clean_listed : {
-	          options : {
-	            action : 'clean',
-	            file_source : 'list'
-	          },
-	          custom_files : [ './ctos_np.max.html', './eclipse_related.max.html', './graphicsWorkCurrentMemory.max.html',
-	              './jquery_pearls.max.html', './linux.max.html', './mp4todvd.max.html', './quickcmds.max.html',
-	              './ssh_key_generation.max.html', './useful_apps_steppingstone.max.html' ]
-	        },
-
-	        to_min : {
-	          options : {
-	            action : 'switch',
-	            direction : 'min',
-	            file_source : 'wildcard'
-	          },
-	          custom_files : [
-	              {
-	                cwd : './',
-	                src : [ '*.max.html' ]
-	              },
-	              {
-	                cwd : '/Users/hartung/workspace/CurrentOfficial_PinesTechnologies_Marketing/WebSites_Content/Pines_Technologies_COM/GitAble_PlainContent/Pines_Technologies_COM/ctosvt/',
-	                src : [ '*.max.html' ]
-	              } ]
-	        },
-
-	        to_regular : {
-	          options : {
-	            action : 'switch',
-	            direction : 'regular',
-	            file_source : 'wildcard'
-	          },
-	          custom_files : [
-	              {
-	                cwd : './',
-	                src : [ '*.max.html' ]
-	              },
-	              {
-	                cwd : '/Users/hartung/workspace/CurrentOfficial_PinesTechnologies_Marketing/WebSites_Content/Pines_Technologies_COM/GitAble_PlainContent/Pines_Technologies_COM/ctosvt/',
-	                src : [ '*.max.html' ]
-	              } ]
-	        },
-
-	      }
-	    });
+	});
 
 	grunt.loadTasks('tasks');
-
-	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+
 	grunt.registerTask('default', [ 'jshint', 'html_head_urls_min_toggle' ]);
 
-	grunt.registerTask('j', 'jshint');
+	grunt.registerTask('c', [ 'clean' ]);
+	grunt.registerTask('j', [ 'jshint' ]);
 
-	grunt.registerTask('sl', 'html_head_urls_min_toggle:any_custom_name_to_switch_listed');
-	grunt.registerTask('sw', 'html_head_urls_min_toggle:any_custom_name_to_switch_wild');
-	grunt.registerTask('cl', 'html_head_urls_min_toggle:any_custom_name_to_clean_listed');
-	grunt.registerTask('cw', 'html_head_urls_min_toggle:any_custom_name_to_clean_wild');
-
-	grunt.registerTask('m', 'html_head_urls_min_toggle:to_min');
-	grunt.registerTask('r', 'html_head_urls_min_toggle:to_regular');
-
+	grunt.registerTask('m', [ 'html_head_urls_min_toggle:to_min' ]);
+	grunt.registerTask('r', [ 'html_head_urls_min_toggle:to_regular' ]);
+	grunt.registerTask('jc', [ 'html_head_urls_min_toggle:just_clean' ]);
 };
