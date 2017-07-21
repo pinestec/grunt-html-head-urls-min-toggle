@@ -65,10 +65,12 @@ module.exports = function(grunt) {
 	          },
 	          custom_files : ['file_no_one.max.html','file_no_two.max.html','file_no_three.max.html']
 	        },
+```
 
-      // The only additional task is to "clean" the line endings of files regaring the current operating system.
-      // "\x0d\x0a" on windows, and "\x0a" on Linux, OS X, Unix, etc.:
-	        
+The only additional task is to "clean" the line endings of files regaring the current operating system.
+"\x0d\x0a" on windows, and "\x0a" on Linux, OS X, Unix, etc.:
+
+```js	        
       just_a_nice_name : {
 	        options : {
 	            action : 'clean',
@@ -97,6 +99,7 @@ module.exports = function(grunt) {
 Version 1.0.0 - Should do the above job nicely...
 Version 1.0.1 - Documentation related...
 Version 1.0.2 - Documentation related...
+Version 1.0.3 - Documentation related...
 
 Michael Hartung
 20.July 2017
