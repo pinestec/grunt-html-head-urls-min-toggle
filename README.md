@@ -110,6 +110,7 @@ Version 1.0.10 - The power of line breaks... :-)<br>
 Version 1.0.11 - Highlight "not minified" html targets a bit more... with line breaks... :-)<br>
 Version 1.0.12 - Placed stuff at GitHub - without additional line breaks... :-(<br>
 Version 1.0.13 - Repaired a typo...<br>
+Version 1.0.14 - Corrected the links inside package.json...<br>
 
 Michael Hartung
 21.July 2017
