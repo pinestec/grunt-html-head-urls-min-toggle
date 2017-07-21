@@ -101,8 +101,10 @@ Version 1.0.1 - Documentation related...<br>
 Version 1.0.2 - Documentation related...<br>
 Version 1.0.3 - Documentation related...<br>
 Version 1.0.4 - Documentation related...<br>
+Version 1.0.5 - Proper documentation related tests...<br>
+Version 1.0.6 - Proper documentation related tests...<br>
 
 Michael Hartung
 21.July 2017
  
-<h1>Have Fun!</h1> 
+Have Fun! 
