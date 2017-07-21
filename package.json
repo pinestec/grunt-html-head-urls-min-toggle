@@ -1,7 +1,7 @@
 {
   "name": "grunt-html-head-urls-min-toggle",
   "description": "Point the html-head href and src urls to minified sources and vice versa.",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "homepage": "https://github.com/pinestec/html-head-urls-min-toggle",
   "author": {
     "name": "Michael Hartung",
