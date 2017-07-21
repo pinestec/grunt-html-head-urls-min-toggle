@@ -108,6 +108,7 @@ Version 1.0.8 - And some more text regarding the cleaning option...<br>
 Version 1.0.9 - Added some keywords...<br>
 Version 1.0.10 - The power of line breaks... :-)<br>
 Version 1.0.11 - Highlight "not minified" html targets a bit more... with line breaks... :-)<br>
+Version 1.0.12 - Placed stuff at GitHub - without additional line breaks... :-(<br>
 
 Michael Hartung
 21.July 2017
