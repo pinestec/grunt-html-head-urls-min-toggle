@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        var reference_options_switch_object = {
-		          actions : [ 'switch', 'clean' ],
+		          action : [ 'switch', 'clean' ],
 		          direction : [ 'min', 'regular' ],
 		          file_source : [ 'wildcard', 'list' ]
 		        };
