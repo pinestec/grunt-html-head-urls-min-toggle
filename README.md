@@ -22,11 +22,11 @@ grunt.loadNpmTasks('grunt-html-head-urls-min-toggle');
 ### Introduction
 The "html_head_urls_min_toggle" task switches the "href" and "src" links in the head area of NOT MINIFIED html-files. 
 
-from e.g.: href="css/jquery-ui.css"
-           src="javascript/jquery-3.1.0.js"
+from e.g.:<br>href="css/jquery-ui.css"<br>
+           src="javascript/jquery-3.1.0.js"<br>
 
-to:        href="css/jquery-ui.min.css"
-           src="javascript/jquery-3.1.0.min.js"
+to:<br>href="css/jquery-ui.min.css"<br>
+           src="javascript/jquery-3.1.0.min.js"<br>
 
 and vice versa.
 
@@ -103,6 +103,8 @@ Version 1.0.3 - Documentation related...<br>
 Version 1.0.4 - Documentation related...<br>
 Version 1.0.5 - Proper documentation related tests...<br>
 Version 1.0.6 - Proper documentation related tests...<br>
+Version 1.0.7 - Added some more line breaks... :-)<br>
+
 
 Michael Hartung
 21.July 2017
