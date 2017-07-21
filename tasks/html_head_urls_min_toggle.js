@@ -1,6 +1,6 @@
 /*
  * grunt-html-head-urls-min-toggle
- * https://github.com/pinestec/html-head-urls-min-toggle
+ * https://github.com/pinestec/grunt-html-head-urls-min-toggle
  *
  * Copyright (c) 2017 Michael Hartung
  * Licensed under the MIT license.
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        var reference_options_switch_object = {
-		          action : [ 'switch', 'clean' ],
+		          actions : [ 'switch', 'clean' ],
 		          direction : [ 'min', 'regular' ],
 		          file_source : [ 'wildcard', 'list' ]
 		        };
