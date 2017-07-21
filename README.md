@@ -20,7 +20,6 @@ grunt.loadNpmTasks('grunt-html-head-urls-min-toggle');
 ## The "html_head_urls_min_toggle" task
 
 ### Introduction
-Hello Michael...!
 The "html_head_urls_min_toggle" task switches the "href" and "src" links in the head area of NOT MINIFIED html-files. 
 
 from e.g.: href="css/jquery-ui.css"
@@ -36,10 +35,10 @@ Files are only touched in case changes took place.
 
 Of course source and destination is identical with such a task.
 Due to that a simple custom syntax is used inside the Gruntfile e.g.:
-
+```js
 module.exports = function(grunt) {
       grunt.initConfig({
- 
+  ...
    html_head_urls_min_toggle : {
       any_proper_name : {
 	      options : {
@@ -89,13 +88,15 @@ module.exports = function(grunt) {
 	          custom_files : ['file_no_one.txt','file_no_two.html','file_no_three.txt']
 	        },
 	     }
-  
+  ...
        });
 };    
-
+```
 
 ## Release History
 Version 1.0.0 - Should do the above job nicely...
+Version 1.0.1 - Documentation related...
+Version 1.0.2 - Documentation related...
 
 Michael Hartung
 20.July 2017
