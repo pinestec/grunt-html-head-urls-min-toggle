@@ -96,12 +96,13 @@ The only additional task is to "clean" the line endings of files regaring the cu
 ```
 
 ## Release History
-Version 1.0.0 - Should do the above job nicely...
-Version 1.0.1 - Documentation related...
-Version 1.0.2 - Documentation related...
-Version 1.0.3 - Documentation related...
+Version 1.0.0 - Should do the above job nicely...<br>
+Version 1.0.1 - Documentation related...<br>
+Version 1.0.2 - Documentation related...<br>
+Version 1.0.3 - Documentation related...<br>
+Version 1.0.4 - Documentation related...<br>
 
 Michael Hartung
-20.July 2017
+21.July 2017
  
 Have Fun! 
