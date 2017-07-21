@@ -105,4 +105,4 @@ Version 1.0.4 - Documentation related...<br>
 Michael Hartung
 21.July 2017
  
-Have Fun! 
+<h1>Have Fun!</h1> 
