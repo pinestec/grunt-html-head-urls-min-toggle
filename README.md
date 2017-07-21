@@ -68,7 +68,8 @@ module.exports = function(grunt) {
 ```
 
 The only additional task is to "clean" the line endings of files regaring the current operating system.
-"\x0d\x0a" on windows, and "\x0a" on Linux, OS X, Unix, etc.:
+Placing "\x0d\x0a" at the end of each line on windows, and "\x0a" on Linux, OS X, Unix, etc.:
+Nothing else will be changed...
 
 ```js	        
       just_a_nice_name : {
@@ -104,6 +105,7 @@ Version 1.0.4 - Documentation related...<br>
 Version 1.0.5 - Proper documentation related tests...<br>
 Version 1.0.6 - Proper documentation related tests...<br>
 Version 1.0.7 - Added some more line breaks... :-)<br>
+Version 1.0.8 - And some more text regarding the cleaning option...<br>
 
 
 Michael Hartung
