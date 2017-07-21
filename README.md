@@ -106,6 +106,7 @@ Version 1.0.5 - Proper documentation related tests...<br>
 Version 1.0.6 - Proper documentation related tests...<br>
 Version 1.0.7 - Added some more line breaks... :-)<br>
 Version 1.0.8 - And some more text regarding the cleaning option...<br>
+Version 1.0.9 - Added some keywords...<br>
 
 
 Michael Hartung

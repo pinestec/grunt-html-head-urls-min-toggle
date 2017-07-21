@@ -5,7 +5,7 @@
   "homepage": "https://github.com/pinestec/html-head-urls-min-toggle",
   "author": {
     "name": "Michael Hartung",
-    "email": "michael.hartung@pines-technologies.com"
+    "email": "pinestec_npm_user@infinite-drive.com"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "grunt-contrib-jshint": "^0.9.2"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin,html,head,link,switch"
   ],
   "dependencies": {
     "stack-trace": "0.0.10"
