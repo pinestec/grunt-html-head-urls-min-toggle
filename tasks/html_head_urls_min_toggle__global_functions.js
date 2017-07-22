@@ -195,6 +195,13 @@ function delete_writingArray_ToFile(fileName, array) {
 module.exports = {
   global_casual__options__servant : function(global_this_object) {
 	  console.log("YOU HAVE REACHED: \"global_casual__options__servant\"...");
+	  var global_options_object = global_this_object.data.options;
+	  var global_options_reference_object = {
+	    action : [ 'switch', 'clean' ],
+	    chattiness : [ 'true', 'false' ],
+	    direction : [ 'min', 'regular' ],
+	    file_source : [ 'wildcard', 'list' ],
+	  };
   },
 
   add_on_options__servant : function(global_object) {
