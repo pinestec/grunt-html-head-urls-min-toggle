@@ -19,7 +19,8 @@ module.exports = function(grunt) {
 	      options : {
 	        action : 'switch',
 	        direction : 'min',
-	        file_source : 'wildcard'
+	        file_source : 'wildcard',
+	        chattiness : 'false'
 	      },
 	      custom_files : [ {
 	        cwd : './',
@@ -34,7 +35,8 @@ module.exports = function(grunt) {
 	      options : {
 	        action : 'switch',
 	        direction : 'regular',
-	        file_source : 'wildcard'
+	        file_source : 'wildcard',
+	        chattiness : 'false'
 	      },
 	      custom_files : [ {
 	        cwd : './',
@@ -48,7 +50,8 @@ module.exports = function(grunt) {
 	    just_clean : {
 	      options : {
 	        action : 'clean',
-	        file_source : 'list'
+	        file_source : 'list',
+	        chattiness : 'false'
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    }
