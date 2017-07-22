@@ -193,6 +193,43 @@ function delete_writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
+  add_on_options__servant : function(global_object) {
+	  var noisy = true;
+	  var global_options_object = global_object.data.options;
+	  var global_add_on_options_object = {
+		  chattiness : [ 'true', 'false' ]
+	  };
+	  if (global_options_object !== undefined) {
+		  if (noisy) {
+			  console.log(">>> Options section found... Doing further checking... <<<");
+		  }
+		  for ( var item in global_add_on_options_object) {
+			  if (global_options_object.hasOwnProperty(item)) {
+				  var contains_valid_value = false;
+				  for (var i = 0; i < global_add_on_options_object[item].length; i++) {
+					  if (global_add_on_options_object[item].includes(global_options_object[item])) {
+						  contains_valid_value = true;
+						  break;
+					  }
+				  }
+				  if (!contains_valid_value) {
+					  console.log("\"" + global_options_object[item] + "\" IS NOT A VALID OPTION WITH \"" + item + "\" ...!");
+					  return false;
+				  }
+			  } else {
+				  if (noisy) {
+					  console.log("MISSING OBJECTS OPTIONS PROPERTY: \"" + item + "\" ...!");
+				  }
+				  return false;
+			  }
+		  }
+		  return true;
+	  } else {
+		  console.log(">>> NO VALID OPTIONS SECTION FOUND...! <<<");
+		  return false;
+	  }
+  },
+
   private_action_checker : function(global_object, reference_object, noisy) {
 	  var global_options_object = global_object.data.options;
 	  if (global_options_object !== undefined) {
