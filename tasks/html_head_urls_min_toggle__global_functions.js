@@ -193,6 +193,10 @@ function delete_writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
+  global_casual__options__servant : function(global_this_object) {
+
+  },
+
   add_on_options__servant : function(global_object) {
 	  var noisy = true;
 	  var global_options_object = global_object.data.options;
