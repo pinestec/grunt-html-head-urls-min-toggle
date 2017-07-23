@@ -216,7 +216,8 @@ module.exports = {
 
 			  }
 		  } else {
-
+			  console.log("GIVEN PROPERTY IS NOT PROPERTY OF THE GIVEN OPTIONS...! PLEASE CHECK YOUR \"Gruntfile.js\" OPTIONS.");
+			  return false;
 		  }
 	  }
   },
