@@ -201,7 +201,7 @@ module.exports = {
 	    file_source : [ 'wildcard', 'list' ],
 	  };
 	  for ( var property_from_options_object in options_object) {
-		  if (property_from_options_object === requested_property) {
+		  if (requested_property === property_from_options_object) {
 			  console.log(property_from_options_object + ": \"" + options_object[property_from_options_object] + "\" " +
 			      " ==> >>> GIVEN PROPERTY \"" + requested_property + "\" IS A PROPERTY OF GIVEN OPTIONS...! <<<");
 			  if (reference_options_object.hasOwnProperty(property_from_options_object)) {
