@@ -193,7 +193,7 @@ function delete_writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
-  casual__options__servant : function(options_object, option_request) {
+  casual__options_property_servant : function(options_object, option_request) {
 	  var reference_options_object = {
 	    action : [ 'switch', 'clean' ],
 	    chattiness : [ 'true', 'false' ],
@@ -202,8 +202,8 @@ module.exports = {
 	  };
 	  for ( var item in options_object) {
 		  if (item === option_request) {
-			  console.log(item + ": \"" + options_object[item] + "\" " +
-			      " ==> >>> GIVEN REQUEST IS PART OF GIVEN OPTIONS...! <<<");
+			  console.log(item + ": \"" + options_object[item] + "\" " + " ==> >>> GIVEN PROPERTY \"" + option_request +
+			      "\" IS A PROPERTY OF GIVEN OPTIONS...! <<<");
 			  if (reference_options_object.hasOwnProperty(item)) {
 				  console.log(item + ": \"" + reference_options_object[item] + "\" " +
 				      " ==> >>> GIVEN REQUEST IS PART OF REFERENCE OPTIONS...! <<<");
