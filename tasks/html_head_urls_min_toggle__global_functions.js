@@ -202,11 +202,7 @@ module.exports = {
 	  };
 	  for ( var item in options_object) {
 		  if (item === option_request) {
-			  if (top_level_options_reference_object[item].includes(item)) {
-
-			  } else {
-
-			  }
+			  console.log(item + ": \"" + options_object[item] + "\"");
 		  } else {
 
 		  }
