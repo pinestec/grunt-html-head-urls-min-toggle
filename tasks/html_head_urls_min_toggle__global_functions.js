@@ -200,16 +200,16 @@ module.exports = {
 	    direction : [ 'min', 'regular' ],
 	    file_source : [ 'wildcard', 'list' ],
 	  };
-	  for ( var item in options_object) {
-		  if (item === option_request) {
-			  console.log(item + ": \"" + options_object[item] + "\" " + " ==> >>> GIVEN PROPERTY \"" + option_request +
-			      "\" IS A PROPERTY OF GIVEN OPTIONS...! <<<");
-			  if (reference_options_object.hasOwnProperty(item)) {
-				  console.log(item + ": \"" + reference_options_object[item] + "\" " +
+	  for ( var current_property in options_object) {
+		  if (current_property === option_request) {
+			  console.log(current_property + ": \"" + options_object[current_property] + "\" " + " ==> >>> GIVEN PROPERTY \"" +
+			      option_request + "\" IS A PROPERTY OF GIVEN OPTIONS...! <<<");
+			  if (reference_options_object.hasOwnProperty(current_property)) {
+				  console.log(current_property + ": \"" + reference_options_object[current_property] + "\" " +
 				      " ==> >>> GIVEN REQUEST IS PART OF REFERENCE OPTIONS...! <<<");
-				  if (reference_options_object[item].includes(options_object[item])) {
-					  console.log(item + ": \"" + reference_options_object[item] + " <==> " + options_object[item] +
-					      " ==> >>> GIVEN REQUEST IS ENTIRELY VALID...! <<<");
+				  if (reference_options_object[current_property].includes(options_object[current_property])) {
+					  console.log(current_property + ": \"" + reference_options_object[current_property] + " <==> " +
+					      options_object[current_property] + " ==> >>> GIVEN REQUEST IS ENTIRELY VALID...! <<<");
 				  } else {
 
 				  }
