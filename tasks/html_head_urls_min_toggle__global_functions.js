@@ -195,7 +195,7 @@ function delete_writingArray_ToFile(fileName, array) {
 module.exports = {
   casual__options_property_servant : function(options_object, requested_property) {
 	  var reference_options_object = {
-	    action : [ 'switch', 'clean' ],
+	    Xaction : [ 'switch', 'clean' ],
 	    chattiness : [ 'true', 'false' ],
 	    direction : [ 'min', 'regular' ],
 	    file_source : [ 'wildcard', 'list' ],
@@ -215,6 +215,7 @@ module.exports = {
 			  } else {
 				  console
 				      .log("GIVEN PROPERTY IS NOT A PROPERTY OF THE REFERENCE OPTIONS...! PLEASE CHECK YOUR \"Gruntfile.js\" OPTIONS.");
+				  return false;
 			  }
 		  } else {
 			  console.log("GIVEN PROPERTY IS NOT PROPERTY OF THE GIVEN OPTIONS...! PLEASE CHECK YOUR \"Gruntfile.js\" OPTIONS.");
