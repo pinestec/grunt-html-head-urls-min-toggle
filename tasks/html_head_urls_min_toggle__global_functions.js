@@ -193,9 +193,10 @@ function delete_writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
-  casual__options__servant : function(options_object) {
+  casual__options__servant : function(options_object, option_request) {
 	  console.log("YOU HAVE REACHED: \"global_casual__options__servant\"...");
 	  console.log(options_object);
+	  console.log(option_request);
 	  var top_level_options_reference_object = {
 	    action : [ 'switch', 'clean' ],
 	    chattiness : [ 'true', 'false' ],
