@@ -204,7 +204,14 @@ module.exports = {
 		  if (item === option_request) {
 			  console.log(item + ": \"" + options_object[item] + "\" " + " >>> GIVEN REQUEST IS PART OF GIVEN OPTIONS...! <<<");
 			  if (reference_options_object.hasOwnProperty(item)) {
-				  console.log("REFERENCE HAS ITEM...!");
+				  console.log(">>> REFERENCE OBJECT HAS GIVEN REQUEST...! <<<");
+				  console.log(reference_options_object[item]);
+				  if (reference_options_object[item].includes(options_object[item])) {
+					  console.log(item + ": \"" + reference_options_object[item] + "\" " +
+					      " >>> GIVEN REQUEST RESULT IS PART OF REFERENCE OPTIONS...! <<<");
+				  } else {
+
+				  }
 			  } else {
 
 			  }
