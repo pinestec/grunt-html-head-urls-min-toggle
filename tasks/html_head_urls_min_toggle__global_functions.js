@@ -195,7 +195,7 @@ function delete_writingArray_ToFile(fileName, array) {
 module.exports = {
   casual__options_property_servant : function(options_object, requested_property) {
 	  var reference_options_object = {
-	    Xaction : [ 'switch', 'clean' ],
+	    action : [ 'switch', 'clean' ],
 	    chattiness : [ 'true', 'false' ],
 	    direction : [ 'min', 'regular' ],
 	    file_source : [ 'wildcard', 'list' ],
@@ -206,19 +206,22 @@ module.exports = {
 			  if (reference_options_object.hasOwnProperty(property_from_options_object)) {
 				  console.log("GIVEN PROPERTY IS PROPERTY OF THE REFERENCE OPTIONS...!");
 				  if (reference_options_object[property_from_options_object].includes(options_object[property_from_options_object])) {
-					  console.log("GIVEN PROPERTY VALUE IS A VALUE OF THE EQUAL REFERENCE OBJECTS PROPERTY AND THEREFOR VALID...!");
+					  console.log("GIVEN PROPERTIES VALUE IS A VALUE OF THE EQUAL REFERENCE OBJECTS PROPERTY AND THEREFOR VALID...!");
 					  console.log(options_object[property_from_options_object]);
 					  return options_object[property_from_options_object];
 				  } else {
-
+					  console
+					      .log("GIVEN PROPERTIES VALUE IS NOT A VALUE OF THE EQUAL REFERENCE OBJETCS PROPERTY AND THEREFOR INVALID...! PLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS.");
+					  return false;
 				  }
 			  } else {
 				  console
-				      .log("GIVEN PROPERTY IS NOT A PROPERTY OF THE REFERENCE OPTIONS...! PLEASE CHECK YOUR \"Gruntfile.js\" OPTIONS.");
+				      .log("GIVEN PROPERTY IS NOT A PROPERTY OF THE REFERENCE OPTIONS...! PLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS.");
 				  return false;
 			  }
 		  } else {
-			  console.log("GIVEN PROPERTY IS NOT PROPERTY OF THE GIVEN OPTIONS...! PLEASE CHECK YOUR \"Gruntfile.js\" OPTIONS.");
+			  console
+			      .log("GIVEN PROPERTY IS NOT PROPERTY OF THE GIVEN OPTIONS...! PLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS.");
 			  return false;
 		  }
 	  }
