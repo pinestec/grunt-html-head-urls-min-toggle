@@ -204,7 +204,7 @@ module.exports = {
 		  if (requested_property === property_from_options_object) {
 			  console.log("GIVEN PROPERTY IS PROPERTY OF GIVEN OPTIONS...!");
 			  if (reference_options_object.hasOwnProperty(property_from_options_object)) {
-
+				  console.log("GIVEN PROPERTY IS PROPERTY OF THE REFERENCE OPTIONS...!");
 				  if (reference_options_object[property_from_options_object].includes(options_object[property_from_options_object])) {
 				  } else {
 
