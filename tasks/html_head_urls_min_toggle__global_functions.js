@@ -194,7 +194,7 @@ function delete_writingArray_ToFile(fileName, array) {
 
 module.exports = {
   casual__options__servant : function(options_object, option_request) {
-	  var top_level_options_reference_object = {
+	  var reference_options_object = {
 	    action : [ 'switch', 'clean' ],
 	    chattiness : [ 'true', 'false' ],
 	    direction : [ 'min', 'regular' ],
