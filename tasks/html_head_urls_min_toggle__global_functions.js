@@ -213,7 +213,8 @@ module.exports = {
 
 				  }
 			  } else {
-
+				  console
+				      .log("GIVEN PROPERTY IS NOT A PROPERTY OF THE REFERENCE OPTIONS...! PLEASE CHECK YOUR \"Gruntfile.js\" OPTIONS.");
 			  }
 		  } else {
 			  console.log("GIVEN PROPERTY IS NOT PROPERTY OF THE GIVEN OPTIONS...! PLEASE CHECK YOUR \"Gruntfile.js\" OPTIONS.");
