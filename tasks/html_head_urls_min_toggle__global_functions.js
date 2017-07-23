@@ -202,15 +202,10 @@ module.exports = {
 	  };
 	  for ( var property_from_options_object in options_object) {
 		  if (requested_property === property_from_options_object) {
-			  console.log(property_from_options_object + ": \"" + options_object[property_from_options_object] + "\" " +
-			      " ==> >>> GIVEN PROPERTY \"" + requested_property + "\" IS A PROPERTY OF GIVEN OPTIONS...! <<<");
+			  console.log("GIVEN PROPERTY IS PROPERTY OF GIVEN OPTIONS...!");
 			  if (reference_options_object.hasOwnProperty(property_from_options_object)) {
-				  console.log(property_from_options_object + ": \"" + reference_options_object[property_from_options_object] +
-				      "\" " + " ==> >>> GIVEN REQUEST IS PART OF REFERENCE OPTIONS...! <<<");
+
 				  if (reference_options_object[property_from_options_object].includes(options_object[property_from_options_object])) {
-					  console.log(property_from_options_object + ": \"" + reference_options_object[property_from_options_object] +
-					      " <==> " + options_object[property_from_options_object] +
-					      " ==> >>> GIVEN REQUEST IS ENTIRELY VALID...! <<<");
 				  } else {
 
 				  }
