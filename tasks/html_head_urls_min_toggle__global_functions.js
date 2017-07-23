@@ -207,9 +207,9 @@ module.exports = {
 			  if (reference_options_object.hasOwnProperty(item)) {
 				  console.log(item + ": \"" + reference_options_object[item] + "\" " +
 				      " ==> >>> GIVEN REQUEST IS PART OF REFERENCE OPTIONS...! <<<");
-
 				  if (reference_options_object[item].includes(options_object[item])) {
-
+					  console.log(item + ": \"" + reference_options_object[item] + " <==> " + options_object[item] +
+					      " ==> >>> GIVEN REQUEST IS ENTIRELY VALID...! <<<");
 				  } else {
 
 				  }
