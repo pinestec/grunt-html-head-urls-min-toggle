@@ -202,13 +202,14 @@ module.exports = {
 	  };
 	  for ( var item in options_object) {
 		  if (item === option_request) {
-			  console.log(item + ": \"" + options_object[item] + "\" " + " >>> GIVEN REQUEST IS PART OF GIVEN OPTIONS...! <<<");
+			  console.log(item + ": \"" + options_object[item] + "\" " +
+			      " ==> >>> GIVEN REQUEST IS PART OF GIVEN OPTIONS...! <<<");
 			  if (reference_options_object.hasOwnProperty(item)) {
-				  console.log(">>> REFERENCE OBJECT HAS GIVEN REQUEST...! <<<");
-				  console.log(reference_options_object[item]);
+				  console.log(item + ": \"" + reference_options_object[item] + "\" " +
+				      " ==> >>> GIVEN REQUEST IS PART OF REFERENCE OPTIONS...! <<<");
+
 				  if (reference_options_object[item].includes(options_object[item])) {
-					  console.log(item + ": \"" + reference_options_object[item] + "\" " +
-					      " >>> GIVEN REQUEST RESULT IS PART OF REFERENCE OPTIONS...! <<<");
+
 				  } else {
 
 				  }
