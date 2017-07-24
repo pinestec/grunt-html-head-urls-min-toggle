@@ -25,13 +25,13 @@ try {
 }
 
 if (help_needed) {
-	var plain_file_name_RegExp = new RegExp("([^/\\\\]*)$");
-	var result_array = plain_file_name_RegExp.exec(process.argv[1]);
+	var plain_file_name_extractor_RegExp = new RegExp("([^/\\\\]*)$");
+	var result_array = plain_file_name_extractor_RegExp.exec(process.argv[1]);
 	if (result_array !== null) {
 		console.log("usage:\t" + result_array[1] + " entire_filename [-h|--help] \n");
 		console.log("Writing internally defined \"reference objects\" to disk with the help of \"JSON.stringify\"...");
-		console.log("For later use with other packages.");
+		console.log("For later use with other packages.\n");
+		console.log("optional arguments:");
+		console.log("-h, --help\t\tShow this help message and exit");
 	}
-} else {
-	console.log("NO HELP NEEDED...!");
 }
