@@ -25,7 +25,8 @@ function global_help_output() {
 		console.log("Writing internally defined \"reference objects\" to disk with the help of \"JSON.stringify\"...");
 		console.log("Just for later use with other packages.\n");
 		console.log("optional arguments:");
-		console.log("-h, --help\t\tShow this help message and exit");
+		console.log("-h, --help\tShow this help message and exit");
+		console.log("-f, --file\tState a proper filename to store the object in");
 	}
 }
 
@@ -38,6 +39,7 @@ function scan_arguments_for_help(value, index, array) {
 		}
 	}
 }
+
 function scan_arguments(value, index, array) {
 	if (index > 1) {
 		if (value.search(help_needed__pattern) !== -1) {
@@ -48,6 +50,13 @@ function scan_arguments(value, index, array) {
 			throw 'file';
 		}
 	}
+}
+
+try {
+	process.argv.forEach(scan_arguments_for_help);
+} catch (exception) {
+	global_help_output();
+	return false;
 }
 
 try {
