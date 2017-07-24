@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 	  },
 
 	  jshint : {
-	    all : [ 'Gruntfile.js', 'tasks/*.js', 'test/*_test.js' ],
+	    all : [ 'Gruntfile.js', 'tasks/*.js', 'test/*_test.js', 'bin/*.js' ],
 	    options : {
 	      jshintrc : '.jshintrc',
 	      reporterOutput : ""
