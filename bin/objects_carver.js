@@ -32,13 +32,14 @@ try {
 	process.argv.forEach(scan_arguments);
 } catch (exception) {
 	global_help_output();
+	return false;
 }
-var options_reference_object = {
+var global_options_reference_object = {
   action : [ 'switch', 'clean' ],
   chattiness : [ 'true', 'false' ],
   direction : [ 'min', 'regular' ],
   file_source : [ 'wildcard', 'list' ],
 };
-
+console.log("SOME MORE ACTION...!");
 // fileSystem_Module.writeSync(currentFileHandle,
 // JSON.stringify(options_reference_object));
