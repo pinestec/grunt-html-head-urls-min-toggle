@@ -31,13 +31,15 @@ var help_needed__pattern = /^--?h(elp)?$/i;
 function scan_arguments(value, index, array) {
 	if (index > 1) {
 		if (value.search(help_needed__pattern) !== -1) {
-			throw exception;
+			var item = 'help';
+			throw item;
 		}
 	}
 }
 try {
 	process.argv.forEach(scan_arguments);
 } catch (exception) {
+	console.log(exception);
 	global_help_output();
 	return false;
 }
