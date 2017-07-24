@@ -33,3 +33,12 @@ try {
 } catch (exception) {
 	global_help_output();
 }
+var options_reference_object = {
+  action : [ 'switch', 'clean' ],
+  chattiness : [ 'true', 'false' ],
+  direction : [ 'min', 'regular' ],
+  file_source : [ 'wildcard', 'list' ],
+};
+
+// fileSystem_Module.writeSync(currentFileHandle,
+// JSON.stringify(options_reference_object));
