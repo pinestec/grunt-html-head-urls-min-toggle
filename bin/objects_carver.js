@@ -31,6 +31,13 @@ function global_help_output() {
 
 var help_needed__pattern = /^--?h(elp)?$/i;
 var file_name__pattern = /^--?f$/i;
+function scan_arguments_for_help(value, index, array) {
+	if (index > 1) {
+		if (value.search(help_needed__pattern) !== -1) {
+			throw 'help';
+		}
+	}
+}
 function scan_arguments(value, index, array) {
 	if (index > 1) {
 		if (value.search(help_needed__pattern) !== -1) {
