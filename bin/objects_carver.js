@@ -34,12 +34,18 @@ try {
 	global_help_output();
 	return false;
 }
+
 var global_options_reference_object = {
   action : [ 'switch', 'clean' ],
   chattiness : [ 'true', 'false' ],
   direction : [ 'min', 'regular' ],
   file_source : [ 'wildcard', 'list' ],
 };
+
+var global_functions = {};
+global_functions = require('../tasks/html_head_urls_min_toggle__global_functions.js');
+var fileSystem_Module = global_functions.globalModule_Try('fs');
+
 console.log("SOME MORE ACTION...!");
 // fileSystem_Module.writeSync(currentFileHandle,
 // JSON.stringify(options_reference_object));
