@@ -17,17 +17,18 @@ module.exports = function(grunt) {
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        var fileSystem_Module = global_functions.globalModule_Try('fs');
-		        var currentFileHandle = fileSystem_Module.openSync("./tasks/global_options.json", 'r+');
-
-		        fileSystem_Module.writeSync(currentFileHandle, "YES");
+		        var currentFileHandle = fileSystem_Module.openSync("./tasks/global_options.json", 'r');
+		        // var options_reference_object = {
+		        // action : [ 'switch', 'clean' ],
+		        // chattiness : [ 'true', 'false' ],
+		        // direction : [ 'min', 'regular' ],
+		        // file_source : [ 'wildcard', 'list' ],
+		        // };
+		        // fileSystem_Module.writeSync(currentFileHandle,
+		        // JSON.stringify(options_reference_object));
+		        var options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 		        fileSystem_Module.closeSync(currentFileHandle);
-
-		        var options_reference_object = {
-		          action : [ 'switch', 'clean' ],
-		          chattiness : [ 'true', 'false' ],
-		          direction : [ 'min', 'regular' ],
-		          file_source : [ 'wildcard', 'list' ],
-		        };
+		        console.log(options_reference_object);
 		        if (global_functions.casual__options_property_servant(this.data.options, options_reference_object, 'action')) {
 			        console.log("RESULT IS O.K.");
 		        } else {
