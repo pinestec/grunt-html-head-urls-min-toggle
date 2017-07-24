@@ -8,6 +8,13 @@
 
 'use strict';
 
+var object_to_be_written = {
+  action : [ 'switch', 'clean' ],
+  chattiness : [ 'true', 'false' ],
+  direction : [ 'min', 'regular' ],
+  file_source : [ 'wildcard', 'list' ],
+};
+
 function global_help_output() {
 	var plain_file_name_extractor_RegExp = new RegExp("([^/\\\\]*)$");
 	var result_array = plain_file_name_extractor_RegExp.exec(process.argv[1]);
@@ -35,17 +42,9 @@ try {
 	return false;
 }
 
-var global_options_reference_object = {
-  action : [ 'switch', 'clean' ],
-  chattiness : [ 'true', 'false' ],
-  direction : [ 'min', 'regular' ],
-  file_source : [ 'wildcard', 'list' ],
-};
-
 var global_functions = {};
 global_functions = require('../tasks/html_head_urls_min_toggle__global_functions.js');
 var fileSystem_Module = global_functions.globalModule_Try('fs');
-
-console.log("SOME MORE ACTION...!");
-// fileSystem_Module.writeSync(currentFileHandle,
-// JSON.stringify(options_reference_object));
+var currentFileHandle = fileSystem_Module.openSync("./etc/global_options.json", 'w');
+fileSystem_Module.writeFileSync(currentFileHandle, JSON.stringify(object_to_be_written));
+fileSystem_Module.closeSync(currentFileHandle);
