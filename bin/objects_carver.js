@@ -15,6 +15,8 @@ var object_to_be_written = {
   file_source : [ 'wildcard', 'list' ],
 };
 
+var global_file_name = '';
+
 function global_help_output() {
 	var plain_file_name_extractor_RegExp = new RegExp("([^/\\\\]*)$");
 	var result_array = plain_file_name_extractor_RegExp.exec(process.argv[1]);
@@ -35,6 +37,7 @@ function scan_arguments(value, index, array) {
 			throw 'help';
 		}
 		if (value.search(file_name__pattern) !== -1) {
+			global_file_name = array[index + 1];
 			throw 'file';
 		}
 	}
@@ -47,9 +50,10 @@ try {
 		global_help_output();
 		return false;
 	case 'file':
-		console.log("FILE NAME FOUND...!");
+		console.log(global_file_name);
 		break;
 	default:
+		console.log("DEFAULT: " + exception);
 		break;
 	}
 }
