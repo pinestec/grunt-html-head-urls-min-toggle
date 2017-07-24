@@ -25,7 +25,11 @@ try {
 }
 
 if (help_needed) {
-	console.log("HELP NEEDED...!");
+	var plain_file_name_RegExp = new RegExp("^.+$", "i");
+	var result_array = plain_file_name_RegExp.exec(process.argv[0])
+	if (result_array !== null) {
+		console.log(result_array[0]);
+	}
 } else {
 	console.log("NO HELP NEEDED...!");
 }
