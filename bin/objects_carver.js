@@ -34,6 +34,9 @@ function scan_arguments(value, index, array) {
 		if (value.search(help_needed__pattern) !== -1) {
 			throw 'help';
 		}
+		if (value.search(file_name__pattern) !== -1) {
+			throw 'file';
+		}
 	}
 }
 try {
