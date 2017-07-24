@@ -25,7 +25,7 @@ try {
 }
 
 if (help_needed) {
-	var plain_file_name_RegExp = new RegExp("^.+$", "i");
+	var plain_file_name_RegExp = new RegExp("[^w]*$", "i");
 	var result_array = plain_file_name_RegExp.exec(process.argv[0])
 	if (result_array !== null) {
 		console.log(result_array[0]);
