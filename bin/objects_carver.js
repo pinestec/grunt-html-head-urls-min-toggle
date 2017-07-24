@@ -31,8 +31,7 @@ var help_needed__pattern = /^--?h(elp)?$/i;
 function scan_arguments(value, index, array) {
 	if (index > 1) {
 		if (value.search(help_needed__pattern) !== -1) {
-			var item = 'help';
-			throw item;
+			throw 'help';
 		}
 	}
 }
