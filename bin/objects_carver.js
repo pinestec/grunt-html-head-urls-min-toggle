@@ -8,4 +8,12 @@
 
 'use strict';
 
-console.log(process.argv[2]);
+var help_needed__RegExp = new RegExp("^--?$", "i");
+
+function scan_arguments(value, index, array) {
+	if (index > 1) {
+		console.log(index + ": " + value);
+	}
+}
+
+process.argv.forEach(scan_arguments);
