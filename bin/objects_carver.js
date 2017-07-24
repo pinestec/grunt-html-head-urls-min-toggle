@@ -8,11 +8,14 @@
 
 'use strict';
 
-var help_needed__RegExp = new RegExp("^--?$", "i");
+var help_needed__RegExp = new RegExp("^\\s*--?h(elp)?\\s*$", "i");
 
 function scan_arguments(value, index, array) {
 	if (index > 1) {
-		console.log(index + ": " + value);
+		var result_array = help_needed__RegExp.exec(value);
+		if (result_array !== null) {
+			console.log(result_array[0]);
+		}
 	}
 }
 
