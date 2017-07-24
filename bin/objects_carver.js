@@ -42,6 +42,7 @@ function scan_arguments(value, index, array) {
 		}
 	}
 }
+
 try {
 	process.argv.forEach(scan_arguments);
 } catch (exception) {
