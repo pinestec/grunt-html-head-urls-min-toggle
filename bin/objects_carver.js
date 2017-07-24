@@ -30,7 +30,7 @@ if (help_needed) {
 	if (result_array !== null) {
 		console.log("usage:\t" + result_array[1] + " entire_filename [-h|--help] \n");
 		console.log("Writing internally defined \"reference objects\" to disk with the help of \"JSON.stringify\"...");
-		console.log("For later use with other packages.\n");
+		console.log("Just for later use with other packages.\n");
 		console.log("optional arguments:");
 		console.log("-h, --help\t\tShow this help message and exit");
 	}
