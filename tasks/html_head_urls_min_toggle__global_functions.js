@@ -1,6 +1,6 @@
 'use strict';
 
-function globalModule_Try(moduleString) {
+var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 	try {
 		return require(moduleString);
 	} catch (exception) {
@@ -8,18 +8,18 @@ function globalModule_Try(moduleString) {
 		console.log(exception);
 		return null;
 	}
-}
+};
 
 function dump_debug_string(string) {
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	var inHouseFileHandle = fileSystem_Module.openSync("./local_debug_dump.txt", 'a');
 	fileSystem_Module.writeSync(inHouseFileHandle, string);
 	fileSystem_Module.closeSync(inHouseFileHandle);
 }
 
 function message_locator_service(mainMessage) {
-	var path_Module = globalModule_Try('path');
-	var stackTrace_Module = globalModule_Try('stack-trace');
+	var path_Module = globalModule_Try__func_var('path');
+	var stackTrace_Module = globalModule_Try__func_var('stack-trace');
 	var currentFrame = stackTrace_Module.get()[1];
 	console.log(mainMessage + " >>> \"" + path_Module.basename(currentFrame.getFileName()) + ":" +
 	    currentFrame.getLineNumber() + "\"\n");
@@ -47,7 +47,7 @@ function spot_the_head(htmlLineArray) {
 }
 
 function carriage_return_needed() {
-	var os_Module = globalModule_Try('os');
+	var os_Module = globalModule_Try__func_var('os');
 	var windowsSpotter_RegExp = new RegExp("windows", "i");
 	if (windowsSpotter_RegExp.exec(os_Module.type()) !== null) {
 		return true;
@@ -61,7 +61,7 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 	if (carriageReturn) {
 		carriageReturnString = "\r";
 	}
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	var currentFileHandle = fileSystem_Module.openSync(fileName, 'w');
 
 	var lineSpotter_RegExp = new RegExp("^([\\x20\\x09]*)(.*)\\x0d*$", "i");
@@ -109,7 +109,7 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 }
 
 function array_from_file_delete(entire_fileName) {
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	if (fileSystem_Module.existsSync(entire_fileName)) {
 		var targetFile_LineArray = fileSystem_Module.readFileSync(entire_fileName, 'utf8', 'r').toString().split('\n');
 		fileSystem_Module.unlinkSync(entire_fileName);
@@ -121,7 +121,7 @@ function array_from_file_delete(entire_fileName) {
 }
 
 function array_from_file(entire_fileName) {
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	if (fileSystem_Module.existsSync(entire_fileName)) {
 		var targetFile_LineArray = fileSystem_Module.readFileSync(entire_fileName, 'utf8', 'r').toString().split('\n');
 		return targetFile_LineArray;
@@ -178,7 +178,7 @@ function toRegular(headStart, headEnd, carriageReturn, contentArray) {
 }
 
 function delete_writingArray_ToFile(fileName, array) {
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	if (fileSystem_Module.existsSync(fileName)) {
 		fileSystem_Module.unlinkSync(fileName);
 	}
@@ -299,7 +299,7 @@ module.exports = {
 		  var tail_string = result_array[1];
 		  var prepared_tail = tail_string.replace(/\./ig, "\\.");
 		  var wildcard_RegExp = new RegExp("^(.+" + prepared_tail + ")$", "i");
-		  var fileSystem_Module = globalModule_Try('fs');
+		  var fileSystem_Module = globalModule_Try__func_var('fs');
 		  var raw_file_array = fileSystem_Module.readdirSync(directory);
 		  var targets_file_array = [];
 		  for (var i = 0; i < raw_file_array.length; i++) {
