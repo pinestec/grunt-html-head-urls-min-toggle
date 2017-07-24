@@ -25,12 +25,12 @@ try {
 }
 
 if (help_needed) {
-	var dummy_string_one = "/c/Users/hartung/workspace_node_js/html-head-urls-min-toggle/bin/objects_carver.js";
-	var dummy_string_two = "C:\\Users\\hartung\\workspace_node_js\\html-head-urls-min-toggle\\bin\\objects_carver.js";
-	var plain_file_name_RegExp = new RegExp("[^/\\\\]*$");
-	var result_array = plain_file_name_RegExp.exec(dummy_string_two);
+	var plain_file_name_RegExp = new RegExp("([^/\\\\]*)$");
+	var result_array = plain_file_name_RegExp.exec(process.argv[1]);
 	if (result_array !== null) {
-		console.log(result_array[0]);
+		console.log("usage:\t" + result_array[1] + " entire_filename [-h|--help] \n");
+		console.log("Writing internally defined \"reference objects\" to disk with the help of \"JSON.stringify\"...");
+		console.log("For later use with other packages.");
 	}
 } else {
 	console.log("NO HELP NEEDED...!");
