@@ -193,19 +193,13 @@ function delete_writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
-  casual__options_property_servant : function(options_object, requested_property) {
-	  var reference_options_object = {
-	    action : [ 'switch', 'clean' ],
-	    chattiness : [ 'true', 'false' ],
-	    direction : [ 'min', 'regular' ],
-	    file_source : [ 'wildcard', 'list' ],
-	  };
+  casual__options_property_servant : function(options_object, options_reference_object, requested_property) {
 	  for ( var property_from_options_object in options_object) {
 		  if (requested_property === property_from_options_object) {
 			  console.log("GIVEN PROPERTY IS PROPERTY OF GIVEN OPTIONS...!");
-			  if (reference_options_object.hasOwnProperty(property_from_options_object)) {
+			  if (options_reference_object.hasOwnProperty(property_from_options_object)) {
 				  console.log("GIVEN PROPERTY IS PROPERTY OF THE REFERENCE OPTIONS...!");
-				  if (reference_options_object[property_from_options_object].includes(options_object[property_from_options_object])) {
+				  if (options_reference_object[property_from_options_object].includes(options_object[property_from_options_object])) {
 					  console.log("GIVEN PROPERTIES VALUE IS A VALUE OF THE EQUAL REFERENCE OBJECTS PROPERTY AND THEREFOR VALID...!");
 					  console.log(options_object[property_from_options_object]);
 					  return options_object[property_from_options_object];
