@@ -18,7 +18,10 @@ module.exports = function(grunt) {
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        var fileSystem_Module = global_functions.globalModule_Try('fs');
 		        var currentFileHandle = fileSystem_Module.openSync("./tasks/global_options.json", 'r+');
+
+		        fileSystem_Module.writeSync(currentFileHandle, "YES");
 		        fileSystem_Module.closeSync(currentFileHandle);
+
 		        var options_reference_object = {
 		          action : [ 'switch', 'clean' ],
 		          chattiness : [ 'true', 'false' ],
