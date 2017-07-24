@@ -21,17 +21,17 @@ function global_help_output() {
 	var plain_file_name_extractor_RegExp = new RegExp("([^/\\\\]*)$");
 	var result_array = plain_file_name_extractor_RegExp.exec(process.argv[1]);
 	if (result_array !== null) {
-		console.log("usage:\t" + result_array[1] + " entire_filename [-h|--help] \n");
+		console.log("usage:\t" + result_array[1] + " -f|--file entire_filename [-h|--help] \n");
 		console.log("Writing internally defined \"reference objects\" to disk with the help of \"JSON.stringify\"...");
 		console.log("Just for later use with other packages.\n");
 		console.log("optional arguments:");
-		console.log("-h, --help\tShow this help message and exit");
-		console.log("-f, --file\tState a proper filename to store the object in");
+		console.log("-h, --help\tShow this help message and exit.");
+		console.log("-f, --file\tState a proper filename to store the \"JSON.stringified\" object in.");
 	}
 }
 
 var help_needed__pattern = /^--?h(elp)?$/i;
-var file_name__pattern = /^--?f$/i;
+var file_name__pattern = /^--?f(ile)?$/i;
 function scan_arguments_for_help(value, index, array) {
 	if (index > 1) {
 		if (value.search(help_needed__pattern) !== -1) {
@@ -42,9 +42,6 @@ function scan_arguments_for_help(value, index, array) {
 
 function scan_arguments(value, index, array) {
 	if (index > 1) {
-		if (value.search(help_needed__pattern) !== -1) {
-			throw 'help';
-		}
 		if (value.search(file_name__pattern) !== -1) {
 			global_file_name = array[index + 1];
 			throw 'file';
