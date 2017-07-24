@@ -25,8 +25,11 @@ try {
 }
 
 if (help_needed) {
-	var plain_file_name_RegExp = new RegExp("[^w]*$", "i");
-	var result_array = plain_file_name_RegExp.exec(process.argv[0])
+	console.log(result_array[1]);
+	var dummy_string_one = "/c/Users/hartung/workspace_node_js/html-head-urls-min-toggle/bin/objects_carver.js";
+	var dummy_string_two = "C:\Users\hartung\workspace_node_js\html-head-urls-min-toggle\bin\objects_carver.js";
+	var plain_file_name_RegExp = new RegExp("[^:]*$", "i");
+	var result_array = plain_file_name_RegExp.exec(dummy_string_one);
 	if (result_array !== null) {
 		console.log(result_array[0]);
 	}
