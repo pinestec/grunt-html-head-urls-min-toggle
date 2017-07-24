@@ -193,6 +193,7 @@ function delete_writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
+  globalModule_Try : globalModule_Try__func_var,
   casual__options_property_servant : function(options_object, options_reference_object, requested_property) {
 	  for ( var property_from_options_object in options_object) {
 		  if (requested_property === property_from_options_object) {
