@@ -8,8 +8,10 @@
 
 'use strict';
 
-var test_entire_filename = "C:\\Users\\hartung\\AppData\\Local\\qBittorrent\\nova3\\engines\\filename.json";
-check_filename(test_entire_filename);
+var test_entire_filename_1 = "C:\\Users\\hartung\\AppData\\Local\\qBittorrent\\nova3\\engines\\filename.json";
+var test_entire_filename_2 = "/c/Users/hartung/AppData/Local/qBittorrent/nova3/engines/filename.json";
+check_filename(test_entire_filename_1);
+check_filename(test_entire_filename_2);
 return false;
 // Current reference object template that will be written to disk...:
 var object_to_be_written = {
