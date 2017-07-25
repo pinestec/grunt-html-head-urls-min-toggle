@@ -25,7 +25,7 @@ function check_filename(filename_to_be_verified) {
 }
 
 // var test_string_one = "asS";
-var test_string_two = "../////////////////////../../.././././//////////./././Apache24/htdocs/global_options.json";
+var test_string_two = ".AppData\\Local\\qBittorrent\\nova3\\engines\\global_options.json";
 check_filename(test_string_two);
 // check_filename(test_string_two);
 return false
