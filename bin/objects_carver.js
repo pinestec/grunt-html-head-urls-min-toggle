@@ -25,7 +25,7 @@ function check_filename(filename_to_be_verified) {
 }
 
 // var test_string_one = "asS";
-var test_string_two = "ASsSA.jsoXn";
+var test_string_two = "./etc/global_options.json";
 check_filename(test_string_two);
 // check_filename(test_string_two);
 return false
