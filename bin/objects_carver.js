@@ -8,6 +8,9 @@
 
 'use strict';
 
+var test_entire_filename = "C:\\Users\\hartung\\AppData\\Local\\qBittorrent\\nova3\\engines\\filename.json";
+check_filename(test_entire_filename);
+return false;
 // Current reference object template that will be written to disk...:
 var object_to_be_written = {
   action : [ 'switch', 'clean' ],
@@ -37,6 +40,7 @@ function check_filename(filename_to_be_verified) {
 	if (filename_to_be_verified !== undefined) {
 		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:|\/[a-zA-Z]{1})?(?:(?:\.*\/|\.*\\)[\w-]+)*[\w-]+\.json$/;
 		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
+			console.log(filename_to_be_verified);
 			return true;
 		} else {
 			console.log("IRREGULAR FILENAME \"" + filename_to_be_verified + "\" FOUND... PLEASE READJUST...!");
