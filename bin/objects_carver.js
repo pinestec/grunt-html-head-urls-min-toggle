@@ -59,16 +59,16 @@ try {
 var global_functions = {};
 global_functions = require('../tasks/html_head_urls_min_toggle__global_functions.js');
 var fileSystem_Module = global_functions.globalModule_Try('fs');
-var keypress_Module = global_functions.globalModule_Try('keypress');
-keypress_Module(process.stdin);
-process.stdin.on('keypress', function(character, key) {
-	console.log('got "keypress"', key);
-	if (key && key.ctrl && key.name === 'c') {
-		process.stdin.pause();
-	}
-});
-process.stdin.setRawMode(true);
-process.stdin.resume();
+// var keypress_Module = global_functions.globalModule_Try('keypress');
+// keypress_Module(process.stdin);
+// process.stdin.on('keypress', function(character, key) {
+// console.log('got "keypress"', key);
+// if (key && key.ctrl && key.name === 'c') {
+// process.stdin.pause();
+// }
+// });
+// process.stdin.setRawMode(true);
+// process.stdin.resume();
 
 try {
 	process.argv.forEach(scan_arguments);
