@@ -69,17 +69,16 @@ try {
 		return false;
 	case 'file':
 		if (fileSystem_Module.existsSync(global_file_name)) {
-
+			console.log("Overwriting file: \"" + global_file_name + "\"...");
 		} else {
-
+			console.log("Creating new file: \"" + global_file_name + "\"...");
 		}
-		break;
+		var currentFileHandle = fileSystem_Module.openSync(global_file_name, 'w');
+		fileSystem_Module.writeFileSync(currentFileHandle, JSON.stringify(object_to_be_written));
+		fileSystem_Module.closeSync(currentFileHandle);
+		return true;
 	default:
 		console.log("DEFAULT: " + exception);
-		break;
+		return false;
 	}
 }
-
-var currentFileHandle = fileSystem_Module.openSync(global_file_name, 'w');
-fileSystem_Module.writeFileSync(currentFileHandle, JSON.stringify(object_to_be_written));
-fileSystem_Module.closeSync(currentFileHandle);
