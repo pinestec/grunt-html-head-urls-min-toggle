@@ -59,16 +59,6 @@ try {
 var global_functions = {};
 global_functions = require('../tasks/html_head_urls_min_toggle__global_functions.js');
 var fileSystem_Module = global_functions.globalModule_Try('fs');
-// var keypress_Module = global_functions.globalModule_Try('keypress');
-// keypress_Module(process.stdin);
-// process.stdin.on('keypress', function(character, key) {
-// console.log('got "keypress"', key);
-// if (key && key.ctrl && key.name === 'c') {
-// process.stdin.pause();
-// }
-// });
-// process.stdin.setRawMode(true);
-// process.stdin.resume();
 
 try {
 	process.argv.forEach(scan_arguments);
@@ -78,7 +68,11 @@ try {
 		global_help_output();
 		return false;
 	case 'file':
-		console.log(fileSystem_Module.existsSync(global_file_name));
+		if (fileSystem_Module.existsSync(global_file_name)) {
+
+		} else {
+
+		}
 		break;
 	default:
 		console.log("DEFAULT: " + exception);
@@ -86,6 +80,6 @@ try {
 	}
 }
 
-var currentFileHandle = fileSystem_Module.openSync("./etc/global_options.json", 'w');
+var currentFileHandle = fileSystem_Module.openSync(global_file_name, 'w');
 fileSystem_Module.writeFileSync(currentFileHandle, JSON.stringify(object_to_be_written));
 fileSystem_Module.closeSync(currentFileHandle);
