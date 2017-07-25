@@ -10,6 +10,8 @@
 
 function check_filename(filename_to_be_verified) {
 	if (filename_to_be_verified !== undefined) {
+		var drive_part__path = /s/;
+
 		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:|\/[a-zA-Z]{1})?(?:(?:\.{0,2}\/?|\.{0,2}\\?)[\w\x20\(\)\.-]+)*[\w-]+\.json$/i;
 		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
 			console.log(filename_to_be_verified);
