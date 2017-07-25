@@ -8,15 +8,9 @@
 
 'use strict';
 
-var test_entire_filename_1 = "C:\\Program Files\\Microsoft Office\\Office12\\1031\\Mso Example Intl Setup File A.json";
-var test_entire_filename_2 = "/c/Program\ Files/Microsoft\ Office/Office12/1031/Mso\ Example\ Intl\ Setup\ File\ A.json";
-check_filename(test_entire_filename_1);
-check_filename(test_entire_filename_2);
-return false;
-
 function check_filename(filename_to_be_verified) {
 	if (filename_to_be_verified !== undefined) {
-		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:|\/[a-zA-Z]{1})?(?:(?:\.{0,2}\/|\.{0,2}\\)[\w\x20-]+)*[\w-]+\.json$/;
+		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:|\/[a-zA-Z]{1})?(?:(?:\.{0,2}\/?|\.{0,2}\\?)[\w\x20\(\)\.-]+)*[\w-]+\.json$/i;
 		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
 			console.log(filename_to_be_verified);
 			return true;
@@ -29,6 +23,12 @@ function check_filename(filename_to_be_verified) {
 		return false;
 	}
 }
+
+// var test_string_one = "asS";
+var test_string_two = "ASsSA.jsoXn";
+check_filename(test_string_two);
+// check_filename(test_string_two);
+return false
 
 // Current reference object template that will be written to disk...:
 var object_to_be_written = {
