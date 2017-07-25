@@ -85,3 +85,4 @@ try {
 		return false;
 	}
 }
+global_help_output();
