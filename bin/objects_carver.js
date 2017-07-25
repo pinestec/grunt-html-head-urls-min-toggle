@@ -8,7 +8,7 @@
 
 'use strict';
 
-// Current reference object that will be written to disk...:
+// Current reference object template that will be written to disk...:
 var object_to_be_written = {
   action : [ 'switch', 'clean' ],
   chattiness : [ 'true', 'false' ],
@@ -24,8 +24,9 @@ function global_help_output() {
 	if (result_array !== null) {
 		console.log("usage:\t" + result_array[1] + " -f|--file entire_filename [-h|--help] \n");
 		console.log("Writing internally defined \"reference object\" to disk with the help of \"JSON.stringify\".");
-		console.log("Just to be loaded with \"JSON.parse\" for the later use together with any package.");
-		console.log("Find the reference object at the top of this script: \"" + result_array[1] + "\"\n");
+		console
+		    .log("Just to be loaded and become an object again with the help \"JSON.parse\" for later use together with any package.");
+		console.log("Find the current reference object template at the top of this script: \"" + result_array[1] + "\"\n");
 		console.log("optional arguments:");
 		console.log("-h, --help\tShow this help message and exit.");
 		console.log("-f, --file\tState a proper filename to store the \"JSON.stringified\" object in.");
@@ -80,7 +81,7 @@ try {
 		fileSystem_Module.closeSync(currentFileHandle);
 		return true;
 	default:
-		console.log("DEFAULT: " + exception);
+		console.log("DEFAULT EXCEPTION: \"" + exception + "\"");
 		return false;
 	}
 }
