@@ -22,7 +22,7 @@ function global_help_output() {
 	var plain_file_name_extractor_RegExp = new RegExp("([^/\\\\]*)$");
 	var result_array = plain_file_name_extractor_RegExp.exec(process.argv[1]);
 	if (result_array !== null) {
-		console.log("usage:\t" + result_array[1] + " -f|--file entire_filename [-h|--help] \n");
+		console.log("usage:\t" + result_array[1] + " -f|--file entire_filename.json [-h|--help] \n");
 		console.log("Writing internally defined \"reference object\" to disk with the help of \"JSON.stringify\".");
 		console
 		    .log("Just to be loaded and become an object again with the help \"JSON.parse\" for later use together with any package.");
@@ -30,6 +30,16 @@ function global_help_output() {
 		console.log("optional arguments:");
 		console.log("-h, --help\tShow this help message and exit.");
 		console.log("-f, --file\tState a proper filename to store the \"JSON.stringified\" object in.");
+	}
+}
+
+function check_filename(filename_to_be_verified) {
+	var valid_filename__pattern = /^[\w-]+\.json$/;
+	if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
+		return true;
+	} else {
+		console.log("IRREGULAR FILENAME FOUND... PLEASE READJUST...!");
+		return false;
 	}
 }
 
@@ -46,8 +56,12 @@ function scan_arguments_for_help(value, index, array) {
 function scan_arguments(value, index, array) {
 	if (index > 1) {
 		if (value.search(file_name__pattern) !== -1) {
-			global_file_name = array[index + 1];
-			throw 'file';
+			if (check_filename(array[index + 1])) {
+				global_file_name = array[index + 1];
+				throw 'file';
+			} else {
+				return false;
+			}
 		}
 	}
 }
