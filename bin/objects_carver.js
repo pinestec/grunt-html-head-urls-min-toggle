@@ -8,28 +8,6 @@
 
 'use strict';
 
-function check_filename(filename_to_be_verified) {
-	if (filename_to_be_verified !== undefined) {
-		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:\\|\/[a-zA-Z]{1}\/)?(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\)\.-]+(?:\/|\\)))*[\w-]+\.json$/i;
-		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
-			console.log(filename_to_be_verified);
-			return true;
-		} else {
-			console.log("IRREGULAR FILENAME \"" + filename_to_be_verified + "\" FOUND... PLEASE READJUST...!");
-			return false;
-		}
-	} else {
-		console.log("PLEASE STATE A FILENAME...!");
-		return false;
-	}
-}
-
-// var test_string_one = "asS";
-var test_string_two = ".AppData\\Local\\qBittorrent\\nova3\\engines\\global_options.json";
-check_filename(test_string_two);
-// check_filename(test_string_two);
-return false
-
 // Current reference object template that will be written to disk...:
 var object_to_be_written = {
   action : [ 'switch', 'clean' ],
@@ -37,6 +15,7 @@ var object_to_be_written = {
   direction : [ 'min', 'regular' ],
   file_source : [ 'wildcard', 'list' ],
 };
+// End of current reference object template that will be written to disk...:
 
 var global_file_name = '';
 
@@ -52,6 +31,22 @@ function global_help_output() {
 		console.log("optional arguments:");
 		console.log("-h, --help\t\t\tShow this help message and exit.");
 		console.log("-f, --file proper_filename.json\tState a proper filename to store the \"JSON.stringified\" object in.");
+	}
+}
+
+function check_filename(filename_to_be_verified) {
+	if (filename_to_be_verified !== undefined) {
+		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:\\|\/[a-zA-Z]{1}\/)?(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\)\.-]+(?:\/|\\)))*[\w-]+\.json$/i;
+		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
+			console.log(filename_to_be_verified);
+			return true;
+		} else {
+			console.log("IRREGULAR FILENAME \"" + filename_to_be_verified + "\" FOUND... PLEASE READJUST...!");
+			return false;
+		}
+	} else {
+		console.log("PLEASE STATE A FILENAME AFTER THE \"-f|--file\" argument...!");
+		return false;
 	}
 }
 
