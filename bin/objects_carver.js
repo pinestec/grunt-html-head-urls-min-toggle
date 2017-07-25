@@ -28,17 +28,22 @@ function global_help_output() {
 		    .log("Just to be loaded and become an object again with the help \"JSON.parse\" for later use together with any package.");
 		console.log("Find the current reference object template at the top of this script: \"" + result_array[1] + "\"\n");
 		console.log("optional arguments:");
-		console.log("-h, --help\tShow this help message and exit.");
-		console.log("-f, --file\tState a proper filename to store the \"JSON.stringified\" object in.");
+		console.log("-h, --help\t\t\tShow this help message and exit.");
+		console.log("-f, --file proper_filename.json\tState a proper filename to store the \"JSON.stringified\" object in.");
 	}
 }
 
 function check_filename(filename_to_be_verified) {
-	var valid_filename__pattern = /^[\w-]+\.json$/;
-	if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
-		return true;
+	if (filename_to_be_verified !== undefined) {
+		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:|\/[a-zA-Z]{1})?(?:(?:\.*\/|\.*\\)[\w-]+)*[\w-]+\.json$/;
+		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
+			return true;
+		} else {
+			console.log("IRREGULAR FILENAME \"" + filename_to_be_verified + "\" FOUND... PLEASE READJUST...!");
+			return false;
+		}
 	} else {
-		console.log("IRREGULAR FILENAME FOUND... PLEASE READJUST...!");
+		console.log("PLEASE STATE A FILENAME...!");
 		return false;
 	}
 }
