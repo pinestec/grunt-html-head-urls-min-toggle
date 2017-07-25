@@ -35,6 +35,7 @@
     "gruntplugin,html,head,link,switch"
   ],
   "dependencies": {
+    "keypress": "^0.2.1",
     "stack-trace": "0.0.10"
   }
 }
