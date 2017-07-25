@@ -8,11 +8,28 @@
 
 'use strict';
 
-var test_entire_filename_1 = "C:\\Users\\hartung\\AppData\\Local\\qBittorrent\\nova3\\engines\\filename.json";
-var test_entire_filename_2 = "/c/Users/hartung/AppData/Local/qBittorrent/nova3/engines/filename.json";
+var test_entire_filename_1 = "C:\\Program Files\\Microsoft Office\\Office12\\1031\\Mso Example Intl Setup File A.json";
+var test_entire_filename_2 = "/c/Program\ Files/Microsoft\ Office/Office12/1031/Mso\ Example\ Intl\ Setup\ File\ A.json";
 check_filename(test_entire_filename_1);
 check_filename(test_entire_filename_2);
 return false;
+
+function check_filename(filename_to_be_verified) {
+	if (filename_to_be_verified !== undefined) {
+		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:|\/[a-zA-Z]{1})?(?:(?:\.{0,2}\/|\.{0,2}\\)[\w\x20-]+)*[\w-]+\.json$/;
+		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
+			console.log(filename_to_be_verified);
+			return true;
+		} else {
+			console.log("IRREGULAR FILENAME \"" + filename_to_be_verified + "\" FOUND... PLEASE READJUST...!");
+			return false;
+		}
+	} else {
+		console.log("PLEASE STATE A FILENAME...!");
+		return false;
+	}
+}
+
 // Current reference object template that will be written to disk...:
 var object_to_be_written = {
   action : [ 'switch', 'clean' ],
@@ -35,22 +52,6 @@ function global_help_output() {
 		console.log("optional arguments:");
 		console.log("-h, --help\t\t\tShow this help message and exit.");
 		console.log("-f, --file proper_filename.json\tState a proper filename to store the \"JSON.stringified\" object in.");
-	}
-}
-
-function check_filename(filename_to_be_verified) {
-	if (filename_to_be_verified !== undefined) {
-		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:|\/[a-zA-Z]{1})?(?:(?:\.*\/|\.*\\)[\w-]+)*[\w-]+\.json$/;
-		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
-			console.log(filename_to_be_verified);
-			return true;
-		} else {
-			console.log("IRREGULAR FILENAME \"" + filename_to_be_verified + "\" FOUND... PLEASE READJUST...!");
-			return false;
-		}
-	} else {
-		console.log("PLEASE STATE A FILENAME...!");
-		return false;
 	}
 }
 
