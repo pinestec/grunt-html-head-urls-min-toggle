@@ -25,7 +25,7 @@ function check_filename(filename_to_be_verified) {
 }
 
 // var test_string_one = "asS";
-var test_string_two = "../.././../Default\\ User/Pictures/global_options.jsXon";
+var test_string_two = "../../../../././././././Apache24/htdocs/global_options.JSON";
 check_filename(test_string_two);
 // check_filename(test_string_two);
 return false
