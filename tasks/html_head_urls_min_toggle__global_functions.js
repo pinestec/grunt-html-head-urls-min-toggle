@@ -211,7 +211,6 @@ module.exports = {
 				  if (options_reference_object[property_from_options_object].includes(options_object[property_from_options_object])) {
 					  console
 					      .log("GIVEN PROPERTIES VALUE IS A VALUE OF THE EQUAL REFERENCE OBJECTS PROPERTY AND THEREFORE VALID...!");
-					  console.log(options_object[property_from_options_object]);
 					  return options_object[property_from_options_object];
 				  } else {
 					  console
