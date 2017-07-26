@@ -121,6 +121,7 @@ try {
 		var currentFileHandle = fileSystem_Module.openSync(global_file_name, 'r');
 		var reverse_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 		fileSystem_Module.closeSync(currentFileHandle);
+		console.log(); // Just for a new line...
 		console.log(reverse_object);
 		return true;
 	default:
