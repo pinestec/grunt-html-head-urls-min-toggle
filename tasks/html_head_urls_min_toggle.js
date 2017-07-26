@@ -51,6 +51,7 @@ module.exports = function(grunt) {
 							        }
 						        } else {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
+							        break;
 						        }
 					        }
 					        break;
