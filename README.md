@@ -112,8 +112,9 @@ Version 1.0.12 - Placed stuff at GitHub - without additional line breaks... :-(<
 Version 1.0.13 - Repaired a typo...<br>
 Version 1.0.14 - Corrected the links inside package.json...<br>
 Version 1.0.15 - Cleaned up the sample Gruntfile...<br>
+Version 1.0.16 - Revised the entire options handling...<br>
 
 Michael Hartung
-21.July 2017
+26.July 2017
  
 Have Fun! 
