@@ -31,7 +31,16 @@ module.exports = function(grunt) {
 				        var file_source = global_functions.casual__options_property_servant(this.data.options,
 				            options_reference_object, 'file_source');
 				        if (file_source === 'list') {
-					        console.log("SWITCHING A LIST...!");
+					        for (var il = 0; il < this.data.custom_files.length; il++) {
+						        grunt.log.write("\t" + (il + 1) + ": \"" + this.data.custom_files[il] + "\"");
+						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[il])) {
+							        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
+							            "\n");
+						        } else {
+							        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
+							            "\">>> Failed...! <<<"['red'] + "\n");
+						        }
+					        }
 				        }
 				        if (file_source === 'wildcard') {
 					        for (var ow = 0; ow < this.data.custom_files.length; ow++) {
@@ -67,6 +76,7 @@ module.exports = function(grunt) {
 			        console.log("Could not derive a valid action...! ");
 			        console.log("Please match your Gruntfile with the packages documentation...");
 		        }
+		        // #########
 		        var reference_options_switch_object = {
 		          action : [ 'switch', 'clean' ],
 		          direction : [ 'min', 'regular' ],
@@ -77,17 +87,6 @@ module.exports = function(grunt) {
 
 			        if (this.data.options.action === 'switch') {
 				        if (this.data.options.file_source === 'list') {
-
-					        for (var l = 0; l < this.data.custom_files.length; l++) {
-						        grunt.log.write("\t" + (l + 1) + ": \"" + this.data.custom_files[l] + "\"");
-						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[l])) {
-							        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
-							            "\n");
-						        } else {
-							        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
-							            "\">>> Failed...! <<<"['red'] + "\n");
-						        }
-					        }
 
 				        }
 

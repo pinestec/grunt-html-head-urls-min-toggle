@@ -31,6 +31,16 @@ module.exports = function(grunt) {
 	      } ]
 	    },
 
+	    to_min_list : {
+	      options : {
+	        action : 'switch',
+	        direction : 'min',
+	        file_source : 'list',
+	        chattiness : 'false'
+	      },
+	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
+	    },
+
 	    to_regular : {
 	      options : {
 	        action : 'switch',
@@ -77,6 +87,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('j', [ 'jshint' ]);
 
 	grunt.registerTask('m', [ 'html_head_urls_min_toggle:to_min' ]);
+	grunt.registerTask('ml', [ 'html_head_urls_min_toggle:to_min_list' ]);
 	grunt.registerTask('r', [ 'html_head_urls_min_toggle:to_regular' ]);
 	grunt.registerTask('jc', [ 'html_head_urls_min_toggle:just_clean' ]);
 };
