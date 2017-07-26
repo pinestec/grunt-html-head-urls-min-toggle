@@ -40,14 +40,21 @@ module.exports = function(grunt) {
 							        var inner_files_array = global_functions.process_wildcard_input(this.data.custom_files[ow].src,
 							            this.data.custom_files[ow].cwd);
 							        for (var iw = 0; iw < inner_files_array.length; iw++) {
-
+								        grunt.log.write("\t" + (iw + 1) + ": \"" + inner_files_array[iw] + "\"");
+								        if (global_functions.toggle_all_head_links(this.data.options.direction, inner_files_array[iw])) {
+									        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
+									            "\n");
+								        } else {
+									        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
+									            "\">>> Failed...! <<<"['red'] + "\n");
+								        }
 							        }
 						        } else {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
 						        }
 					        }
+					        break;
 				        }
-				        console.log(file_source);
 				        break;
 			        case 'clean':
 				        console.log("SELECTED CLEAN...!");
@@ -78,28 +85,6 @@ module.exports = function(grunt) {
 							            "\">>> Failed...! <<<"['red'] + "\n");
 						        }
 					        }
-				        } else {
-
-					        for (var m = 0; m < this.data.custom_files.length; m++) {
-						        if (this.data.custom_files[m].hasOwnProperty('cwd') && this.data.custom_files[m].hasOwnProperty('src')) {
-							        var current_second_files_array = global_functions.process_wildcard_input(
-							            this.data.custom_files[m].src, this.data.custom_files[m].cwd);
-							        for (var n = 0; n < current_second_files_array.length; n++) {
-								        grunt.log.write("\t" + (n + 1) + ": \"" + current_second_files_array[n] + "\"");
-								        if (global_functions.toggle_all_head_links(this.data.options.direction,
-								            current_second_files_array[n])) {
-									        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
-									            "\n");
-								        } else {
-									        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
-									            "\">>> Failed...! <<<"['red'] + "\n");
-								        }
-							        }
-						        } else {
-							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
-						        }
-					        }
-
 				        }
 			        }
 		        } else {
