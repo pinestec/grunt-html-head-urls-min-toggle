@@ -10,10 +10,8 @@
 
 module.exports = function(grunt) {
 	grunt
-	    .registerMultiTask(
-	        'html_head_urls_min_toggle',
-	        'Point the html-head href and src urls to minified sources and vice versa.',
-	        function() {
+	    .registerMultiTask('html_head_urls_min_toggle',
+	        'Point the html-head href and src urls to minified sources and vice versa.', function() {
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        // global_functions.serialize_object_to_disk(this,
@@ -86,50 +84,14 @@ module.exports = function(grunt) {
 				        if (file_source_clean === 'wildcard') {
 					        console.log("CLEANING WILDCARDS...!");
 
-				        }
-
-				        break;
-			        default:
-				        break;
-			        }
-		        } else {
-			        console.log("Could not derive a valid action...! ");
-			        console.log("Please match your Gruntfile with the packages documentation...");
-		        }
-		        // #########
-		        var reference_options_switch_object = {
-		          action : [ 'switch', 'clean' ],
-		          direction : [ 'min', 'regular' ],
-		          file_source : [ 'wildcard', 'list' ]
-		        };
-
-		        if (global_functions.private_action_checker(this, reference_options_switch_object, false)) {
-
-			        if (this.data.options.action === 'switch') {
-				        if (this.data.options.file_source === 'list') {
-
-				        }
-
-			        }
-
-		        } else {
-
-			        var reference_options_clean_object = {
-			          action : [ 'clean' ],
-			          file_source : [ 'wildcard', 'list' ]
-			        };
-			        if (global_functions.private_action_checker(this, reference_options_clean_object, false)) {
-				        if (this.data.options.file_source === 'list') {
-
-				        } else {
-
-					        for (var k = 0; k < this.data.custom_files.length; k++) {
-						        if (this.data.custom_files[k].hasOwnProperty('cwd') && this.data.custom_files[k].hasOwnProperty('src')) {
-							        var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[k].src,
-							            this.data.custom_files[k].cwd);
-							        for (var j = 0; j < current_files_array.length; j++) {
-								        grunt.log.write("\t" + (j + 1) + ": \"" + current_files_array[j] + "\"");
-								        if (global_functions.end_of_line_refresh(current_files_array[j])) {
+					        for (var owc = 0; owc < this.data.custom_files.length; owc++) {
+						        if (this.data.custom_files[owc].hasOwnProperty('cwd') &&
+						            this.data.custom_files[owc].hasOwnProperty('src')) {
+							        var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[owc].src,
+							            this.data.custom_files[owc].cwd);
+							        for (var iwc = 0; iwc < current_files_array.length; iwc++) {
+								        grunt.log.write("\t" + (iwc + 1) + ": \"" + current_files_array[iwc] + "\"");
+								        if (global_functions.end_of_line_refresh(current_files_array[iwc])) {
 									        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] +
 									            "\" o.k."['green'] + "\n");
 								        } else {
@@ -143,8 +105,13 @@ module.exports = function(grunt) {
 					        }
 
 				        }
+				        break;
+			        default:
+				        break;
 			        }
+		        } else {
+			        console.log("Could not derive a valid action...! ");
+			        console.log("Please match your Gruntfile with the packages documentation...");
 		        }
-
 	        }); // End of the major function...
 };

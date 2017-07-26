@@ -64,6 +64,21 @@ module.exports = function(grunt) {
 	        chattiness : 'false'
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
+	    },
+
+	    just_clean_wild : {
+	      options : {
+	        action : 'clean',
+	        file_source : 'wildcard',
+	        chattiness : 'false'
+	      },
+	      custom_files : [ {
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      }, {
+	        cwd : './',
+	        src : [ '*.html' ]
+	      } ]
 	    }
 	  },
 
@@ -90,4 +105,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('ml', [ 'html_head_urls_min_toggle:to_min_list' ]);
 	grunt.registerTask('r', [ 'html_head_urls_min_toggle:to_regular' ]);
 	grunt.registerTask('jc', [ 'html_head_urls_min_toggle:just_clean' ]);
+	grunt.registerTask('jcw', [ 'html_head_urls_min_toggle:just_clean_wild' ]);
+
 };
