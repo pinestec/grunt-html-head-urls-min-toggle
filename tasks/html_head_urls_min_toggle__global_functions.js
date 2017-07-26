@@ -11,7 +11,10 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 };
 
 var serialize_object_to_disk__func_var = function serialize_object_to_disk(object, entire_file_name) {
-	console.log("YOU HAVE REACHED THE SERIALIZE FUNCTION...!");
+	var fileSystem_Module = globalModule_Try__func_var('fs');
+	var inHouseFileHandle = fileSystem_Module.openSync(entire_file_name, 'w');
+	fileSystem_Module.writeFileSync(inHouseFileHandle, JSON.stringify(object));
+	fileSystem_Module.closeSync(inHouseFileHandle);
 };
 
 function dump_debug_string(string) {
