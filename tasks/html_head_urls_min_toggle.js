@@ -22,10 +22,23 @@ module.exports = function(grunt) {
 		        var currentFileHandle = fileSystem_Module.openSync("./etc/global_options.json", 'r');
 		        var options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 		        fileSystem_Module.closeSync(currentFileHandle);
-		        if (global_functions.casual__options_property_servant(this.data.options, options_reference_object, 'action')) {
-			        console.log("RESULT IS O.K.");
+
+		        var action__current_value = global_functions.casual__options_property_servant(this.data.options,
+		            options_reference_object, 'Xaction');
+		        if (action__current_value) {
+			        switch (action__current_value) {
+			        case 'switch':
+				        console.log("SELECTED SWITCH...!");
+				        break;
+			        case 'clean':
+				        console.log("SELECTED CLEAN...!");
+				        break;
+			        default:
+				        break;
+			        }
 		        } else {
-			        console.log("FUNCTION FAILED...!");
+			        console.log("Could not derive a valid action...! ");
+			        console.log("Please match your Gruntfile with the packages documentation...");
 		        }
 		        var reference_options_switch_object = {
 		          action : [ 'switch', 'clean' ],
