@@ -74,8 +74,10 @@ module.exports = function(grunt) {
 		        };
 
 		        if (global_functions.private_action_checker(this, reference_options_switch_object, false)) {
+
 			        if (this.data.options.action === 'switch') {
 				        if (this.data.options.file_source === 'list') {
+
 					        for (var l = 0; l < this.data.custom_files.length; l++) {
 						        grunt.log.write("\t" + (l + 1) + ": \"" + this.data.custom_files[l] + "\"");
 						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[l])) {
@@ -87,7 +89,9 @@ module.exports = function(grunt) {
 						        }
 					        }
 				        }
+
 			        }
+
 		        } else {
 
 			        var reference_options_clean_object = {
