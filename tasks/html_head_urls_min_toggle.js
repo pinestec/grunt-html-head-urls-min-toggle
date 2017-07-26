@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 		        fileSystem_Module.closeSync(currentFileHandle);
 
 		        var action__current_value = global_functions.casual__options_property_servant(this.data.options,
-		            options_reference_object, 'Xaction');
+		            options_reference_object, 'action');
 		        if (action__current_value) {
 			        switch (action__current_value) {
 			        case 'switch':
