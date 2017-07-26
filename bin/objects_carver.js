@@ -70,6 +70,14 @@ function scan_arguments(value, index, array) {
 				return false;
 			}
 		}
+		if (value.search(reverse_file_name__pattern) !== -1) {
+			if (check_filename(array[index + 1])) {
+				global_file_name = array[index + 1];
+				throw 'reverse';
+			} else {
+				return false;
+			}
+		}
 	}
 }
 
@@ -100,6 +108,13 @@ try {
 		var currentFileHandle = fileSystem_Module.openSync(global_file_name, 'w');
 		fileSystem_Module.writeFileSync(currentFileHandle, JSON.stringify(object_to_be_written));
 		fileSystem_Module.closeSync(currentFileHandle);
+		return true;
+	case 'reverse':
+		if (fileSystem_Module.existsSync(global_file_name)) {
+			console.log("Checking existing file: \"" + global_file_name + "\"...");
+		} else {
+			console.log("File: \"" + global_file_name + "\" does not exist... :-(");
+		}
 		return true;
 	default:
 		console.log("DEFAULT EXCEPTION: \"" + exception + "\"");
