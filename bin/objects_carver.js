@@ -8,13 +8,6 @@
 
 'use strict';
 
-// var test_pattern_no_one = "C:\\Program Files\\Microsoft
-// Office\\Office12\\1031\\global_options.super.max.json";
-// var test_pattern_no_two = "";
-
-// check_filename(test_pattern_no_one);
-// return false;
-
 // Current reference object template that will be written to disk...:
 var object_to_be_written = {
   action : [ 'switch', 'clean' ],
@@ -42,7 +35,6 @@ function global_help_output() {
 }
 
 function check_filename(filename_to_be_verified) {
-	console.log("ENTERING FUNCTION: \"" + filename_to_be_verified + "\"");
 	if (filename_to_be_verified !== undefined) {
 		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:(?:\\|\/)|\/[a-zA-Z]{1}\/)?(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\)\.-]+(?:\/|\\)))*[\w-]+(\.[\w-]+)*\.json$/i;
 		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
@@ -71,7 +63,6 @@ function scan_arguments(value, index, array) {
 	if (index > 1) {
 		if (value.search(file_name__pattern) !== -1) {
 			if (check_filename(array[index + 1])) {
-				console.log("INDEX PLUS ONE: \"" + array[index + 1] + "\"");
 				global_file_name = array[index + 1];
 				throw 'file';
 			} else {
