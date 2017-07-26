@@ -51,6 +51,7 @@ function check_filename(filename_to_be_verified) {
 
 var help_needed__pattern = /^--?h(elp)?$/i;
 var file_name__pattern = /^--?f(ile)?$/i;
+var reverse_file_name__pattern = /^--?r(everse)?$/i;
 function scan_arguments_for_help(value, index, array) {
 	if (index > 1) {
 		if (value.search(help_needed__pattern) !== -1) {
