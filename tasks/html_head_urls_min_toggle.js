@@ -34,7 +34,14 @@ module.exports = function(grunt) {
 					        console.log("SWITCHING A LIST...!");
 				        }
 				        if (file_source === 'wildcard') {
-					        console.log("SWITCHING WILDCARDS...!");
+					        for (var ow = 0; ow < this.data.custom_files.length; ow++) {
+						        if (this.data.custom_files[ow].hasOwnProperty('cwd') &&
+						            this.data.custom_files[ow].hasOwnProperty('src')) {
+
+						        } else {
+							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
+						        }
+					        }
 				        }
 				        console.log(file_source);
 				        break;
