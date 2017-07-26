@@ -44,7 +44,7 @@ function global_help_output() {
 function check_filename(filename_to_be_verified) {
 	console.log("ENTERING FUNCTION: \"" + filename_to_be_verified + "\"");
 	if (filename_to_be_verified !== undefined) {
-		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:\\|\/[a-zA-Z]{1}\/)?(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\)\.-]+(?:\/|\\)))*[\w-]+(\.[\w-]+)*\.json$/i;
+		var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:(?:\\|\/)|\/[a-zA-Z]{1}\/)?(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\)\.-]+(?:\/|\\)))*[\w-]+(\.[\w-]+)*\.json$/i;
 		if (filename_to_be_verified.search(valid_filename__pattern) !== -1) {
 			return true;
 		} else {
