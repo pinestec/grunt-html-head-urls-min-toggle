@@ -45,6 +45,7 @@ module.exports = function(grunt) {
 		          direction : [ 'min', 'regular' ],
 		          file_source : [ 'wildcard', 'list' ]
 		        };
+
 		        if (global_functions.private_action_checker(this, reference_options_switch_object, false)) {
 			        if (this.data.options.action === 'switch') {
 				        if (this.data.options.file_source === 'list') {
@@ -119,5 +120,6 @@ module.exports = function(grunt) {
 				        }
 			        }
 		        }
-	        });
+
+	        }); // End of function...
 };
