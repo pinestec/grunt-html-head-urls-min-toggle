@@ -72,9 +72,20 @@ module.exports = function(grunt) {
 				            options_reference_object, 'file_source');
 				        if (file_source_clean === 'list') {
 					        console.log("CLEANING PLAIN LIST...!");
+					        for (var ilc = 0; ilc < this.data.custom_files.length; ilc++) {
+						        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
+						        if (global_functions.end_of_line_refresh(this.data.custom_files[ilc])) {
+							        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] + "\" o.k."['green'] +
+							            "\n");
+						        } else {
+							        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
+							            "\" >>> Failed...! <<<"['red'] + "\n");
+						        }
+					        }
 				        }
 				        if (file_source_clean === 'wildcard') {
 					        console.log("CLEANING WILDCARDS...!");
+
 				        }
 
 				        break;
@@ -109,17 +120,6 @@ module.exports = function(grunt) {
 			        };
 			        if (global_functions.private_action_checker(this, reference_options_clean_object, false)) {
 				        if (this.data.options.file_source === 'list') {
-
-					        for (var i = 0; i < this.data.custom_files.length; i++) {
-						        grunt.log.write("\t" + (i + 1) + ": \"" + this.data.custom_files[i] + "\"");
-						        if (global_functions.end_of_line_refresh(this.data.custom_files[i])) {
-							        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] + "\" o.k."['green'] +
-							            "\n");
-						        } else {
-							        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
-							            "\" >>> Failed...! <<<"['red'] + "\n");
-						        }
-					        }
 
 				        } else {
 
