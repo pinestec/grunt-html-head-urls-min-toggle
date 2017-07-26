@@ -65,11 +65,9 @@ module.exports = function(grunt) {
 				        }
 				        break;
 			        case 'clean':
-				        console.log("SELECTED CLEAN...!");
 				        var file_source_clean = global_functions.casual__options_property_servant(this.data.options,
 				            options_reference_object, 'file_source');
 				        if (file_source_clean === 'list') {
-					        console.log("CLEANING PLAIN LIST...!");
 					        for (var ilc = 0; ilc < this.data.custom_files.length; ilc++) {
 						        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
 						        if (global_functions.end_of_line_refresh(this.data.custom_files[ilc])) {
@@ -80,10 +78,9 @@ module.exports = function(grunt) {
 							            "\" >>> Failed...! <<<"['red'] + "\n");
 						        }
 					        }
+					        break;
 				        }
 				        if (file_source_clean === 'wildcard') {
-					        console.log("CLEANING WILDCARDS...!");
-
 					        for (var owc = 0; owc < this.data.custom_files.length; owc++) {
 						        if (this.data.custom_files[owc].hasOwnProperty('cwd') &&
 						            this.data.custom_files[owc].hasOwnProperty('src')) {
@@ -103,10 +100,11 @@ module.exports = function(grunt) {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
 						        }
 					        }
-
+					        break;
 				        }
 				        break;
 			        default:
+				        console.log("REACHED THE DEFAULT BRANCH OF THE SWITCH UNEXPECTEDLY...!");
 				        break;
 			        }
 		        } else {

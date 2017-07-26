@@ -101,10 +101,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('c', [ 'clean' ]);
 	grunt.registerTask('j', [ 'jshint' ]);
 
-	grunt.registerTask('m', [ 'html_head_urls_min_toggle:to_min' ]);
+	grunt.registerTask('mw', [ 'html_head_urls_min_toggle:to_min' ]);
 	grunt.registerTask('ml', [ 'html_head_urls_min_toggle:to_min_list' ]);
-	grunt.registerTask('r', [ 'html_head_urls_min_toggle:to_regular' ]);
-	grunt.registerTask('jc', [ 'html_head_urls_min_toggle:just_clean' ]);
-	grunt.registerTask('jcw', [ 'html_head_urls_min_toggle:just_clean_wild' ]);
+	grunt.registerTask('rw', [ 'html_head_urls_min_toggle:to_regular' ]);
+	grunt.registerTask('cl', [ 'html_head_urls_min_toggle:just_clean' ]);
+	grunt.registerTask('cw', [ 'html_head_urls_min_toggle:just_clean_wild' ]);
 
 };
