@@ -68,6 +68,7 @@ module.exports = function(grunt) {
 				        break;
 			        case 'clean':
 				        console.log("SELECTED CLEAN...!");
+
 				        break;
 			        default:
 				        break;
