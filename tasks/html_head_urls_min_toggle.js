@@ -68,6 +68,14 @@ module.exports = function(grunt) {
 				        break;
 			        case 'clean':
 				        console.log("SELECTED CLEAN...!");
+				        var file_source_clean = global_functions.casual__options_property_servant(this.data.options,
+				            options_reference_object, 'file_source');
+				        if (file_source_clean === 'list') {
+					        console.log("CLEANING PLAIN LIST...!");
+				        }
+				        if (file_source_clean === 'wildcard') {
+					        console.log("CLEANING WILDCARDS...!");
+				        }
 
 				        break;
 			        default:
