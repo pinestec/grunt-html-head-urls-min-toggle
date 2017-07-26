@@ -82,6 +82,7 @@ module.exports = function(grunt) {
 				        }
 			        }
 		        } else {
+
 			        var reference_options_clean_object = {
 			          action : [ 'clean' ],
 			          file_source : [ 'wildcard', 'list' ]
@@ -121,5 +122,5 @@ module.exports = function(grunt) {
 			        }
 		        }
 
-	        }); // End of function...
+	        }); // End of the major function...
 };
