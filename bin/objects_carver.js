@@ -71,6 +71,7 @@ function scan_arguments(value, index, array) {
 	if (index > 1) {
 		if (value.search(file_name__pattern) !== -1) {
 			if (check_filename(array[index + 1])) {
+				console.log("INDEX PLUS ONE: \"" + array[index + 1] + "\"");
 				global_file_name = array[index + 1];
 				throw 'file';
 			} else {
