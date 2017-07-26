@@ -28,9 +28,14 @@ module.exports = function(grunt) {
 		        if (action__current_value) {
 			        switch (action__current_value) {
 			        case 'switch':
-				        console.log("SELECTED SWITCH...!");
 				        var file_source = global_functions.casual__options_property_servant(this.data.options,
 				            options_reference_object, 'file_source');
+				        if (file_source === 'list') {
+					        console.log("SWITCHING A LIST...!");
+				        }
+				        if (file_source === 'wildcard') {
+					        console.log("SWITCHING WILDCARDS...!");
+				        }
 				        console.log(file_source);
 				        break;
 			        case 'clean':
@@ -63,6 +68,7 @@ module.exports = function(grunt) {
 						        }
 					        }
 				        } else {
+
 					        for (var m = 0; m < this.data.custom_files.length; m++) {
 						        if (this.data.custom_files[m].hasOwnProperty('cwd') && this.data.custom_files[m].hasOwnProperty('src')) {
 							        var current_second_files_array = global_functions.process_wildcard_input(
@@ -82,6 +88,7 @@ module.exports = function(grunt) {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
 						        }
 					        }
+
 				        }
 			        }
 		        } else {
