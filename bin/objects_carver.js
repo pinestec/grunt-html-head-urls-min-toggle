@@ -23,14 +23,17 @@ function global_help_output() {
 	var plain_file_name_extractor_RegExp = new RegExp("([^/\\\\]*)$");
 	var result_array = plain_file_name_extractor_RegExp.exec(process.argv[1]);
 	if (result_array !== null) {
-		console.log("usage:\t" + result_array[1] + " -f|--file entire_filename.json [-h|--help] \n");
+		console.log("usage:\t" + result_array[1] +
+		    " [-f|--file  entire_filename.json] [-r|--reverse  entire_filename.json] [-h|--help] \n");
 		console.log("Writing internally defined \"reference object\" to disk with the help of \"JSON.stringify\".");
 		console
 		    .log("Just to be loaded and become an object again with the help \"JSON.parse\" for later use together with any package.");
 		console.log("Find the current reference object template at the top of this script: \"" + result_array[1] + "\"\n");
 		console.log("optional arguments:");
-		console.log("-h, --help\t\t\tShow this help message and exit.");
-		console.log("-f, --file proper_filename.json\tState a proper filename to store the \"JSON.stringified\" object in.");
+		console.log("-h, --help\t\t\t\tShow this help message and exit.");
+		console.log("-f, --file proper_filename.json\t\tState a proper filename to store the \"JSON.stringified\" object in.");
+		console
+		    .log("-r, --reverse proper_filename.json\tState a proper filename to deserialize with \"JSON.parse\" and display the stored object.");
 	}
 }
 
@@ -115,6 +118,10 @@ try {
 		} else {
 			console.log("File: \"" + global_file_name + "\" does not exist... :-(");
 		}
+		var currentFileHandle = fileSystem_Module.openSync(global_file_name, 'r');
+		var reverse_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
+		fileSystem_Module.closeSync(currentFileHandle);
+		console.log(reverse_object);
 		return true;
 	default:
 		console.log("DEFAULT EXCEPTION: \"" + exception + "\"");
