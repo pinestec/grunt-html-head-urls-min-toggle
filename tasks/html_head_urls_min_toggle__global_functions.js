@@ -10,6 +10,10 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 	}
 };
 
+var serialize_object_to_disk__func_var = function serialize_object_to_disk(object, entire_file_name) {
+	console.log("YOU HAVE REACHED THE SERIALIZE FUNCTION...!");
+};
+
 function dump_debug_string(string) {
 	var fileSystem_Module = globalModule_Try__func_var('fs');
 	var inHouseFileHandle = fileSystem_Module.openSync("./local_debug_dump.txt", 'a');
@@ -194,6 +198,7 @@ function delete_writingArray_ToFile(fileName, array) {
 
 module.exports = {
   globalModule_Try : globalModule_Try__func_var,
+  serialize_object_to_disk : serialize_object_to_disk__func_var,
   casual__options_property_servant : function(options_object, options_reference_object, requested_property) {
 	  for ( var property_from_options_object in options_object) {
 		  if (requested_property === property_from_options_object) {
