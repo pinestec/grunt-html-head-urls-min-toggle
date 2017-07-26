@@ -57,16 +57,17 @@ module.exports = function(grunt) {
 	      } ]
 	    },
 
-	    just_clean : {
+	    to_regular_list : {
 	      options : {
-	        action : 'clean',
+	        action : 'switch',
+	        direction : 'regular',
 	        file_source : 'list',
 	        chattiness : 'false'
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    },
 
-	    just_clean_wild : {
+	    just_clean : {
 	      options : {
 	        action : 'clean',
 	        file_source : 'wildcard',
@@ -79,6 +80,15 @@ module.exports = function(grunt) {
 	        cwd : './',
 	        src : [ '*.html' ]
 	      } ]
+	    },
+
+	    just_clean_list : {
+	      options : {
+	        action : 'clean',
+	        file_source : 'list',
+	        chattiness : 'false'
+	      },
+	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    }
 	  },
 
@@ -89,7 +99,6 @@ module.exports = function(grunt) {
 	      reporterOutput : ""
 	    }
 	  }
-
 	});
 
 	grunt.loadTasks('tasks');
@@ -104,7 +113,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('mw', [ 'html_head_urls_min_toggle:to_min' ]);
 	grunt.registerTask('ml', [ 'html_head_urls_min_toggle:to_min_list' ]);
 	grunt.registerTask('rw', [ 'html_head_urls_min_toggle:to_regular' ]);
-	grunt.registerTask('cl', [ 'html_head_urls_min_toggle:just_clean' ]);
-	grunt.registerTask('cw', [ 'html_head_urls_min_toggle:just_clean_wild' ]);
-
+	grunt.registerTask('rl', [ 'html_head_urls_min_toggle:to_regular_list' ]);
+	grunt.registerTask('cw', [ 'html_head_urls_min_toggle:just_clean' ]);
+	grunt.registerTask('cl', [ 'html_head_urls_min_toggle:just_clean_list' ]);
 };
