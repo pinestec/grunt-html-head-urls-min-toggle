@@ -37,7 +37,11 @@ module.exports = function(grunt) {
 					        for (var ow = 0; ow < this.data.custom_files.length; ow++) {
 						        if (this.data.custom_files[ow].hasOwnProperty('cwd') &&
 						            this.data.custom_files[ow].hasOwnProperty('src')) {
+							        var inner_files_array = global_functions.process_wildcard_input(this.data.custom_files[ow].src,
+							            this.data.custom_files[ow].cwd);
+							        for (var iw = 0; iw < inner_files_array.length; iw++) {
 
+							        }
 						        } else {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
 						        }
