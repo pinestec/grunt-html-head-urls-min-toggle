@@ -101,6 +101,7 @@ module.exports = function(grunt) {
 			        };
 			        if (global_functions.private_action_checker(this, reference_options_clean_object, false)) {
 				        if (this.data.options.file_source === 'list') {
+
 					        for (var i = 0; i < this.data.custom_files.length; i++) {
 						        grunt.log.write("\t" + (i + 1) + ": \"" + this.data.custom_files[i] + "\"");
 						        if (global_functions.end_of_line_refresh(this.data.custom_files[i])) {
@@ -111,7 +112,9 @@ module.exports = function(grunt) {
 							            "\" >>> Failed...! <<<"['red'] + "\n");
 						        }
 					        }
+
 				        } else {
+
 					        for (var k = 0; k < this.data.custom_files.length; k++) {
 						        if (this.data.custom_files[k].hasOwnProperty('cwd') && this.data.custom_files[k].hasOwnProperty('src')) {
 							        var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[k].src,
@@ -130,6 +133,7 @@ module.exports = function(grunt) {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
 						        }
 					        }
+
 				        }
 			        }
 		        }
