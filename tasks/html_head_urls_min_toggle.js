@@ -111,5 +111,5 @@ module.exports = function(grunt) {
 			        console.log("Could not derive a valid action...! ");
 			        console.log("Please match your Gruntfile with the packages documentation...");
 		        }
-	        }); // End of the major function...
+	        });
 };
