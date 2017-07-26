@@ -205,14 +205,12 @@ module.exports = {
   casual__options_property_servant : function(options_object, options_reference_object, requested_property) {
 	  for ( var property_from_options_object in options_object) {
 		  if (requested_property === property_from_options_object) {
-			  // console.log("GIVEN PROPERTY IS PROPERTY OF GIVEN OPTIONS...!");
+			  console.log("GIVEN PROPERTY IS PROPERTY OF GIVEN OPTIONS...!");
 			  if (options_reference_object.hasOwnProperty(property_from_options_object)) {
-				  // console.log("GIVEN PROPERTY IS PROPERTY OF THE REFERENCE
-				  // OPTIONS...!");
+				  console.log("GIVEN PROPERTY IS PROPERTY OF THE REFERENCE OPTIONS...!");
 				  if (options_reference_object[property_from_options_object].includes(options_object[property_from_options_object])) {
-					  // console
-					  // .log("GIVEN PROPERTIES VALUE IS A VALUE OF THE EQUAL REFERENCE
-					  // OBJECTS PROPERTY AND THEREFORE VALID...!");
+					  console
+					      .log("GIVEN PROPERTIES VALUE IS A VALUE OF THE EQUAL REFERENCE OBJECTS PROPERTY AND THEREFORE VALID...!");
 					  return options_object[property_from_options_object];
 				  } else {
 					  console
@@ -224,12 +222,10 @@ module.exports = {
 				      .log("GIVEN PROPERTY IS NOT A PROPERTY OF THE REFERENCE OPTIONS...! PLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS.");
 				  return false;
 			  }
-		  } else {
-			  console
-			      .log("GIVEN PROPERTY IS NOT PROPERTY OF THE GIVEN OPTIONS...! PLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS.");
-			  return false;
 		  }
 	  }
+	  console.log("COULD NOT SPOT A VALID OPTION INSIDE THE GIVEN OPTIONS OBJECT...!");
+	  return false;
   },
 
   add_on_options__servant : function(global_object) {

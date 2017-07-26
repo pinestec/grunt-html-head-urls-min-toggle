@@ -30,7 +30,8 @@ module.exports = function(grunt) {
 			        case 'switch':
 				        console.log("SELECTED SWITCH...!");
 				        var file_source = global_functions.casual__options_property_servant(this.data.options,
-				            options_reference_object, 'file_source');
+				            options_reference_object, 'file_sourceX');
+				        console.log(file_source);
 				        break;
 			        case 'clean':
 				        console.log("SELECTED CLEAN...!");
