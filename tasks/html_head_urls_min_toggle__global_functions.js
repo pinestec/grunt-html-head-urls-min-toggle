@@ -1,6 +1,6 @@
 'use strict';
 
-function globalModule_Try(moduleString) {
+var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 	try {
 		return require(moduleString);
 	} catch (exception) {
@@ -8,18 +8,25 @@ function globalModule_Try(moduleString) {
 		console.log(exception);
 		return null;
 	}
-}
+};
+
+var serialize_object_to_disk__func_var = function serialize_object_to_disk(object, entire_file_name) {
+	var fileSystem_Module = globalModule_Try__func_var('fs');
+	var inHouseFileHandle = fileSystem_Module.openSync(entire_file_name, 'w');
+	fileSystem_Module.writeFileSync(inHouseFileHandle, JSON.stringify(object));
+	fileSystem_Module.closeSync(inHouseFileHandle);
+};
 
 function dump_debug_string(string) {
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	var inHouseFileHandle = fileSystem_Module.openSync("./local_debug_dump.txt", 'a');
 	fileSystem_Module.writeSync(inHouseFileHandle, string);
 	fileSystem_Module.closeSync(inHouseFileHandle);
 }
 
 function message_locator_service(mainMessage) {
-	var path_Module = globalModule_Try('path');
-	var stackTrace_Module = globalModule_Try('stack-trace');
+	var path_Module = globalModule_Try__func_var('path');
+	var stackTrace_Module = globalModule_Try__func_var('stack-trace');
 	var currentFrame = stackTrace_Module.get()[1];
 	console.log(mainMessage + " >>> \"" + path_Module.basename(currentFrame.getFileName()) + ":" +
 	    currentFrame.getLineNumber() + "\"\n");
@@ -47,7 +54,7 @@ function spot_the_head(htmlLineArray) {
 }
 
 function carriage_return_needed() {
-	var os_Module = globalModule_Try('os');
+	var os_Module = globalModule_Try__func_var('os');
 	var windowsSpotter_RegExp = new RegExp("windows", "i");
 	if (windowsSpotter_RegExp.exec(os_Module.type()) !== null) {
 		return true;
@@ -61,7 +68,7 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 	if (carriageReturn) {
 		carriageReturnString = "\r";
 	}
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	var currentFileHandle = fileSystem_Module.openSync(fileName, 'w');
 
 	var lineSpotter_RegExp = new RegExp("^([\\x20\\x09]*)(.*)\\x0d*$", "i");
@@ -109,7 +116,7 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 }
 
 function array_from_file_delete(entire_fileName) {
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	if (fileSystem_Module.existsSync(entire_fileName)) {
 		var targetFile_LineArray = fileSystem_Module.readFileSync(entire_fileName, 'utf8', 'r').toString().split('\n');
 		fileSystem_Module.unlinkSync(entire_fileName);
@@ -121,7 +128,7 @@ function array_from_file_delete(entire_fileName) {
 }
 
 function array_from_file(entire_fileName) {
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	if (fileSystem_Module.existsSync(entire_fileName)) {
 		var targetFile_LineArray = fileSystem_Module.readFileSync(entire_fileName, 'utf8', 'r').toString().split('\n');
 		return targetFile_LineArray;
@@ -178,7 +185,7 @@ function toRegular(headStart, headEnd, carriageReturn, contentArray) {
 }
 
 function delete_writingArray_ToFile(fileName, array) {
-	var fileSystem_Module = globalModule_Try('fs');
+	var fileSystem_Module = globalModule_Try__func_var('fs');
 	if (fileSystem_Module.existsSync(fileName)) {
 		fileSystem_Module.unlinkSync(fileName);
 	}
@@ -193,6 +200,67 @@ function delete_writingArray_ToFile(fileName, array) {
 }
 
 module.exports = {
+  globalModule_Try : globalModule_Try__func_var,
+  serialize_object_to_disk : serialize_object_to_disk__func_var,
+  casual__options_property_servant : function(options_object, options_reference_object, requested_property) {
+	  for ( var property_from_options_object in options_object) {
+		  if (requested_property === property_from_options_object) {
+			  if (options_reference_object.hasOwnProperty(property_from_options_object)) {
+				  if (options_reference_object[property_from_options_object].includes(options_object[property_from_options_object])) {
+					  return options_object[property_from_options_object];
+				  } else {
+					  console
+					      .log("GIVEN PROPERTIES VALUE IS NOT A VALUE OF THE EQUAL REFERENCE OBJETCS PROPERTY AND THEREFORE INVALID...! PLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS.");
+					  return false;
+				  }
+			  } else {
+				  console
+				      .log("GIVEN PROPERTY IS NOT A PROPERTY OF THE REFERENCE OPTIONS...! PLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS.");
+				  return false;
+			  }
+		  }
+	  }
+	  console.log("COULD NOT SPOT A VALID OPTION INSIDE THE GIVEN OPTIONS OBJECT...!");
+	  return false;
+  },
+
+  add_on_options__servant : function(global_object) {
+	  var noisy = true;
+	  var global_options_object = global_object.data.options;
+	  var global_add_on_options_object = {
+		  chattiness : [ 'true', 'false' ]
+	  };
+	  if (global_options_object !== undefined) {
+		  if (noisy) {
+			  console.log(">>> Options section found... Doing further checking... <<<");
+		  }
+		  for ( var item in global_add_on_options_object) {
+			  if (global_options_object.hasOwnProperty(item)) {
+				  var contains_valid_value = false;
+				  for (var i = 0; i < global_add_on_options_object[item].length; i++) {
+					  if (global_add_on_options_object[item].includes(global_options_object[item])) {
+						  contains_valid_value = true;
+						  break;
+					  }
+				  }
+				  if (!contains_valid_value) {
+					  console.log("\"" + global_options_object[item] + "\" IS NOT A VALID OPTION WITH \"" + item + "\" ...!");
+					  return false;
+				  }
+			  } else {
+				  if (noisy) {
+					  console.log("MISSING OBJECTS OPTIONS PROPERTY: \"" + item + "\" ...!");
+				  }
+				  return false;
+			  }
+		  }
+		  return true;
+	  } else {
+		  console.log(">>> NO VALID OPTIONS SECTION FOUND...! <<<");
+		  return false;
+	  }
+  },
+
   private_action_checker : function(global_object, reference_object, noisy) {
 	  var global_options_object = global_object.data.options;
 	  if (global_options_object !== undefined) {
@@ -234,7 +302,7 @@ module.exports = {
 		  var tail_string = result_array[1];
 		  var prepared_tail = tail_string.replace(/\./ig, "\\.");
 		  var wildcard_RegExp = new RegExp("^(.+" + prepared_tail + ")$", "i");
-		  var fileSystem_Module = globalModule_Try('fs');
+		  var fileSystem_Module = globalModule_Try__func_var('fs');
 		  var raw_file_array = fileSystem_Module.readdirSync(directory);
 		  var targets_file_array = [];
 		  for (var i = 0; i < raw_file_array.length; i++) {
