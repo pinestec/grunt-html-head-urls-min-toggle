@@ -19,7 +19,8 @@ module.exports = function(grunt) {
 	      options : {
 	        action : 'switch',
 	        direction : 'min',
-	        file_source : 'wildcard'
+	        file_source : 'wildcard',
+	        chattiness : 'false'
 	      },
 	      custom_files : [ {
 	        cwd : './',
@@ -28,13 +29,24 @@ module.exports = function(grunt) {
 	        cwd : './',
 	        src : [ '*.html' ]
 	      } ]
+	    },
+
+	    to_min_list : {
+	      options : {
+	        action : 'switch',
+	        direction : 'min',
+	        file_source : 'list',
+	        chattiness : 'false'
+	      },
+	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    },
 
 	    to_regular : {
 	      options : {
 	        action : 'switch',
 	        direction : 'regular',
-	        file_source : 'wildcard'
+	        file_source : 'wildcard',
+	        chattiness : 'false'
 	      },
 	      custom_files : [ {
 	        cwd : './',
@@ -45,23 +57,48 @@ module.exports = function(grunt) {
 	      } ]
 	    },
 
+	    to_regular_list : {
+	      options : {
+	        action : 'switch',
+	        direction : 'regular',
+	        file_source : 'list',
+	        chattiness : 'false'
+	      },
+	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
+	    },
+
 	    just_clean : {
 	      options : {
 	        action : 'clean',
-	        file_source : 'list'
+	        file_source : 'wildcard',
+	        chattiness : 'false'
+	      },
+	      custom_files : [ {
+	        cwd : './',
+	        src : [ '*.max.html' ]
+	      }, {
+	        cwd : './',
+	        src : [ '*.html' ]
+	      } ]
+	    },
+
+	    just_clean_list : {
+	      options : {
+	        action : 'clean',
+	        file_source : 'list',
+	        chattiness : 'false'
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    }
 	  },
 
 	  jshint : {
-	    all : [ 'Gruntfile.js', 'tasks/*.js', 'test/*_test.js' ],
+	    all : [ 'Gruntfile.js', 'tasks/*.js', 'test/*_test.js', 'bin/*.js' ],
 	    options : {
 	      jshintrc : '.jshintrc',
 	      reporterOutput : ""
 	    }
 	  }
-
 	});
 
 	grunt.loadTasks('tasks');
@@ -73,7 +110,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('c', [ 'clean' ]);
 	grunt.registerTask('j', [ 'jshint' ]);
 
-	grunt.registerTask('m', [ 'html_head_urls_min_toggle:to_min' ]);
-	grunt.registerTask('r', [ 'html_head_urls_min_toggle:to_regular' ]);
-	grunt.registerTask('jc', [ 'html_head_urls_min_toggle:just_clean' ]);
+	grunt.registerTask('mw', [ 'html_head_urls_min_toggle:to_min' ]);
+	grunt.registerTask('ml', [ 'html_head_urls_min_toggle:to_min_list' ]);
+	grunt.registerTask('rw', [ 'html_head_urls_min_toggle:to_regular' ]);
+	grunt.registerTask('rl', [ 'html_head_urls_min_toggle:to_regular_list' ]);
+	grunt.registerTask('cw', [ 'html_head_urls_min_toggle:just_clean' ]);
+	grunt.registerTask('cl', [ 'html_head_urls_min_toggle:just_clean_list' ]);
 };
