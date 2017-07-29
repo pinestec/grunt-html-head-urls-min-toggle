@@ -16,11 +16,17 @@ module.exports = function(grunt) {
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        // global_functions.serialize_object_to_disk(this,
 		        // './etc/this_sample_object.json');
-		        var fileSystem_Module = global_functions.globalModule_Try('fs');
-		        var currentFileHandle = fileSystem_Module.openSync("./etc/global_options.json", 'r');
-		        var options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
-		        fileSystem_Module.closeSync(currentFileHandle);
-
+		        // var fileSystem_Module = global_functions.globalModule_Try('fs');
+		        // var currentFileHandle =
+		        // fileSystem_Module.openSync("./etc/global_options.json", 'r');
+		        // var options_reference_object =
+		        // JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
+		        // fileSystem_Module.closeSync(currentFileHandle);
+		        var options_reference_object = {
+		          action : [ 'switch', 'clean' ],
+		          direction : [ 'min', 'regular' ],
+		          file_source : [ 'wildcard', 'list' ]
+		        };
 		        var action__current_value = global_functions.casual__options_property_servant(this.data.options,
 		            options_reference_object, 'action');
 		        if (action__current_value) {
