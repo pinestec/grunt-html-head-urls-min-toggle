@@ -20,17 +20,28 @@ module.exports = function(grunt) {
 		        try {
 			        var currentFileHandle = fileSystem_Module.openSync(
 			            './node_modules/grunt-html-head-urls-min-toggle/etc/global_options.json', 'r');
-			        fileSystem_Module.closeSync(currentFileHandle);
+			        console.log("LOADED VALID REFERENCE OPTIONS...");
 		        } catch (current_exception) {
-			        console.log("EXEPTION MESSAGE: \"" + current_exception + "\"");
+			        console.log("CATCHED...: \"" + current_exception + "\"");
 		        }
-		        // var options_reference_object =
-		        // JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
-		        var options_reference_object = {
-		          action : [ 'switch', 'clean' ],
-		          direction : [ 'min', 'regular' ],
-		          file_source : [ 'wildcard', 'list' ]
-		        };
+		        try {
+			        var currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
+			        console.log("LOADED VALID REFERENCE OPTIONS ON DEVELOPMENT ENVIRONMENT...");
+		        } catch (current_exception) {
+			        console.log("CATCHED: \"" + current_exception + "\"");
+		        }
+		        if (currentFileHandle !== undefined) {
+			        console.log("VALID FILE HANDLE: \"" + currentFileHandle + "\" FOUND...!");
+			        var options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
+			        fileSystem_Module.closeSync(currentFileHandle);
+		        } else {
+			        console.log("INVALID FILE HANDLE...!");
+			        var options_reference_object = {
+			          action : [ 'switch', 'clean' ],
+			          direction : [ 'min', 'regular' ],
+			          file_source : [ 'wildcard', 'list' ]
+			        };
+		        }
 		        var action__current_value = global_functions.casual__options_property_servant(this.data.options,
 		            options_reference_object, 'action');
 		        if (action__current_value) {
