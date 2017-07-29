@@ -17,26 +17,30 @@ module.exports = function(grunt) {
 		        // global_functions.serialize_object_to_disk(this,
 		        // './etc/this_sample_object.json');
 		        var fileSystem_Module = global_functions.globalModule_Try('fs');
+		        var currentFileHandle;
+		        var options_reference_object;
 		        try {
-			        var currentFileHandle = fileSystem_Module.openSync(
+			        currentFileHandle = fileSystem_Module.openSync(
 			            './node_modules/grunt-html-head-urls-min-toggle/etc/global_options.json', 'r');
-			        console.log("LOADED VALID REFERENCE OPTIONS...");
+			        console.log("LOADED \"OUTDOORS\" VALID REFERENCE OPTIONS...");
 		        } catch (current_exception) {
 			        console.log("CATCHED...: \"" + current_exception + "\"");
 		        }
-		        try {
-			        var currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
-			        console.log("LOADED VALID REFERENCE OPTIONS ON DEVELOPMENT ENVIRONMENT...");
-		        } catch (current_exception) {
-			        console.log("CATCHED: \"" + current_exception + "\"");
+		        if (currentFileHandle === undefined) {
+			        try {
+				        currentFileHandle = fileSystem_Module.openSync('./etc/global_options.jsonX', 'r');
+				        console.log("LOADED VALID REFERENCE OPTIONS ON DEVELOPMENT ENVIRONMENT...");
+			        } catch (current_exception) {
+				        console.log("CATCHED: \"" + current_exception + "\"");
+			        }
 		        }
 		        if (currentFileHandle !== undefined) {
 			        console.log("VALID FILE HANDLE: \"" + currentFileHandle + "\" FOUND...!");
-			        var options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
+			        options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 			        fileSystem_Module.closeSync(currentFileHandle);
 		        } else {
-			        console.log("INVALID FILE HANDLE...!");
-			        var options_reference_object = {
+			        console.log("INVALID FILE HANDLE...! LOADING IN HOUSE REFERENCE OPTIONS...!");
+			        options_reference_object = {
 			          action : [ 'switch', 'clean' ],
 			          direction : [ 'min', 'regular' ],
 			          file_source : [ 'wildcard', 'list' ]
