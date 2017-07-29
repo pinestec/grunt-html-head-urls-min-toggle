@@ -18,7 +18,8 @@ module.exports = function(grunt) {
 		        // './etc/this_sample_object.json');
 		        var fileSystem_Module = global_functions.globalModule_Try('fs');
 		        try {
-			        var currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
+			        var currentFileHandle = fileSystem_Module.openSync(
+			            './node_modules/grunt-html-head-urls-min-toggle/etc/global_options.json', 'r');
 			        fileSystem_Module.closeSync(currentFileHandle);
 		        } catch (current_exception) {
 			        console.log("EXEPTION MESSAGE: \"" + current_exception + "\"");
