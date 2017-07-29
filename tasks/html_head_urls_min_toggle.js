@@ -16,12 +16,15 @@ module.exports = function(grunt) {
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        // global_functions.serialize_object_to_disk(this,
 		        // './etc/this_sample_object.json');
-		        // var fileSystem_Module = global_functions.globalModule_Try('fs');
-		        // var currentFileHandle =
-		        // fileSystem_Module.openSync("./etc/global_options.json", 'r');
+		        var fileSystem_Module = global_functions.globalModule_Try('fs');
+		        try {
+			        var currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
+			        fileSystem_Module.closeSync(currentFileHandle);
+		        } catch (current_exception) {
+			        console.log("EXEPTION MESSAGE: \"" + current_exception + "\"");
+		        }
 		        // var options_reference_object =
 		        // JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
-		        // fileSystem_Module.closeSync(currentFileHandle);
 		        var options_reference_object = {
 		          action : [ 'switch', 'clean' ],
 		          direction : [ 'min', 'regular' ],
