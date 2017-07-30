@@ -22,24 +22,24 @@ module.exports = function(grunt) {
 		        try {
 			        currentFileHandle = fileSystem_Module.openSync(
 			            './node_modules/grunt-html-head-urls-min-toggle/etc/global_options.json', 'r');
-			        console.log("LOADED \"OUTDOORS\" VALID REFERENCE OPTIONS...");
+			        console.log("LOADED VALID REFERENCE OPTIONS SUCCESSFULLY \"OUTDOORS\"...");
 		        } catch (current_exception) {
-			        console.log("CATCHED...: \"" + current_exception + "\"");
+			        console.log("JUST CATCHED...: \"" + current_exception + "\"");
 		        }
 		        if (currentFileHandle === undefined) {
 			        try {
 				        currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
 				        console.log("LOADED VALID REFERENCE OPTIONS ON DEVELOPMENT ENVIRONMENT...");
 			        } catch (current_exception) {
-				        console.log("CATCHED: \"" + current_exception + "\"");
+				        console.log("JUST CATCHED: \"" + current_exception + "\"");
 			        }
 		        }
 		        if (currentFileHandle !== undefined) {
-			        console.log("VALID FILE HANDLE: \"" + currentFileHandle + "\" FOUND...!");
+			        console.log("VALID FILE HANDLE: \"" + currentFileHandle + "\" FOUND...! LOADING REFERENCE OPTIONS...");
 			        options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 			        fileSystem_Module.closeSync(currentFileHandle);
 		        } else {
-			        console.log("INVALID FILE HANDLE...! LOADING IN HOUSE REFERENCE OPTIONS...!");
+			        console.log("INVALID FILE HANDLE...! LOADING IN-HOUSE REFERENCE OPTIONS...");
 			        options_reference_object = {
 			          action : [ 'switch', 'clean' ],
 			          direction : [ 'min', 'regular' ],
