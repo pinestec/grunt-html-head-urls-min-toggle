@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 		        try {
 			        currentFileHandle = fileSystem_Module.openSync(
 			            './node_modules/grunt-html-head-urls-min-toggle/etc/global_options.json', 'r');
-			        console.log("LOADED VALID REFERENCE OPTIONS SUCCESSFULLY \"OUTDOORS\"...");
+			        grunt.log.write("Valid reference options loaded successfully..."['green']);
 		        } catch (current_exception) {
 			        console.log("JUST CATCHED...: \"" + current_exception + "\"");
 		        }
