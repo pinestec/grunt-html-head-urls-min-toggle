@@ -29,7 +29,8 @@ module.exports = function(grunt) {
 		        if (currentFileHandle === undefined) {
 			        try {
 				        currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
-				        console.log("LOADED VALID REFERENCE OPTIONS ON DEVELOPMENT ENVIRONMENT...");
+				        console.log("LOADED VALID REFERENCE OPTIONS ON DEVELOPMENT ENVIRONMENT SUCCESSFULLY...");
+				        grunt.log.write("Loaded valid reference options on development environment successfully...\n"['green']);
 			        } catch (current_exception) {
 				        console.log("JUST CATCHED: \"" + current_exception + "\"");
 			        }
