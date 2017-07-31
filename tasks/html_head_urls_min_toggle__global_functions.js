@@ -12,6 +12,7 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 
 var chat_o_meter__func_var = function chat_o_meter(options_object) {
 	console.log("MESSAGE FRIM YOUR \"CHAT O METER\"...!");
+	console.log(options_object);
 };
 
 var serialize_object_to_disk__func_var = function serialize_object_to_disk(object, entire_file_name) {

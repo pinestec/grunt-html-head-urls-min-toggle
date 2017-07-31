@@ -16,6 +16,7 @@ module.exports = function(grunt) {
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        // global_functions.serialize_object_to_disk(this,
 		        // './etc/this_sample_object.json');
+		        global_functions.chat_o_meter(this.data.options);
 		        var fileSystem_Module = global_functions.globalModule_Try('fs');
 		        var currentFileHandle;
 		        var options_reference_object;
