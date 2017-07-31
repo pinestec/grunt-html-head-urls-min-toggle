@@ -13,6 +13,12 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 var chat_o_meter__func_var = function chat_o_meter(options_object, chattiness_identifier) {
 	console.log("MESSAGE FROM YOUR \"CHAT O METER\"...: \"" + chattiness_identifier + "\"");
 	console.log(options_object);
+	if (options_object.hasOwnProperty(chattiness_identifier)) {
+		console.log(options_object.hasOwnProperty(chattiness_identifier));
+		console.log(options_object[chattiness_identifier]);
+	} else {
+
+	}
 };
 
 var serialize_object_to_disk__func_var = function serialize_object_to_disk(object, entire_file_name) {
