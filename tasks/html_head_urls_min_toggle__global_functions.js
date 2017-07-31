@@ -10,8 +10,8 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 	}
 };
 
-var chat_o_meter__func_var = function chat_o_meter(options_object) {
-	console.log("MESSAGE FROM YOUR \"CHAT O METER\"...!");
+var chat_o_meter__func_var = function chat_o_meter(options_object, chattiness_identifier) {
+	console.log("MESSAGE FROM YOUR \"CHAT O METER\"...: \"" + chattiness_identifier + "\"");
 	console.log(options_object);
 };
 
