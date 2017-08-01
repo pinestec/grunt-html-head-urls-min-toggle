@@ -11,13 +11,16 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 };
 
 var chat_o_meter__func_var = function chat_o_meter(options_object, chattiness_identifier) {
-	console.log("MESSAGE FROM YOUR \"CHAT O METER\"...: \"" + chattiness_identifier + "\"");
-	console.log(options_object);
 	if (options_object.hasOwnProperty(chattiness_identifier)) {
-		console.log(options_object.hasOwnProperty(chattiness_identifier));
-		console.log(options_object[chattiness_identifier]);
+		if (options_object[chattiness_identifier] === parseInt(options_object[chattiness_identifier], "10")) {
+			return options_object[chattiness_identifier];
+		} else {
+			console.log("CHATTINESS LEVEL IS NOT AN INTEGER...! RETURNING DEFAULT LEVEL \"1\"");
+			return 1;
+		}
 	} else {
-
+		console.log("NO CHATTINESS LEVEL STATED...! RETURNING DEFAULT LEVEL \"1\"");
+		return 1;
 	}
 };
 
