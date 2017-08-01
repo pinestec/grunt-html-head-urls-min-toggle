@@ -10,8 +10,10 @@
 
 module.exports = function(grunt) {
 	grunt
-	    .registerMultiTask('html_head_urls_min_toggle',
-	        'Point the html-head href and src urls to minified sources and vice versa.', function() {
+	    .registerMultiTask(
+	        'html_head_urls_min_toggle',
+	        'Point the html-head href and src urls to minified sources and vice versa.',
+	        function() {
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        // global_functions.serialize_object_to_disk(this,
@@ -24,27 +26,40 @@ module.exports = function(grunt) {
 		        try {
 			        currentFileHandle = fileSystem_Module.openSync(
 			            './node_modules/grunt-html-head-urls-min-toggle/etc/global_options.json', 'r');
-			        grunt.log.write("Valid reference options loaded successfully..."['green']);
+			        if (chattiness_level > 0) {
+				        grunt.log.write("Valid reference options loaded successfully..."['green']);
+			        }
 		        } catch (current_exception) {
-			        console.log("JUST CATCHED...: \"" + current_exception + "\"");
+			        if (chattiness_level > 0) {
+				        console.log("JUST CATCHED...: \"" + current_exception + "\"");
+			        }
 		        }
 		        if (currentFileHandle === undefined) {
 			        try {
 				        currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
-				        console.log("LOADED VALID REFERENCE OPTIONS ON DEVELOPMENT ENVIRONMENT SUCCESSFULLY...");
-				        grunt.log.write("Loaded valid reference options on development environment successfully...\n"['green']);
+				        if (chattiness_level > 0) {
+					        if (chattiness_level > 0) {
+						        grunt.log.write("Loaded valid reference options on development environment successfully...\n"['green']);
+					        }
+
+				        }
 			        } catch (current_exception) {
-				        console.log("JUST CATCHED: \"" + current_exception + "\"");
+				        if (chattiness_level > 0) {
+					        console.log("JUST CATCHED: \"" + current_exception + "\"");
+				        }
 			        }
 		        }
 		        if (currentFileHandle !== undefined) {
-			        console.log("VALID FILE HANDLE: \"" + currentFileHandle + "\" FOUND...! LOADING REFERENCE OPTIONS...");
+			        if (chattiness_level > 0) {
+				        grunt.log.write("Valid file handle found... Loading reference option..."['green']);
+			        }
 			        options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 			        fileSystem_Module.closeSync(currentFileHandle);
 		        } else {
-			        console.log("INVALID FILE HANDLE...! LOADING IN-HOUSE REFERENCE OPTIONS...");
+			        grunt.log.write("INVALID FILE HANDLE...! LOADING IN-HOUSE REFERENCE OPTIONS..."['red']);
 			        options_reference_object = {
 			          action : [ 'switch', 'clean' ],
+			          chattiness_level : [ 1, 2, 3, 4, 5, 6 ],
 			          direction : [ 'min', 'regular' ],
 			          file_source : [ 'wildcard', 'list' ]
 			        };
