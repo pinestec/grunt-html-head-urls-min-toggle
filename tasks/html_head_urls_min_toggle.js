@@ -19,7 +19,10 @@ module.exports = function(grunt) {
 		        // global_functions.serialize_object_to_disk(this,
 		        // './etc/this_sample_object.json');
 		        var chattiness_level = global_functions.chat_o_meter(this.data.options, 'chattiness_level');
-		        console.log(chattiness_level);
+		        if (chattiness_level > 0) {
+			        grunt.log.write("Current chattiness level: \""['green'] + chattiness_level.toString()['green'] +
+			            "\"\n"['green']);
+		        }
 		        var fileSystem_Module = global_functions.globalModule_Try('fs');
 		        var currentFileHandle;
 		        var options_reference_object;
@@ -31,7 +34,7 @@ module.exports = function(grunt) {
 			        }
 		        } catch (current_exception) {
 			        if (chattiness_level > 0) {
-				        console.log("JUST CATCHED...: \"" + current_exception + "\"");
+				        console.log("Just catched...: \""['red'] + current_exception.toString()['red'] + "\""['red']);
 			        }
 		        }
 		        if (currentFileHandle === undefined) {
