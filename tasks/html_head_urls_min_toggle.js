@@ -10,8 +10,10 @@
 
 module.exports = function(grunt) {
 	grunt
-	    .registerMultiTask('html_head_urls_min_toggle',
-	        'Point the html-head href and src urls to minified sources and vice versa.', function() {
+	    .registerMultiTask(
+	        'html_head_urls_min_toggle',
+	        'Point the html-head href and src urls to minified sources and vice versa.',
+	        function() {
 		        grunt.log.write("\n");
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
@@ -22,6 +24,8 @@ module.exports = function(grunt) {
 			            "\"\n"['green']);
 		        }
 		        if (chattiness_level > 2) {
+			        grunt.log
+			            .write("Chattiness level exceeds \"2\" ==> Serializing \"this\" object to \"./etc/this_sample_object.json\"\n"['red']);
 			        global_functions.serialize_object_to_disk(this, './etc/this_sample_object.json');
 		        }
 		        var fileSystem_Module = global_functions.globalModule_Try('fs');
