@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 		        }
 		        if (currentFileHandle !== undefined) {
 			        if (chattiness_level > 0) {
-				        grunt.log.write("Valid file handle found... Loading reference option..."['green']);
+				        grunt.log.write("Valid file handle found... Loading reference option...\n"['green']);
 			        }
 			        options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 			        fileSystem_Module.closeSync(currentFileHandle);
@@ -90,8 +90,15 @@ module.exports = function(grunt) {
 						        }
 					        }
 					        if (global_counter > 0) {
-						        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
-						            "\" files to \""['green'] + this.data.options.direction['green'] + "\" successfully..."['green']);
+						        if (global_counter === 1) {
+							        grunt.log
+							            .write("Switched \""['green'] + global_counter.toString()['green'] + "\" file to \""['green'] +
+							                this.data.options.direction['green'] + "\" successfully...\n"['green']);
+						        } else {
+							        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
+							            "\" files to \""['green'] + this.data.options.direction['green'] +
+							            "\" successfully...\n"['green']);
+						        }
 					        }
 				        }
 
@@ -106,11 +113,26 @@ module.exports = function(grunt) {
 								        if (global_functions.toggle_all_head_links(this.data.options.direction, inner_files_array[iw])) {
 									        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
 									            "\n");
+									        global_counter++;
 								        } else {
 									        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
 									            "\">>> Failed...! <<<"['red'] + "\n");
 								        }
 							        }
+
+							        if (global_counter > 0) {
+								        if (global_counter === 1) {
+									        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
+									            "\" file to \""['green'] + this.data.options.direction['green'] +
+									            "\" successfully...\n"['green']);
+								        } else {
+									        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
+									            "\" files to \""['green'] + this.data.options.direction['green'] +
+									            "\" successfully...\n"['green']);
+								        }
+								        global_counter = 0;
+							        }
+
 						        } else {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
 							        break;
