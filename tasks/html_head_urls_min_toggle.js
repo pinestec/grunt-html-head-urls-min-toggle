@@ -77,12 +77,17 @@ module.exports = function(grunt) {
 				            options_reference_object, 'file_source');
 				        if (file_source === 'list') {
 					        for (var il = 0; il < this.data.custom_files.length; il++) {
-						        grunt.log.write("\t" + (il + 1) + ": \"" + this.data.custom_files[il] + "\"");
+						        if (chattiness_level > 0) {
+							        grunt.log.write("\t" + (il + 1) + ": \"" + this.data.custom_files[il] + "\"");
+						        }
 						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[il])) {
-							        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
-							            "\n");
+							        if (chattiness_level > 0) {
+								        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
+								            "\n");
+							        }
 							        global_counter++;
 						        } else {
+							        grunt.log.write("\t" + (il + 1) + ": \"" + this.data.custom_files[il] + "\"");
 							        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
 							            "\">>> Failed...! <<<"['red'] + "\n");
 						        }
@@ -106,12 +111,17 @@ module.exports = function(grunt) {
 							        var inner_files_array = global_functions.process_wildcard_input(this.data.custom_files[ow].src,
 							            this.data.custom_files[ow].cwd);
 							        for (var iw = 0; iw < inner_files_array.length; iw++) {
-								        grunt.log.write("\t" + (iw + 1) + ": \"" + inner_files_array[iw] + "\"");
+								        if (chattiness_level > 0) {
+									        grunt.log.write("\t" + (iw + 1) + ": \"" + inner_files_array[iw] + "\"");
+								        }
 								        if (global_functions.toggle_all_head_links(this.data.options.direction, inner_files_array[iw])) {
-									        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
-									            "\n");
+									        if (chattiness_level > 0) {
+										        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] +
+										            "\" o.k."['green'] + "\n");
+									        }
 									        global_counter++;
 								        } else {
+									        grunt.log.write("\t" + (iw + 1) + ": \"" + inner_files_array[iw] + "\"");
 									        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
 									            "\">>> Failed...! <<<"['red'] + "\n");
 								        }
@@ -143,8 +153,10 @@ module.exports = function(grunt) {
 					        for (var ilc = 0; ilc < this.data.custom_files.length; ilc++) {
 						        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
 						        if (global_functions.end_of_line_refresh(this.data.custom_files[ilc])) {
-							        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] + "\" o.k."['green'] +
-							            "\n");
+							        if (chattiness_level > 0) {
+								        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] + "\" o.k."['green'] +
+								            "\n");
+							        }
 							        global_counter++;
 						        } else {
 							        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
@@ -171,8 +183,10 @@ module.exports = function(grunt) {
 							        for (var iwc = 0; iwc < current_files_array.length; iwc++) {
 								        grunt.log.write("\t" + (iwc + 1) + ": \"" + current_files_array[iwc] + "\"");
 								        if (global_functions.end_of_line_refresh(current_files_array[iwc])) {
-									        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] +
-									            "\" o.k."['green'] + "\n");
+									        if (chattiness_level > 0) {
+										        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] +
+										            "\" o.k."['green'] + "\n");
+									        }
 									        global_counter++;
 								        } else {
 									        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
