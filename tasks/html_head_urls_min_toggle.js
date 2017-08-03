@@ -14,6 +14,7 @@ module.exports = function(grunt) {
 	        'html_head_urls_min_toggle',
 	        'Point the html-head href and src urls to minified sources and vice versa.',
 	        function() {
+		        grunt.log.write("\n");
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
 		        // global_functions.serialize_object_to_disk(this,
@@ -70,7 +71,6 @@ module.exports = function(grunt) {
 		        var action__current_value = global_functions.casual__options_property_servant(this.data.options,
 		            options_reference_object, 'action');
 		        if (action__current_value) {
-			        grunt.log.write("\n");
 			        var global_counter = 0;
 			        switch (action__current_value) {
 			        case 'switch':

@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 	        action : 'switch',
 	        direction : 'min',
 	        file_source : 'wildcard',
-	        chattiness_level : 0
+	        chattiness_level : 1
 	      },
 	      custom_files : [ {
 	        cwd : './',
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 	        action : 'switch',
 	        direction : 'min',
 	        file_source : 'list',
-	        chattiness_level : 0
+	        chattiness_level : 1
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    },
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 	        action : 'switch',
 	        direction : 'regular',
 	        file_source : 'wildcard',
-	        chattiness_level : 0
+	        chattiness_level : 1
 	      },
 	      custom_files : [ {
 	        cwd : './',
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
 	        action : 'switch',
 	        direction : 'regular',
 	        file_source : 'list',
-	        chattiness_level : 0
+	        chattiness_level : 1
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    },
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 	      options : {
 	        action : 'clean',
 	        file_source : 'wildcard',
-	        chattiness_level : 0
+	        chattiness_level : 1
 	      },
 	      custom_files : [ {
 	        cwd : './',
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
 	      options : {
 	        action : 'clean',
 	        file_source : 'list',
-	        chattiness_level : 0
+	        chattiness_level : 1
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    }
