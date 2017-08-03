@@ -70,6 +70,7 @@ module.exports = function(grunt) {
 		        var action__current_value = global_functions.casual__options_property_servant(this.data.options,
 		            options_reference_object, 'action');
 		        if (action__current_value) {
+			        var global_counter = 1;
 			        switch (action__current_value) {
 
 			        case 'switch':
