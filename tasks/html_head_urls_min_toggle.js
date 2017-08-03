@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 		        var action__current_value = global_functions.casual__options_property_servant(this.data.options,
 		            options_reference_object, 'action');
 		        if (action__current_value) {
-			        var global_counter = 1;
+			        var global_counter = 0;
 			        switch (action__current_value) {
 
 			        case 'switch':
@@ -83,10 +83,15 @@ module.exports = function(grunt) {
 						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[il])) {
 							        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
 							            "\n");
+							        global_counter++;
 						        } else {
 							        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
 							            "\">>> Failed...! <<<"['red'] + "\n");
 						        }
+					        }
+					        if (global_counter > 0) {
+						        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
+						            "\" files to \""['green'] + this.data.options.direction['green'] + "\" successfully..."['green']);
 					        }
 				        }
 
