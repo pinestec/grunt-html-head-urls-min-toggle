@@ -151,7 +151,9 @@ module.exports = function(grunt) {
 				            options_reference_object, 'file_source');
 				        if (file_source_clean === 'list') {
 					        for (var ilc = 0; ilc < this.data.custom_files.length; ilc++) {
-						        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
+						        if (chattiness_level > 0) {
+							        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
+						        }
 						        if (global_functions.end_of_line_refresh(this.data.custom_files[ilc])) {
 							        if (chattiness_level > 0) {
 								        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] + "\" o.k."['green'] +
@@ -159,6 +161,7 @@ module.exports = function(grunt) {
 							        }
 							        global_counter++;
 						        } else {
+							        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
 							        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
 							            "\" >>> Failed...! <<<"['red'] + "\n");
 						        }
@@ -181,7 +184,9 @@ module.exports = function(grunt) {
 							        var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[owc].src,
 							            this.data.custom_files[owc].cwd);
 							        for (var iwc = 0; iwc < current_files_array.length; iwc++) {
-								        grunt.log.write("\t" + (iwc + 1) + ": \"" + current_files_array[iwc] + "\"");
+								        if (chattiness_level > 0) {
+									        grunt.log.write("\t" + (iwc + 1) + ": \"" + current_files_array[iwc] + "\"");
+								        }
 								        if (global_functions.end_of_line_refresh(current_files_array[iwc])) {
 									        if (chattiness_level > 0) {
 										        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] +
@@ -189,6 +194,7 @@ module.exports = function(grunt) {
 									        }
 									        global_counter++;
 								        } else {
+									        grunt.log.write("\t" + (iwc + 1) + ": \"" + current_files_array[iwc] + "\"");
 									        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
 									            "\" >>> Failed...! <<<"['red'] + "\n");
 								        }
