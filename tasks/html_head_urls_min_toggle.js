@@ -17,12 +17,14 @@ module.exports = function(grunt) {
 		        grunt.log.write("\n");
 		        var global_functions = {};
 		        global_functions = require('./html_head_urls_min_toggle__global_functions.js');
-		        // global_functions.serialize_object_to_disk(this,
-		        // './etc/this_sample_object.json');
+
 		        var chattiness_level = global_functions.chat_o_meter(this.data.options, 'chattiness_level');
 		        if (chattiness_level > 0) {
 			        grunt.log.write("Current chattiness level: \""['green'] + chattiness_level.toString()['green'] +
 			            "\"\n"['green']);
+		        }
+		        if (chattiness_level > 2) {
+			        global_functions.serialize_object_to_disk(this, './etc/this_sample_object.json');
 		        }
 		        var fileSystem_Module = global_functions.globalModule_Try('fs');
 		        var currentFileHandle;
