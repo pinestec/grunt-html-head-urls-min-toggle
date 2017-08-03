@@ -72,11 +72,9 @@ module.exports = function(grunt) {
 		        if (action__current_value) {
 			        var global_counter = 0;
 			        switch (action__current_value) {
-
 			        case 'switch':
 				        var file_source = global_functions.casual__options_property_servant(this.data.options,
 				            options_reference_object, 'file_source');
-
 				        if (file_source === 'list') {
 					        for (var il = 0; il < this.data.custom_files.length; il++) {
 						        grunt.log.write("\t" + (il + 1) + ": \"" + this.data.custom_files[il] + "\"");
@@ -101,7 +99,6 @@ module.exports = function(grunt) {
 						        }
 					        }
 				        }
-
 				        if (file_source === 'wildcard') {
 					        for (var ow = 0; ow < this.data.custom_files.length; ow++) {
 						        if (this.data.custom_files[ow].hasOwnProperty('cwd') &&
@@ -119,7 +116,6 @@ module.exports = function(grunt) {
 									            "\">>> Failed...! <<<"['red'] + "\n");
 								        }
 							        }
-
 							        if (global_counter > 0) {
 								        if (global_counter === 1) {
 									        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
@@ -132,7 +128,6 @@ module.exports = function(grunt) {
 								        }
 								        global_counter = 0;
 							        }
-
 						        } else {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
 							        break;
@@ -140,13 +135,10 @@ module.exports = function(grunt) {
 					        }
 					        break;
 				        }
-
 				        break;
-
 			        case 'clean':
 				        var file_source_clean = global_functions.casual__options_property_servant(this.data.options,
 				            options_reference_object, 'file_source');
-
 				        if (file_source_clean === 'list') {
 					        for (var ilc = 0; ilc < this.data.custom_files.length; ilc++) {
 						        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
@@ -159,7 +151,6 @@ module.exports = function(grunt) {
 							            "\" >>> Failed...! <<<"['red'] + "\n");
 						        }
 					        }
-
 					        if (global_counter > 0) {
 						        if (global_counter === 1) {
 							        grunt.log.write("Cleaned \""['green'] + global_counter.toString()['green'] +
@@ -169,10 +160,8 @@ module.exports = function(grunt) {
 							            "\" files successfully...\n"['green']);
 						        }
 					        }
-
 					        break;
 				        }
-
 				        if (file_source_clean === 'wildcard') {
 					        for (var owc = 0; owc < this.data.custom_files.length; owc++) {
 						        if (this.data.custom_files[owc].hasOwnProperty('cwd') &&
@@ -184,10 +173,21 @@ module.exports = function(grunt) {
 								        if (global_functions.end_of_line_refresh(current_files_array[iwc])) {
 									        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] +
 									            "\" o.k."['green'] + "\n");
+									        global_counter++;
 								        } else {
 									        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
 									            "\" >>> Failed...! <<<"['red'] + "\n");
 								        }
+							        }
+							        if (global_counter > 0) {
+								        if (global_counter === 1) {
+									        grunt.log.write("Cleaned \""['green'] + global_counter.toString()['green'] +
+									            "\" file successfully...\n"['green']);
+								        } else {
+									        grunt.log.write("Cleaned \""['green'] + global_counter.toString()['green'] +
+									            "\" files successfully...\n"['green']);
+								        }
+								        global_counter = 0;
 							        }
 						        } else {
 							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
@@ -195,7 +195,6 @@ module.exports = function(grunt) {
 					        }
 					        break;
 				        }
-
 				        break;
 			        default:
 				        console.log("REACHED THE DEFAULT BRANCH OF THE SWITCH UNEXPECTEDLY...!");
