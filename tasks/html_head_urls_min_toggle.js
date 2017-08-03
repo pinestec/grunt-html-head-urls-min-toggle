@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 		        }
 		        if (currentFileHandle !== undefined) {
 			        if (chattiness_level > 0) {
-				        grunt.log.write("Valid file handle found... Loading reference option...\n"['green']);
+				        grunt.log.write("Valid file handle found... Loading reference options...\n"['green']);
 			        }
 			        options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 			        fileSystem_Module.closeSync(currentFileHandle);
