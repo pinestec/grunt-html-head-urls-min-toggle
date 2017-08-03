@@ -1,1 +1,1 @@
-{"action":["switch","clean"],"chattiness":["true","false"],"direction":["min","regular"],"file_source":["wildcard","list"]}
+{"action":["switch","clean"],"chattiness_level":[1,2,3],"direction":["min","regular"],"file_source":["wildcard","list"]}

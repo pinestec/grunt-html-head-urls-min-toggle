@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 			        grunt.log.write("INVALID FILE HANDLE...! LOADING IN-HOUSE REFERENCE OPTIONS..."['red']);
 			        options_reference_object = {
 			          action : [ 'switch', 'clean' ],
-			          chattiness_level : [ 1, 2, 3, 4, 5, 6 ],
+			          chattiness_level : [ 1, 2, 3 ],
 			          direction : [ 'min', 'regular' ],
 			          file_source : [ 'wildcard', 'list' ]
 			        };

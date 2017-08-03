@@ -11,7 +11,7 @@
 // Current reference object template that will be written to disk...:
 var object_to_be_written = {
   action : [ 'switch', 'clean' ],
-  chattiness : [ 'true', 'false' ],
+  chattiness_level : [ 1, 2, 3 ],
   direction : [ 'min', 'regular' ],
   file_source : [ 'wildcard', 'list' ],
 };
