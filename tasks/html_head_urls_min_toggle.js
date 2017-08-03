@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 			        currentFileHandle = fileSystem_Module.openSync(
 			            './node_modules/grunt-html-head-urls-min-toggle/etc/global_options.json', 'r');
 			        if (chattiness_level > 1) {
-				        grunt.log.write("Valid reference options loaded successfully..."['green']);
+				        grunt.log.write("Got filehandle to reference options successfully..."['green']);
 			        }
 		        } catch (current_exception) {
 			        if (chattiness_level > 1) {
@@ -46,7 +46,8 @@ module.exports = function(grunt) {
 			        try {
 				        currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
 				        if (chattiness_level > 1) {
-					        grunt.log.write("Loaded valid reference options on development environment successfully...\n"['green']);
+					        grunt.log
+					            .write("Got filehandle to reference options on development environment successfully...\n"['green']);
 				        }
 			        } catch (current_exception) {
 				        if (chattiness_level > 1) {
