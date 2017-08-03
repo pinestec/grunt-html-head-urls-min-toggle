@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 	        action : 'switch',
 	        direction : 'min',
 	        file_source : 'wildcard',
-	        chattiness_level : 1
+	        chattiness_level : 0
 	      },
 	      custom_files : [ {
 	        cwd : './',
