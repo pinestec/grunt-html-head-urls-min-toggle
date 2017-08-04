@@ -233,7 +233,7 @@ module.exports = function(grunt) {
 								        }
 								        global_counter = 0;
 							        }
-						        } else {
+						        } else { // cpn - Chattiness point - nonmaskable
 							        console
 							            .log("Missing needed \"wildcard\" file properties...! Please readjust your Gruntfile..."['red']);
 						        }
