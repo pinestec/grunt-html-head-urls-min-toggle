@@ -153,7 +153,8 @@ module.exports = function(grunt) {
 								        global_counter = 0;
 							        }
 						        } else { // cpn - Chattiness point - nonmaskable
-							        console.log("Missing needed \"wildcard\" file properties...! Please readjust your Gruntfile...");
+							        console
+							            .log("Missing needed \"wildcard\" file properties...! Please readjust your Gruntfile..."['red']);
 							        break;
 						        }
 					        }
@@ -202,22 +203,27 @@ module.exports = function(grunt) {
 							        var current_files_array = global_functions.process_wildcard_input(this.data.custom_files[owc].src,
 							            this.data.custom_files[owc].cwd);
 							        for (var iwc = 0; iwc < current_files_array.length; iwc++) {
-								        if (chattiness_level > 0) {
+								        // cp1 - Chattiness point - regular
+								        if (chattiness_level === 1) {
 									        grunt.log.write("\t" + (iwc + 1) + ": \"" + current_files_array[iwc] + "\"");
 								        }
 								        if (global_functions.end_of_line_refresh(current_files_array[iwc])) {
-									        if (chattiness_level > 0) {
+									        // cp1 - Chattiness point - regular
+									        if (chattiness_level === 1) {
 										        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] +
 										            "\" o.k."['green'] + "\n");
 									        }
 									        global_counter++;
-								        } else {
+								        } else { // cpn - Chattiness point - nonmaskable
 									        grunt.log.write("\t" + (iwc + 1) + ": \"" + current_files_array[iwc] + "\"");
 									        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
 									            "\" >>> Failed...! <<<"['red'] + "\n");
 								        }
 							        }
-							        if (global_counter > 0) {
+							        // Just separating the wildcard array items...:
+							        console.log("");
+							        // cp0 - Chattiness point - minimal
+							        if (global_counter > 0 && chattiness_level === 0) {
 								        if (global_counter === 1) {
 									        grunt.log.write("Cleaned \""['green'] + global_counter.toString()['green'] +
 									            "\" file successfully...\n"['green']);
@@ -228,7 +234,8 @@ module.exports = function(grunt) {
 								        global_counter = 0;
 							        }
 						        } else {
-							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
+							        console
+							            .log("Missing needed \"wildcard\" file properties...! Please readjust your Gruntfile..."['red']);
 						        }
 					        }
 					        break;
