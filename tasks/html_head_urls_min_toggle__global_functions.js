@@ -226,7 +226,7 @@ module.exports = {
 					  return options_object[property_from_options_object];
 				  } else {
 					  console
-					      .log("GIVEN PROPERTIES VALUE IS NOT A VALUE OF THE EQUAL REFERENCE OBJETCS PROPERTY AND THEREFORE INVALID...! PLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS.");
+					      .log("GIVEN PROPERTIES VALUE IS NOT A VALUE OF THE EQUAL REFERENCE OBJETCS PROPERTY AND THEREFORE INVALID...!\nPLEASE CHECK THE DOCUMENTATION AND YOUR \"Gruntfile.js\" OPTIONS."['red']);
 					  return false;
 				  }
 			  } else {
