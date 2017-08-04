@@ -103,10 +103,10 @@ module.exports = function(grunt) {
 					        if (global_counter > 0 && chattiness_level === 0) {
 						        if (global_counter === 1) {
 							        grunt.log
-							            .write("Switched \""['green'] + global_counter.toString()['green'] + "\" file to \""['green'] +
+							            .write("\tSwitched \""['green'] + global_counter.toString()['green'] + "\" file to \""['green'] +
 							                this.data.options.direction['green'] + "\" successfully...\n"['green']);
 						        } else {
-							        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
+							        grunt.log.write("\tSwitched \""['green'] + global_counter.toString()['green'] +
 							            "\" files to \""['green'] + this.data.options.direction['green'] +
 							            "\" successfully...\n"['green']);
 						        }
@@ -142,11 +142,11 @@ module.exports = function(grunt) {
 							        // cp0 - Chattiness point - minimal:
 							        if (global_counter > 0 && chattiness_level === 0) {
 								        if (global_counter === 1) {
-									        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
+									        grunt.log.write("\tSwitched \""['green'] + global_counter.toString()['green'] +
 									            "\" file to \""['green'] + this.data.options.direction['green'] +
 									            "\" successfully...\n"['green']);
 								        } else {
-									        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
+									        grunt.log.write("\tSwitched \""['green'] + global_counter.toString()['green'] +
 									            "\" files to \""['green'] + this.data.options.direction['green'] +
 									            "\" successfully...\n"['green']);
 								        }
@@ -186,10 +186,10 @@ module.exports = function(grunt) {
 					        // cp0 - Chattiness point - minimal
 					        if (global_counter > 0 && chattiness_level === 0) {
 						        if (global_counter === 1) {
-							        grunt.log.write("Cleaned \""['green'] + global_counter.toString()['green'] +
+							        grunt.log.write("\tCleaned \""['green'] + global_counter.toString()['green'] +
 							            "\" file successfully...\n"['green']);
 						        } else {
-							        grunt.log.write("Cleaned \""['green'] + global_counter.toString()['green'] +
+							        grunt.log.write("\tCleaned \""['green'] + global_counter.toString()['green'] +
 							            "\" files successfully...\n"['green']);
 						        }
 					        }
