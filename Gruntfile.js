@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 
 	    to_min_list : {
 	      options : {
-	        action : 'switc',
+	        action : 'switch',
 	        direction : 'min',
 	        file_source : 'list',
 	        chattiness_level : 1
