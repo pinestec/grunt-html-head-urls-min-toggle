@@ -11,7 +11,12 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 };
 
 var file_existence_check__func_var = function file_existence_check(file_or_file_array) {
+	if (file_or_file_array.length !== 0) {
 
+	} else {
+		message_locator_service("Given file or file array is empty...!"['red']);
+		return false;
+	}
 }
 
 var chat_o_meter__func_var = function chat_o_meter(options_object, chattiness_identifier) {
@@ -331,6 +336,7 @@ module.exports = {
 				  final_files_array.push(directory + single_file_result_array[1]);
 			  }
 		  }
+		  file_existence_check__func_var(final_files_array);
 		  return final_files_array;
 	  } else {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
