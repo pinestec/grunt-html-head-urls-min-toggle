@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 	        action : 'switch',
 	        direction : 'min',
 	        file_source : 'list',
-	        chattiness_level : 0
+	        chattiness_level : 1
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    },
