@@ -82,16 +82,18 @@ module.exports = function(grunt) {
 				            options_reference_object, 'file_source');
 				        if (file_source === 'list') {
 					        for (var il = 0; il < this.data.custom_files.length; il++) {
-						        if (chattiness_level > 0) {
+						        if (chattiness_level === 1) { // cp1 - Chattiness point -
+																									// regular
 							        grunt.log.write("\t" + (il + 1) + ": \"" + this.data.custom_files[il] + "\"");
 						        }
 						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[il])) {
-							        if (chattiness_level > 0) {
+							        if (chattiness_level === 1) { // cp1 - Chattiness point -
+																										// regular
 								        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
 								            "\n");
 							        }
 							        global_counter++;
-						        } else {
+						        } else { // cpn - Chattiness point - nonmaskable
 							        grunt.log.write("\t" + (il + 1) + ": \"" + this.data.custom_files[il] + "\"");
 							        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
 							            "\">>> Failed...! <<<"['red'] + "\n");
