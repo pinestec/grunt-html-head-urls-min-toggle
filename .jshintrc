@@ -1,4 +1,8 @@
 {
+  "globals": {
+     "exception": true
+       },
+  "esversion" : 6,
   "curly": true,
   "eqeqeq": true,
   "immed": true,
