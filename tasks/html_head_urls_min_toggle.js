@@ -34,18 +34,18 @@ module.exports = function(grunt) {
 		        try {
 			        currentFileHandle = fileSystem_Module.openSync(
 			            './node_modules/grunt-html-head-urls-min-toggle/etc/global_options.json', 'r');
-			        if (chattiness_level > 1) {
+			        if (chattiness_level > 1) { // cp2 - Chattiness point - extra
 				        grunt.log.write("Got filehandle to reference options successfully..."['green']);
 			        }
 		        } catch (current_exception) {
-			        if (chattiness_level > 1) {
+			        if (chattiness_level > 1) { // cp2 - Chattiness point - extra
 				        console.log("Just catched...: \""['red'] + current_exception.toString()['red'] + "\""['red']);
 			        }
 		        }
 		        if (currentFileHandle === undefined) {
 			        try {
 				        currentFileHandle = fileSystem_Module.openSync('./etc/global_options.json', 'r');
-				        if (chattiness_level > 1) {
+				        if (chattiness_level > 1) { // cp2 - Chattiness point - extra
 					        grunt.log
 					            .write("Got filehandle to reference options on development environment successfully...\n"['green']);
 				        }
