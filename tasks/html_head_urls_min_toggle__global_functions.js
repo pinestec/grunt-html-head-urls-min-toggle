@@ -10,15 +10,6 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 	}
 };
 
-var file_existence_check__func_var = function file_existence_check(file_or_file_array) {
-	if (file_or_file_array.length !== 0) {
-
-	} else {
-		message_locator_service("Given file or file array is empty...!"['red']);
-		return false;
-	}
-}
-
 var chat_o_meter__func_var = function chat_o_meter(options_object, chattiness_identifier) {
 	if (options_object.hasOwnProperty(chattiness_identifier)) {
 		if (options_object[chattiness_identifier] === parseInt(options_object[chattiness_identifier], "10")) {
@@ -226,7 +217,6 @@ module.exports = {
   globalModule_Try : globalModule_Try__func_var,
   chat_o_meter : chat_o_meter__func_var,
   serialize_object_to_disk : serialize_object_to_disk__func_var,
-  file_existence_check : file_existence_check__func_var,
   casual__options_property_servant : function(options_object, options_reference_object, requested_property) {
 	  for ( var property_from_options_object in options_object) {
 		  if (requested_property === property_from_options_object) {
@@ -336,8 +326,13 @@ module.exports = {
 				  final_files_array.push(directory + single_file_result_array[1]);
 			  }
 		  }
-		  file_existence_check__func_var(final_files_array);
-		  return final_files_array;
+		  if (final_files_array.length > 0) {
+			  return final_files_array;
+		  } else {
+			  console.log("Could not derive any files from given wildcard parameters... :-("['red']);
+			  console.log("\""['red'] + directory.toString()['red'] + source.toString()['red'] + "\""['red']);
+			  return false;
+		  }
 	  } else {
 		  message_locator_service("NO VALID WILDCARD FOUND...!");
 		  return false;
