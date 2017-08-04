@@ -83,12 +83,12 @@ module.exports = function(grunt) {
 				        if (file_source === 'list') {
 					        for (var il = 0; il < this.data.custom_files.length; il++) {
 						        if (chattiness_level === 1) { // cp1 - Chattiness point -
-																									// regular
+							        // regular
 							        grunt.log.write("\t" + (il + 1) + ": \"" + this.data.custom_files[il] + "\"");
 						        }
 						        if (global_functions.toggle_all_head_links(this.data.options.direction, this.data.custom_files[il])) {
 							        if (chattiness_level === 1) { // cp1 - Chattiness point -
-																										// regular
+								        // regular
 								        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] + "\" o.k."['green'] +
 								            "\n");
 							        }
@@ -99,7 +99,8 @@ module.exports = function(grunt) {
 							            "\">>> Failed...! <<<"['red'] + "\n");
 						        }
 					        }
-					        if (global_counter > 0) {
+					        // cp0 - Chattiness point - minimal:
+					        if (global_counter > 0 && chattiness_level === 0) {
 						        if (global_counter === 1) {
 							        grunt.log
 							            .write("Switched \""['green'] + global_counter.toString()['green'] + "\" file to \""['green'] +
