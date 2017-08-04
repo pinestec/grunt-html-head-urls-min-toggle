@@ -119,22 +119,26 @@ module.exports = function(grunt) {
 							        var inner_files_array = global_functions.process_wildcard_input(this.data.custom_files[ow].src,
 							            this.data.custom_files[ow].cwd);
 							        for (var iw = 0; iw < inner_files_array.length; iw++) {
-								        if (chattiness_level > 0) {
+								        // cp1 - Chattiness point - regular:
+								        if (chattiness_level === 1) {
 									        grunt.log.write("\t" + (iw + 1) + ": \"" + inner_files_array[iw] + "\"");
 								        }
 								        if (global_functions.toggle_all_head_links(this.data.options.direction, inner_files_array[iw])) {
-									        if (chattiness_level > 0) {
+									        // cp1 - Chattiness point - regular
+									        if (chattiness_level === 1) {
 										        grunt.log.write("\t- to \""['green'] + this.data.options.direction['green'] +
 										            "\" o.k."['green'] + "\n");
 									        }
 									        global_counter++;
 								        } else {
+									        // cpn - Chattiness point - nonmaskable
 									        grunt.log.write("\t" + (iw + 1) + ": \"" + inner_files_array[iw] + "\"");
 									        grunt.log.write("\t- to \""['red'] + this.data.options.direction['red'] +
 									            "\">>> Failed...! <<<"['red'] + "\n");
 								        }
 							        }
-							        if (global_counter > 0) {
+							        // cp0 - Chattiness point - minimal:
+							        if (global_counter > 0 && chattiness_level === 0) {
 								        if (global_counter === 1) {
 									        grunt.log.write("Switched \""['green'] + global_counter.toString()['green'] +
 									            "\" file to \""['green'] + this.data.options.direction['green'] +
@@ -146,8 +150,8 @@ module.exports = function(grunt) {
 								        }
 								        global_counter = 0;
 							        }
-						        } else {
-							        console.log("MISSING NEEDED \"WILDCARD\" FILE PROPERTIES...!");
+						        } else { // cpn - Chattiness point - nonmaskable
+							        console.log("Missing needed \"wildcard\" file properties...! Please readjust your Gruntfile...");
 							        break;
 						        }
 					        }
