@@ -165,22 +165,26 @@ module.exports = function(grunt) {
 				            options_reference_object, 'file_source');
 				        if (file_source_clean === 'list') {
 					        for (var ilc = 0; ilc < this.data.custom_files.length; ilc++) {
-						        if (chattiness_level > 0) {
+						        // cp1 - Chattiness point - regular
+						        if (chattiness_level === 1) {
 							        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
 						        }
 						        if (global_functions.end_of_line_refresh(this.data.custom_files[ilc])) {
-							        if (chattiness_level > 0) {
+							        // cp1 - Chattiness point - regular
+							        if (chattiness_level === 1) {
 								        grunt.log.write("\t- action \""['green'] + this.data.options.action['green'] + "\" o.k."['green'] +
 								            "\n");
 							        }
 							        global_counter++;
 						        } else {
+							        // cpn - Chattiness point - nonmaskable
 							        grunt.log.write("\t" + (ilc + 1) + ": \"" + this.data.custom_files[ilc] + "\"");
 							        grunt.log.write("\t- action \""['red'] + this.data.options.action['red'] +
 							            "\" >>> Failed...! <<<"['red'] + "\n");
 						        }
 					        }
-					        if (global_counter > 0) {
+					        // cp0 - Chattiness point - minimal
+					        if (global_counter > 0 && chattiness_level === 0) {
 						        if (global_counter === 1) {
 							        grunt.log.write("Cleaned \""['green'] + global_counter.toString()['green'] +
 							            "\" file successfully...\n"['green']);
