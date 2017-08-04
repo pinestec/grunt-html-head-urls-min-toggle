@@ -15,14 +15,14 @@ var chat_o_meter__func_var = function chat_o_meter(options_object, chattiness_id
 		if (options_object[chattiness_identifier] === parseInt(options_object[chattiness_identifier], "10")) {
 			return options_object[chattiness_identifier];
 		} else {
-			console.log("Chattiness level is not an integer...!"['red'] + "Returning default level \"1\""['green']);
+			console.log("Chattiness level is not an integer...!\t"['red'] + "Returning default level \"1\""['green']);
+			console.log("Please check your \"Gruntfiles task options\"...!\n"['red']);
 			return 1;
 		}
 	} else {
-		console.log("Chattiness level is not an integer...!\t"['red'] + "Returning default level \"1\""['green']);
 		console.log("No explicit chattiness level stated...!\t"['red'] + "Returning default level \"1\""['green']);
-		console.log("To get rid of this message add \""['magenta'] + "chattiness_level : 0"['green'] + "\" or \"" +
-		    "\"chattiness_level : 1\""['green'] + " to your Gruntfiles task..."['yellow']);
+		console.log("To get rid of this message add "['magenta'] + "\"chattiness_level : 0\""['green'] + " or "['magenta'] +
+		    "\"chattiness_level : 1\""['green'] + " to your \"Gruntfiles task options\"...\n"['magenta']);
 		return 1;
 	}
 };
