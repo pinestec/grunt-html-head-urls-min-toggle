@@ -15,11 +15,14 @@ var chat_o_meter__func_var = function chat_o_meter(options_object, chattiness_id
 		if (options_object[chattiness_identifier] === parseInt(options_object[chattiness_identifier], "10")) {
 			return options_object[chattiness_identifier];
 		} else {
-			console.log("CHATTINESS LEVEL IS NOT AN INTEGER...! RETURNING DEFAULT LEVEL \"1\"");
+			console.log("Chattiness level is not an integer...!"['red'] + "Returning default level \"1\""['green']);
 			return 1;
 		}
 	} else {
-		console.log("NO CHATTINESS LEVEL STATED...! RETURNING DEFAULT LEVEL \"1\"");
+		console.log("Chattiness level is not an integer...!\t"['red'] + "Returning default level \"1\""['green']);
+		console.log("No explicit chattiness level stated...!\t"['red'] + "Returning default level \"1\""['green']);
+		console.log("To get rid of this message add \"" + "chattiness_level : 0" + "\" or \"" +
+		    "\"chattiness_level : 1\""['yellow']);
 		return 1;
 	}
 };

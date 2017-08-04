@@ -61,8 +61,7 @@ module.exports = function(grunt) {
 	      options : {
 	        action : 'switch',
 	        direction : 'regular',
-	        file_source : 'list',
-	        chattiness_level : 1
+	        file_source : 'list'
 	      },
 	      custom_files : [ 'local_sample_no_one.max.html', 'local_sample_no_two.html' ]
 	    },
