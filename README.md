@@ -33,8 +33,8 @@ and vice versa.
 The aim is to be maximum tolerant regarding an incorrect syntax and not to change anything else than the link itself.
 Files are only touched in case changes took place.
 
-The generated output can be controlled by the Gruntfiles task option "chattiness_level".
-"chattiness_level : 0" or "chattiness_level : 1" can be added accordingly. 
+The generated output can be controlled by the Gruntfiles task option "chattiness_level".<br>
+"chattiness_level : 0"<br>or<br>"chattiness_level : 1"<br>can be added accordingly. 
 
 Of course source and destination is identical with such a task.
 Due to that a simple custom syntax is used inside the Gruntfile e.g.:
