@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 	        src : [ '*.max.html' ]
 	      }, {
 	        cwd : './',
-	        src : [ '*.htm' ]
+	        src : [ '*.html' ]
 	      } ]
 	    },
 
