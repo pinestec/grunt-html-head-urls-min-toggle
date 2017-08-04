@@ -33,6 +33,9 @@ and vice versa.
 The aim is to be maximum tolerant regarding an incorrect syntax and not to change anything else than the link itself.
 Files are only touched in case changes took place.
 
+The generated output can be controlled by the Gruntfiles task option "chattiness_level".
+"chattiness_level : 0" or "chattiness_level : 1" can be added accordingly. 
+
 Of course source and destination is identical with such a task.
 Due to that a simple custom syntax is used inside the Gruntfile e.g.:
 ```js
@@ -44,7 +47,8 @@ module.exports = function(grunt) {
 	      options : {
 	            action : 'switch',
 	            direction : 'regular',
-	            file_source : 'wildcard'
+	            file_source : 'wildcard',
+	            chattiness_level : 0 or 1 
 	          },
 	          custom_files : [
 	              {
@@ -61,7 +65,8 @@ module.exports = function(grunt) {
 	          options : {
 	            action : 'switch',
 	            direction : 'min',
-	            file_source : 'list'
+	            file_source : 'list',
+	            chattiness_level : 0 or 1
 	          },
 	          custom_files : ['file_no_one.max.html','file_no_two.max.html','file_no_three.max.html']
 	        },
@@ -74,7 +79,8 @@ Placing "\x0d\x0a" at the end of each line on windows, and "\x0a" on Linux, OS X
       just_a_nice_name : {
 	        options : {
 	            action : 'clean',
-	            file_source : 'wildcard'
+	            file_source : 'wildcard',
+	            chattiness_level : 0 or 1
 	          },
 	          custom_files : [ {
 	            cwd : './',
@@ -85,7 +91,8 @@ Placing "\x0d\x0a" at the end of each line on windows, and "\x0a" on Linux, OS X
       another_wonderful_name : {
 	          options : {
 	            action : 'clean',
-	            file_source : 'list'
+	            file_source : 'list',
+	            chattiness_level : 0 or 1
 	          },
 	          custom_files : ['file_no_one.txt','file_no_two.html','file_no_three.txt']
 	        },
@@ -115,6 +122,6 @@ Version 1.0.15 - Cleaned up the sample Gruntfile...<br>
 Version 1.0.16 - Back to 1.0.15...<br>
 
 Michael Hartung
-26.July 2017
+04.August 2017
  
 Have Fun! 
