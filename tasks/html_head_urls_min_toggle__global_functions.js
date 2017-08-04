@@ -10,6 +10,10 @@ var globalModule_Try__func_var = function globalModule_Try(moduleString) {
 	}
 };
 
+var file_existence_check__func_var = function file_existence_check(file_or_file_array) {
+
+}
+
 var chat_o_meter__func_var = function chat_o_meter(options_object, chattiness_identifier) {
 	if (options_object.hasOwnProperty(chattiness_identifier)) {
 		if (options_object[chattiness_identifier] === parseInt(options_object[chattiness_identifier], "10")) {
@@ -217,6 +221,7 @@ module.exports = {
   globalModule_Try : globalModule_Try__func_var,
   chat_o_meter : chat_o_meter__func_var,
   serialize_object_to_disk : serialize_object_to_disk__func_var,
+  file_existence_check : file_existence_check__func_var,
   casual__options_property_servant : function(options_object, options_reference_object, requested_property) {
 	  for ( var property_from_options_object in options_object) {
 		  if (requested_property === property_from_options_object) {
