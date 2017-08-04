@@ -75,10 +75,10 @@ module.exports = function(grunt) {
 	      },
 	      custom_files : [ {
 	        cwd : './',
-	        src : [ '*.max.htm' ]
+	        src : [ '*.max.html' ]
 	      }, {
 	        cwd : './',
-	        src : [ '*.html' ]
+	        src : [ '*.htm' ]
 	      } ]
 	    },
 
