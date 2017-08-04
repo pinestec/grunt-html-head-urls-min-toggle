@@ -38,13 +38,13 @@ function dump_debug_string(string) {
 	fileSystem_Module.closeSync(inHouseFileHandle);
 }
 
-function message_locator_service(mainMessage) {
+var message_locator_service__func_var = function message_locator_service(mainMessage) {
 	var path_Module = globalModule_Try__func_var('path');
 	var stackTrace_Module = globalModule_Try__func_var('stack-trace');
 	var currentFrame = stackTrace_Module.get()[1];
 	console.log(mainMessage + " >>> \"" + path_Module.basename(currentFrame.getFileName()) + ":" +
 	    currentFrame.getLineNumber() + "\"\n");
-}
+};
 
 function spot_the_head(htmlLineArray) {
 	var headAreaMark_Array = [ -1, -1 ];
@@ -60,7 +60,7 @@ function spot_the_head(htmlLineArray) {
 		}
 	}
 	if (headAreaMark_Array[0] === -1 || headAreaMark_Array[1] === -1) {
-		message_locator_service("HEAD AREA BOUNDRIES BUGGY OR NOT FOUND AT ALL...!");
+		message_locator_service__func_var("HEAD AREA BOUNDRIES BUGGY OR NOT FOUND AT ALL...!");
 		return false;
 	} else {
 		return headAreaMark_Array;
@@ -93,7 +93,7 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 			    carriageReturnString + "\n");
 		}
 	} else {
-		message_locator_service("MISSED THE INITIAL LINE...!");
+		message_locator_service__func_var("MISSED THE INITIAL LINE...!");
 		return false;
 	}
 	for (var j = 1; j < (array.length - 1); j++) {
@@ -112,7 +112,7 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 				    "\n");
 			}
 		} else {
-			message_locator_service("MISSED A LINE...!");
+			message_locator_service__func_var("MISSED A LINE...!");
 			return false;
 		}
 	}
@@ -122,7 +122,7 @@ function end_of_line_clean_save(fileName, array, carriageReturn) {
 			fileSystem_Module.writeSync(currentFileHandle, finalLineResultArray[1] + finalLineResultArray[2]);
 		}
 	} else {
-		message_locator_service("MISSED THE FINAL LINE...!");
+		message_locator_service__func_var("MISSED THE FINAL LINE...!");
 		return false;
 	}
 	fileSystem_Module.closeSync(currentFileHandle);
@@ -136,7 +136,7 @@ function array_from_file_delete(entire_fileName) {
 		fileSystem_Module.unlinkSync(entire_fileName);
 		return targetFile_LineArray;
 	} else {
-		message_locator_service("TARGET FILE DOES NOT EXIST...!");
+		message_locator_service__func_var("TARGET FILE DOES NOT EXIST...!");
 		return false;
 	}
 }
@@ -147,7 +147,7 @@ function array_from_file(entire_fileName) {
 		var targetFile_LineArray = fileSystem_Module.readFileSync(entire_fileName, 'utf8', 'r').toString().split('\n');
 		return targetFile_LineArray;
 	} else {
-		message_locator_service("TARGET FILE DOES NOT EXIST...!");
+		message_locator_service__func_var("TARGET FILE DOES NOT EXIST...!");
 		return false;
 	}
 }
@@ -217,6 +217,7 @@ module.exports = {
   globalModule_Try : globalModule_Try__func_var,
   chat_o_meter : chat_o_meter__func_var,
   serialize_object_to_disk : serialize_object_to_disk__func_var,
+  message_locator_service : message_locator_service__func_var,
   casual__options_property_servant : function(options_object, options_reference_object, requested_property) {
 	  for ( var property_from_options_object in options_object) {
 		  if (requested_property === property_from_options_object) {
@@ -334,7 +335,7 @@ module.exports = {
 			  return false;
 		  }
 	  } else {
-		  message_locator_service("NO VALID WILDCARD FOUND...!");
+		  message_locator_service__func_var("NO VALID WILDCARD FOUND...!");
 		  return false;
 	  }
   },
@@ -372,7 +373,7 @@ module.exports = {
 			  }
 		  }
 	  } else {
-		  message_locator_service("FAILED TO GET VALID DATA ARRAY...!");
+		  message_locator_service__func_var("FAILED TO GET VALID DATA ARRAY...!");
 		  return false;
 	  }
   },
@@ -382,7 +383,7 @@ module.exports = {
 	  if (targetFile_LineArray) {
 		  return end_of_line_clean_save(file, targetFile_LineArray, carriage_return_needed());
 	  } else {
-		  message_locator_service("FAILED TO GET VALID DATA ARRAY...!");
+		  message_locator_service__func_var("FAILED TO GET VALID DATA ARRAY...!");
 		  return false;
 	  }
   }

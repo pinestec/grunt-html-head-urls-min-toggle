@@ -241,11 +241,12 @@ module.exports = function(grunt) {
 					        break;
 				        }
 				        break;
-			        default:
-				        console.log("REACHED THE DEFAULT BRANCH OF THE SWITCH UNEXPECTEDLY...!");
+			        default: // cpn - Chattiness point - nonmaskable
+				        global_functions
+				            .message_locator_service("REACHED THE DEFAULT BRANCH OF THE SWITCH/CASE UNEXPECTEDLY...!"['red']);
 				        break;
 			        }
-		        } else {
+		        } else { // cpn - Chattiness point - nonmaskable
 			        console.log("Could not derive a valid action...! ");
 			        console.log("Please match your Gruntfile with the packages documentation...");
 		        }
