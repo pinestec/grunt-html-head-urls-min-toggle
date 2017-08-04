@@ -329,8 +329,8 @@ module.exports = {
 		  if (final_files_array.length > 0) {
 			  return final_files_array;
 		  } else {
-			  console.log("Could not derive any files from given wildcard parameters..."['red']);
-			  console.log("\""['red'] + directory + source + "\""['red']);
+			  console.log("\tCould not derive any files from given wildcard parameters...:"['red']);
+			  console.log("\t\""['red'] + directory + source + "\""['red']);
 			  return false;
 		  }
 	  } else {
