@@ -50,20 +50,20 @@ module.exports = function(grunt) {
 					            .write("Got filehandle to reference options on development environment successfully...\n"['green']);
 				        }
 			        } catch (current_exception) {
-				        if (chattiness_level > 1) {
-					        console.log("JUST CATCHED: \"" + current_exception + "\"");
+				        if (chattiness_level > 1) { // cp2 - Chattiness point - extra
+					        console.log("Just catched...: \""['red'] + current_exception.toString()['red'] + "\""['red']);
 				        }
 			        }
 		        }
 		        if (currentFileHandle !== undefined) {
-			        if (chattiness_level > 1) {
+			        if (chattiness_level > 1) { // cp2 - Chattiness point - extra
 				        grunt.log.write("Valid file handle found... Loading reference options...\n"['green']);
 			        }
 			        options_reference_object = JSON.parse(fileSystem_Module.readFileSync(currentFileHandle));
 			        fileSystem_Module.closeSync(currentFileHandle);
 		        } else {
-			        if (chattiness_level > 1) {
-				        grunt.log.write("INVALID FILE HANDLE...! LOADING IN-HOUSE REFERENCE OPTIONS..."['red']);
+			        if (chattiness_level > 1) { // cp2 - Chattiness point - extra
+				        grunt.log.write("Invalid file handle...! Loading in-house reference options..."['red']);
 			        }
 			        options_reference_object = {
 			          action : [ 'switch', 'clean' ],
