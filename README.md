@@ -123,6 +123,6 @@ Version 1.0.16 - Back to 1.0.15...<br>
 Version 1.1.1 - Added a proper options handling and the "chattiness level"...<br>
 
 Michael Hartung
-04.August 2017
+04. August 2017
  
 Have Fun! 
