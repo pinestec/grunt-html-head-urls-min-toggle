@@ -121,8 +121,9 @@ Version 1.0.14 - Corrected the links inside package.json...<br>
 Version 1.0.15 - Cleaned up the sample Gruntfile...<br>
 Version 1.0.16 - Back to 1.0.15...<br>
 Version 1.1.1 - Added a proper options handling and the "chattiness level"...<br>
+Version 1.1.2 - Tested the related github communication...<br>
 
 Michael Hartung
-04. August 2017
+05. August 2017
  
 Have Fun! 
