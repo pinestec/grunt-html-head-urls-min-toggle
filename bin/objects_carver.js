@@ -62,7 +62,7 @@ function playground_funktion() {
 	var test_template_four = "../../../../../Apache24/conf/";
 	var test_template_five = "./Apache24/conf/";
 
-	var global_path_RegExp = new RegExp("^\/[a-z]{1}\/", "i");
+	var global_path_RegExp = new RegExp("^\/?[a-z]{1}\/", "i");
 	var matching_array = global_path_RegExp.exec(test_template_one);
 	if (matching_array !== null) {
 		console.log(matching_array[0]);
