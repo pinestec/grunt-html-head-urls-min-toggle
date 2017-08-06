@@ -55,6 +55,7 @@ function check_filename(filename_to_be_verified) {
 
 function playground_funktion() {
 	console.log("ACTION FROM INSIDE THE \"playground_funktion\"...");
+	var test_template = "/c/Program\ Files/Microsoft\ Office/Office12/1031/";
 	var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:(?:\\|\/)|\/[a-zA-Z]{1}\/)?(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\)\.-]+(?:\/|\\)))*[\w-]+(?:\.[\w-]+)*\.json$/i;
 }
 
