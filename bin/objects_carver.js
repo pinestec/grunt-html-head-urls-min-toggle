@@ -52,9 +52,14 @@ function check_filename(filename_to_be_verified) {
 	}
 }
 
+function playground_funktion() {
+	console.log("INSIDE THE PLAYGROUND FUNCTION...!");
+}
+
 var help_needed__pattern = /^--?h(elp)?$/i;
 var file_name__pattern = /^--?f(ile)?$/i;
 var reverse_file_name__pattern = /^--?r(everse)?$/i;
+var playground_pattern = /^--?p(layground)?$/i;
 function scan_arguments_for_help(value, index, array) {
 	if (index > 1) {
 		if (value.search(help_needed__pattern) !== -1) {
@@ -80,6 +85,11 @@ function scan_arguments(value, index, array) {
 			} else {
 				return false;
 			}
+		}
+		if (value.search(playground_pattern) !== -1) {
+			throw 'playground';
+		} else {
+			return false;
 		}
 	}
 }
@@ -124,6 +134,9 @@ try {
 		console.log(); // Just for a new line...
 		console.log(reverse_object);
 		return true;
+	case 'playground':
+		playground_funktion();
+		return false; // It's just a playground...
 	default:
 		console.log("DEFAULT EXCEPTION: \"" + exception + "\"");
 		return false;
