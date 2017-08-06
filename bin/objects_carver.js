@@ -54,7 +54,8 @@ function check_filename(filename_to_be_verified) {
 }
 
 function playground_funktion() {
-	console.log("INSIDE THE PLAYGROUND FUNCTION...!");
+	console.log("ACTION FROM INSIDE THE \"playground_funktion\"...");
+	var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:(?:\\|\/)|\/[a-zA-Z]{1}\/)?(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\)\.-]+(?:\/|\\)))*[\w-]+(?:\.[\w-]+)*\.json$/i;
 }
 
 var help_needed__pattern = /^--?h(elp)?$/i;
