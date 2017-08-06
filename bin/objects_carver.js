@@ -55,9 +55,15 @@ function check_filename(filename_to_be_verified) {
 
 function playground_funktion() {
 	console.log("ACTION FROM INSIDE THE \"playground_funktion\"...");
-	var test_template = "/c/Program\ Files/Microsoft\ Office/Office12/1031/";
-	var valid_filename__pattern = /^(?:[a-zA-Z]{1}\:(?:\\|\/)|\/[a-zA-Z]{1}\/)?(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\)\.-]+(?:\/|\\)))*[\w-]+(?:\.[\w-]+)*\.json$/i;
-	var matching_array = valid_filename__pattern.exec(test_template);
+
+	var test_template_one = "/c/Apache24/conf/";
+	var test_template_two = "C:\Apache24\conf";
+	var test_template_three = "C:/Apache24/conf";
+	var test_template_four = "../../../../../Apache24/conf/";
+	var test_template_five = "./Apache24/conf/";
+
+	var global_path_RegExp = new RegExp("^\/[a-z]{1}\/", "i");
+	var matching_array = global_path_RegExp.exec(test_template_one);
 	if (matching_array !== null) {
 		console.log(matching_array[0]);
 	} else {
