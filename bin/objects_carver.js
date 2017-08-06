@@ -34,6 +34,7 @@ function global_help_output() {
 		console.log("-f, --file proper_filename.json\t\tState a proper filename to store the \"JSON.stringified\" object in.");
 		console
 		    .log("-r, --reverse proper_filename.json\tState a proper filename to deserialize with \"JSON.parse\" and display the stored object.");
+		console.log("-p, --playground\t\t\tHave a playground to check things inside the \"playground_funktion()\".");
 	}
 }
 
