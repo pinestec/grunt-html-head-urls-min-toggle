@@ -57,18 +57,20 @@ function check_filename(filename_to_be_verified) {
 
 function playground_funktion() {
 	var string_to_be_tested = '';
-	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)/;
+	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)$/;
+	var middleName_RegExp = /^(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\).-]+(?:\/|\\)))*$/;
 
 	var sample_testString = "just_a-name.txt";
 	var sample_testString_two = "just_a-name...........................txt.txt.txt.txt.txt.txt.txt.txt.txt.skjdsad";
+	var string_in_the_middle__repeating = "somename/nextname/onemorename/";
 
 	if (global_play_string) {
 		string_to_be_tested = global_play_string;
 	} else {
-		string_to_be_tested = sample_testString_two
+		string_to_be_tested = string_in_the_middle__repeating;
 	}
 
-	var matching_array = fileName_RegExp.exec(string_to_be_tested);
+	var matching_array = middleName_RegExp.exec(string_to_be_tested);
 	if (matching_array !== null) {
 		for (var i = 0; i < matching_array.length; i++) {
 			console.log(i + ": \"" + matching_array[i] + "\"");
