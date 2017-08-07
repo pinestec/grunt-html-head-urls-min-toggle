@@ -18,13 +18,15 @@ var object_to_be_written = {
 // End of current reference object template that will be written to disk...:
 
 var global_file_name = '';
+var global_play_string = '';
 
 function global_help_output() {
 	var plain_file_name_extractor_RegExp = new RegExp("([^/\\\\]*)$");
 	var result_array = plain_file_name_extractor_RegExp.exec(process.argv[1]);
 	if (result_array !== null) {
-		console.log("usage:\t" + result_array[1] +
-		    " [-f|--file  entire_filename.json] [-r|--reverse  entire_filename.json] [-h|--help] \n");
+		console
+		    .log("usage:\t" + result_array[1] +
+		        " [-f|--file  entire_filename.json] [-r|--reverse  entire_filename.json] [-p|--playground [any_string]] [-h|--help] \n");
 		console.log("Writing internally defined \"reference object\" to disk with the help of \"JSON.stringify\".");
 		console
 		    .log("Just to be loaded and become an object again with the help \"JSON.parse\" for later use together with any package.");
@@ -34,7 +36,7 @@ function global_help_output() {
 		console.log("-f, --file proper_filename.json\t\tState a proper filename to store the \"JSON.stringified\" object in.");
 		console
 		    .log("-r, --reverse proper_filename.json\tState a proper filename to deserialize with \"JSON.parse\" and display the stored object.");
-		console.log("-p, --playground\t\t\tHave a playground to check things inside the \"playground_funktion()\".");
+		console.log("-p, --playground [any_string]\t\tHave a playground to check things inside the \"playground_funktion()\".");
 	}
 }
 
@@ -54,10 +56,19 @@ function check_filename(filename_to_be_verified) {
 }
 
 function playground_funktion() {
+	var string_to_be_tested = '';
 	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)/g;
-	var sample_fileName = "just_a-name.txt";
 
-	var matching_array = fileName_RegExp.exec(sample_fileName);
+	var sample_fileName = "just_a-name.txt";
+	var sample_fileName_two = "just_a-name...........................txt.txt.txt.txt.txt.txt.txt.txt.txt.skjdsad";
+
+	if (global_play_string) {
+		string_to_be_tested = global_play_string;
+	} else {
+		string_to_be_tested = sample_fileName_two
+	}
+
+	var matching_array = fileName_RegExp.exec(string_to_be_tested);
 	if (matching_array !== null) {
 		for (var i = 0; i < matching_array.length; i++) {
 			console.log(i + ": \"" + matching_array[i] + "\"");
@@ -98,6 +109,9 @@ function scan_arguments(value, index, array) {
 			}
 		}
 		if (value.search(playground_pattern) !== -1) {
+			if (array[index + 1]) {
+				global_play_string = array[index + 1];
+			}
 			throw 'playground';
 		} else {
 			return false;
@@ -147,7 +161,7 @@ try {
 		return true;
 	case 'playground':
 		playground_funktion();
-		return false; // It's just a playground...
+		return false; // It's just an internal playground...
 	default:
 		console.log("DEFAULT EXCEPTION: \"" + exception + "\"");
 		return false;
