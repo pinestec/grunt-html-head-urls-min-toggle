@@ -59,13 +59,13 @@ function playground_funktion() {
 	var string_to_be_tested = '';
 	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)/;
 
-	var sample_fileName = "just_a-name.txt";
-	var sample_fileName_two = "just_a-name...........................txt.txt.txt.txt.txt.txt.txt.txt.txt.skjdsad";
+	var sample_testString = "just_a-name.txt";
+	var sample_testString_two = "just_a-name...........................txt.txt.txt.txt.txt.txt.txt.txt.txt.skjdsad";
 
 	if (global_play_string) {
 		string_to_be_tested = global_play_string;
 	} else {
-		string_to_be_tested = sample_fileName_two
+		string_to_be_tested = sample_testString_two
 	}
 
 	var matching_array = fileName_RegExp.exec(string_to_be_tested);
