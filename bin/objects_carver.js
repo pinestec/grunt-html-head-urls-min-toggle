@@ -60,11 +60,12 @@ function playground_funktion() {
 	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)$/;
 	// var middleName_RegExp =
 	// /^(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\).-]+(?:\/|\\)))*$/;
-	var middleName_RegExp = /^(a|b)$/;
+	// Tip: Replace all backslashes with slashes inside the input string...
+	var middleName_RegExp = /^(?:\.\/|\.\.\/)+$/;
 
 	var sample_testString = "just_a-name.txt";
 	var sample_testString_two = "just_a-name...........................txt.txt.txt.txt.txt.txt.txt.txt.txt.skjdsad";
-	var string_in_the_middle__repeating = "somename/nextname../../.././....../onemorename/";
+	var string_in_the_middle__repeating = "../.././../";
 
 	if (global_play_string) {
 		string_to_be_tested = global_play_string;
