@@ -57,7 +57,7 @@ function check_filename(filename_to_be_verified) {
 
 function playground_funktion() {
 	var string_to_be_tested = '';
-	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)/g;
+	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)/;
 
 	var sample_fileName = "just_a-name.txt";
 	var sample_fileName_two = "just_a-name...........................txt.txt.txt.txt.txt.txt.txt.txt.txt.skjdsad";
