@@ -54,8 +54,7 @@ function check_filename(filename_to_be_verified) {
 }
 
 function playground_funktion() {
-	// var fileName_RegExp = new RegExp("^[\w\x20-]+(\.+[\w\x20-]*)*$");
-	var fileName_RegExp = /^[\w\x20-]+/g;
+	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)/g;
 	var sample_fileName = "just_a-name.txt";
 
 	var matching_array = fileName_RegExp.exec(sample_fileName);
