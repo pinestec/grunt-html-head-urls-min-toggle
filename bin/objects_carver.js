@@ -62,7 +62,7 @@ function playground_funktion() {
 
 	var sample_testString = "just_a-name.txt";
 	var sample_testString_two = "just_a-name...........................txt.txt.txt.txt.txt.txt.txt.txt.txt.skjdsad";
-	var string_in_the_middle__repeating = "somename/nextname/onemorename/";
+	var string_in_the_middle__repeating = "somename/nextname../../.././....../onemorename/";
 
 	if (global_play_string) {
 		string_to_be_tested = global_play_string;
