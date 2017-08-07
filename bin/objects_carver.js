@@ -54,18 +54,15 @@ function check_filename(filename_to_be_verified) {
 }
 
 function playground_funktion() {
-	console.log("ACTION FROM INSIDE THE \"playground_funktion\"...");
+	// var fileName_RegExp = new RegExp("^[\w\x20-]+(\.+[\w\x20-]*)*$");
+	var fileName_RegExp = /^[\w\x20-]+/g;
+	var sample_fileName = "just_a-name.txt";
 
-	var test_template_one = "/c/Apache24/conf/";
-	var test_template_two = "C:\Apache24\conf";
-	var test_template_three = "C:/Apache24/conf";
-	var test_template_four = "../../../../../Apache24/conf/";
-	var test_template_five = "./Apache24/conf/";
-
-	var global_path_RegExp = new RegExp("^\/?[a-z]{1}\/", "i");
-	var matching_array = global_path_RegExp.exec(test_template_one);
+	var matching_array = fileName_RegExp.exec(sample_fileName);
 	if (matching_array !== null) {
-		console.log(matching_array[0]);
+		for (var i = 0; i < matching_array.length; i++) {
+			console.log(i + ": \"" + matching_array[i] + "\"");
+		}
 	} else {
 		console.log("No regular expression match...!");
 	}
