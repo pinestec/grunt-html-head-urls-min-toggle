@@ -122,8 +122,9 @@ Version 1.0.15 - Cleaned up the sample Gruntfile...<br>
 Version 1.0.16 - Back to 1.0.15...<br>
 Version 1.1.1 - Added a proper options handling and the "chattiness level"...<br>
 Version 1.1.2 - Tested the related github communication...<br>
+Version 1.1.3 - Tiny debug output modifications...<br>
 
 Michael Hartung
-05. August 2017
+08. August 2017
  
 Have Fun! 
