@@ -56,33 +56,22 @@ function check_filename(filename_to_be_verified) {
 }
 
 function playground_funktion() {
-	var git_bash__path_sample = "/c/Program\ Files/Microsoft\ Office/Office12/1031/";
-	var windows_explorer__path_sample = "C:\Program Files\Microsoft Office\Office12\1031";
-
 	var string_to_be_tested = '';
 	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)$/;
 	// var middleName_RegExp =
 	// /^(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\).-]+(?:\/|\\)))*$/;
 	// Tip: Replace all backslashes with slashes inside the input string...
 	var middleName_RegExp = /^(?:\.\/|\.\.\/)+$/;
-
-	var sample_testString = "just_a-name.txt";
-	var sample_testString_two = "just_a-name...........................txt.txt.txt.txt.txt.txt.txt.txt.txt.skjdsad";
-	var string_in_the_middle__repeating = "../.././../";
-
+	var get_windows_drive_pattern = /([a-z])\:/i;
+	var windows_path_regular_backslash_pattern = /d/;
+	var reg_expr_result_array = '';
+	var intermediate_result_string = '';
 	if (global_play_string) {
-		string_to_be_tested = global_play_string;
-	} else {
-		string_to_be_tested = string_in_the_middle__repeating;
-	}
-
-	var matching_array = middleName_RegExp.exec(string_to_be_tested);
-	if (matching_array !== null) {
-		for (var i = 0; i < matching_array.length; i++) {
-			console.log(i + ": \"" + matching_array[i] + "\"");
-		}
-	} else {
-		console.log("No regular expression match...!");
+		reg_expr_result_array = get_windows_drive_pattern.exec(global_play_string);
+		if (reg_expr_result_array !== null)
+			intermediate_result_string = global_play_string.replace(get_windows_drive_pattern, "/" +
+			    reg_expr_result_array[1].toLowerCase());
+		console.log(intermediate_result_string);
 	}
 }
 
