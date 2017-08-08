@@ -56,6 +56,9 @@ function check_filename(filename_to_be_verified) {
 }
 
 function playground_funktion() {
+	var git_bash__path_sample = "/c/Program\ Files/Microsoft\ Office/Office12/1031/";
+	var windows_explorer__path_sample = "C:\Program Files\Microsoft Office\Office12\1031";
+
 	var string_to_be_tested = '';
 	var fileName_RegExp = /^([\w\x20-]+)((?:\.+[\w\x20-]*)*)$/;
 	// var middleName_RegExp =
