@@ -62,16 +62,15 @@ function playground_funktion() {
 	// /^(?:(?:\.{0,2}(?:\/|\\))|(?:[\w\x20\(\).-]+(?:\/|\\)))*$/;
 	// Tip: Replace all backslashes with slashes inside the input string...
 	var middleName_RegExp = /^(?:\.\/|\.\.\/)+$/;
-	var get_windows_drive_pattern = /([a-z])\:/i;
-	var windows_path_regular_backslash_pattern = /d/;
-	var reg_expr_result_array = '';
-	var intermediate_result_string = '';
+
+	var without_regular_path_backslashes = '';
+	var valid__path_backslash__neighbor_character = "([\\w\\d\(\)\:]{1})";
+
 	if (global_play_string) {
-		reg_expr_result_array = get_windows_drive_pattern.exec(global_play_string);
-		if (reg_expr_result_array !== null)
-			intermediate_result_string = global_play_string.replace(get_windows_drive_pattern, "/" +
-			    reg_expr_result_array[1].toLowerCase());
-		console.log(intermediate_result_string);
+		var regular_backslash_spotter_RegExp = new RegExp(valid__path_backslash__neighbor_character + "\\\\" +
+		    valid__path_backslash__neighbor_character, "g");
+		without_regular_path_backslashes = global_play_string.replace(regular_backslash_spotter_RegExp, "$1/$2");
+		console.log(without_regular_path_backslashes);
 	}
 }
 
