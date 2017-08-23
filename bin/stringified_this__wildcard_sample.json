@@ -1,0 +1,1 @@
+{"nameArgs":"html_head_urls_min_toggle:all_to_min","name":"html_head_urls_min_toggle","args":[],"flags":{},"errorCount":0,"target":"all_to_min","data":{"options":{"action":"switch","direction":"min","file_source":"wildcard","chattiness_level":0},"custom_files":[{"cwd":"./","src":["*.max.html"]}]},"files":[],"filesSrc":[]}
